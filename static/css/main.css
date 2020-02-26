@@ -1,16 +1,31 @@
 @font-face {
-  src: url("https://liam.se/font/opensans-bold.ttf");
+  src: url("https://192.168.0.5/font/opensans-bold.ttf");
   font-family: Open Sans;
   font-weight: 700;
 }
 @font-face {
-  src: url("https://liam.se/font/opensans-regular.ttf");
+  src: url("https://192.168.0.5/font/opensans-regular.ttf");
   font-family: Open Sans;
   font-weight: 400;
 }
 @font-face {
-  src: url("https://liam.se/font/opensans-light.ttf");
+  src: url("https://192.168.0.5/font/opensans-light.ttf");
   font-family: Open Sans;
+  font-weight: 100;
+}
+@font-face {
+  src: url("https://192.168.0.5/font/raleway-bold.ttf");
+  font-family: Raleway;
+  font-weight: 700;
+}
+@font-face {
+  src: url("https://192.168.0.5/font/raleway-regular.ttf");
+  font-family: Raleway;
+  font-weight: 400;
+}
+@font-face {
+  src: url("https://192.168.0.5/font/raleway-thin.ttf");
+  font-family: Raleway;
   font-weight: 100;
 }
 body {
@@ -47,6 +62,12 @@ body {
   display: flex;
   height: 40px;
 }
+.navbar .navbar-wrapper .nav-link svg {
+  margin-right: 10px;
+}
+.navbar .navbar-wrapper .nav-link .item-count {
+  font-size: 14px;
+}
 .navbar .navbar-wrapper .nav-link:not(:last-child) {
   margin-right: 20px;
 }
@@ -54,7 +75,7 @@ body {
   color: #FFFFFF;
 }
 .banner {
-  background-image: url("https://liam.se/image/raphael-andres-3cwvFD-YPtk-unsplash.jpg");
+  background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -72,6 +93,7 @@ body {
 }
 .banner .banner-container .banner-wrapper .banner-title {
   text-transform: uppercase;
+  font-family: Raleway;
   text-align: center;
   margin: 0 0 20px 0;
   color: #FFFFFF;
@@ -82,4 +104,115 @@ body {
   line-height: 1.5em;
   color: #FFFFFF;
   font-size: 20px;
+}
+.main {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+.main .grid-title {
+  margin: 0 auto 40px auto;
+  font-weight: 100;
+  font-size: 45px;
+  width: 80%;
+}
+.main .products {
+  margin: 0 auto;
+  display: grid;
+  width: 80%;
+}
+.main .products .product {
+  border: 1px solid #DDD;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+}
+.main .products .product:not(:last-child) {
+  margin-bottom: 50px;
+}
+.main .products .product .product-image {
+  background-position: center;
+  background-size: cover;
+  margin-right: 50px;
+  height: 150px;
+  width: 150px;
+}
+.main .products .product .product-info-wrapper {
+  justify-content: space-between;
+  width: calc(100% - 150px);
+  display: flex;
+}
+.main .products .product .product-info-wrapper .product-info .product-title {
+  text-transform: uppercase;
+  font-family: Raleway;
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 30px;
+}
+.main .products .product .product-info-wrapper .product-info .product-price {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+}
+.main .products .product .product-info-wrapper .product-info .product-description {
+  line-height: 1.5em;
+  font-size: 15px;
+  max-width: 80%;
+}
+.main .products .product .product-info-wrapper .product-interact {
+  align-items: flex-start;
+  display: flex;
+}
+.main .products .product .product-info-wrapper .product-interact .product-addtocart {
+  background-color: #5e81ac;
+  justify-content: center;
+  font-family: Open Sans;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #FFF;
+  display: flex;
+  height: 50px;
+  border: none;
+  width: 200px;
+  padding: 0;
+}
+.main .products .product .product-info-wrapper .product-interact .product-addtocart:active {
+  font-size: 13px;
+}
+.main .products .product .product-info-wrapper .product-interact .product-addtocart svg {
+  margin-right: 10px;
+}
+.footer {
+  background-color: #191c22;
+}
+.footer .footer-wrapper {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+}
+.footer .footer-wrapper .left {
+  width: 50%;
+}
+.footer .footer-wrapper .left .footer-title {
+  font-family: Raleway;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 50px;
+  margin: 25px 0;
+}
+.footer .footer-wrapper .left .sitemap .sitemap-link {
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  color: #d8dee9;
+}
+.footer .footer-wrapper .left .sitemap .sitemap-link:hover {
+  color: #FFFFFF;
+}
+.footer .footer-wrapper .left .sitemap .sitemap-link:not(:first-child) {
+  margin-top: 10px;
+}
+.footer .footer-wrapper .right {
+  width: 50%;
 }

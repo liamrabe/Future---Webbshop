@@ -51,13 +51,15 @@ body {
 			padding: 0 20px;
 			display: flex;
 			height: 40px;
+			svg { margin-right: 10px; }
+			.item-count { font-size: 14px; }
 			&:not(:last-child) { margin-right: 20px; }
 			&:hover { color: #FFFFFF; }
 		}
 	}
 }
 .banner {
-	background-image: url("https://liam.se/image/raphael-andres-3cwvFD-YPtk-unsplash.jpg");
+	background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
 	background-position: center;
 	background-size: cover;
 	overflow: hidden;
@@ -73,6 +75,7 @@ body {
 			.banner {
 				&-title {
 					text-transform: uppercase;
+					font-family: Raleway;
 					text-align: center;
 					margin: 0 0 20px 0;
 					color: #FFFFFF;
@@ -85,6 +88,115 @@ body {
 					font-size: 20px;
 				}
 			}
+		}
+	}
+}
+.main {
+	margin-bottom: 100px;
+	margin-top: 100px;
+	.grid-title {
+		margin: 0 auto 40px auto;
+		font-weight: 100;
+		font-size: 45px;
+		width: 80%;
+	}
+	.products {
+		margin: 0 auto;
+		display: grid;
+		width: 80%;
+		.product {
+			border: 1px solid #DDD;
+			box-sizing: border-box;
+			padding: 30px;
+			display: flex;
+			&:not(:last-child) { margin-bottom: 50px; }
+			.product-image {
+				background-position: center;
+				background-size: cover;
+				margin-right: 50px;
+				height: 150px;
+				width: 150px;
+			}
+			.product-info-wrapper {
+				justify-content: space-between;
+				width: calc(100% - 150px);
+				display: flex;
+				.product-info {
+					.product {
+						&-title {
+							text-transform: uppercase;
+							font-family: Raleway;
+							margin-bottom: 10px;
+							font-weight: 900;
+							font-size: 30px;
+						}
+						&-price {
+							margin-bottom: 10px;
+							font-weight: 400;
+							font-size: 20px;
+						}
+						&-description {
+							line-height: 1.5em;
+							font-size: 15px;
+							max-width: 80%;
+						}
+					}
+				}
+				.product-interact {
+					align-items: flex-start;
+					display: flex;
+					.product-addtocart {
+						background-color: @nord10;
+						justify-content: center;
+						font-family: Open Sans;
+						align-items: center;
+						font-size: 14px;
+						cursor: pointer;
+						color: #FFF;
+						display: flex;
+						height: 50px;
+						border: none;
+						width: 200px;
+						padding: 0;
+						&:active { font-size: 13px; }
+						svg { margin-right: 10px; }
+					}
+				}
+			}
+		}
+	}
+}
+.footer {
+	background-color: darken(@nord0,10%);
+	.footer-wrapper {
+		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 20px;
+		width: 80%;
+		.left {
+			width: 50%;
+			.footer-title {
+				font-family: Raleway;
+				font-weight: bold;
+				color: #FFFFFF;
+				font-size: 50px;
+				margin: 25px 0;
+			}
+			.sitemap {
+				.sitemap-link {
+					text-decoration: none;
+					font-size: 18px;
+					display: inline-block;
+					color: @nord4;
+					&:hover { color: #FFFFFF; }
+					&:not(:first-child) {
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+		.right {
+			width: 50%;
 		}
 	}
 }
