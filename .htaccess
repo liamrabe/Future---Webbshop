@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^$ /home [L,R=301]
+RewriteRule ^home$ index.php
+
+# Static files
+RewriteRule ^image/(.+)\.(jpg|png|gif)$ static/images/$1.$2
+RewriteRule ^font/(.+)\.(ttf|otf)$ static/fonts/$1.$2
+RewriteRule ^css/(.*?).css$ static/css/$1.css
+RewriteRule ^js/(.*?).js$ static/js/$1.js
