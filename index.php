@@ -1,3 +1,7 @@
+<?php
+	require_once "./lib/database.php";
+	$db = new Database();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,31 +38,32 @@
 			<div class="banner-wrapper">
 				<div class="banner-title">future</div>
 				<div class="banner-paragraph">
-					Flyg med Dream On till din drömdestination 
+					Stilren design, Stilren framtid
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<?php
-		$destinations = new SimpleXMLElement(file_get_contents("xml/products.xml"));
-		//highlight_string(var_export($products, true));
-	?>
+	<?php $products = $db->GetProducts(); ?>
 	<div class="main">
 		<h1 class="grid-title" id="produkter">Produkter</h1>
 		<div class="products">
-			<?php foreach($destinations->destinations->destination as $destination) { ?>
+			<?php foreach($products as $product) { ?>
 				<div class="product">
-					<div class="product-image" style="background-image: url('https://192.168.0.5/<?= $destination->banner; ?>');"></div>
+					<div class="product-image" style="background-image: url('https://192.168.0.5/image/<?= $product["image"]; ?>');"></div>
 					<div class="product-info-wrapper">
 						<div class="product-info">
-							<div class="product-title"><?= $destination->title; ?></div>
-							<div class="product-price"><?= number_format((int)$destination->price, 0, " ", " "); ?> kr</div>
+							<div class="product-title"><?= $product["name"]; ?></div>
+							<div class="product-price"><?= number_format((int)$product["price"], 0, " ", " "); ?> kr</div>
 							<div class="product-description">
-								<?= $destination->description; ?>
+								<?= $product["description"]; ?>
 							</div>
 						</div>
 						<div class="product-interact">
+							<button class="product-addtocart">
+								<span class="fas fa-shopping-cart"></span>
+								Lägg till i varukorg
+							</button>
 							<button class="product-addtocart">
 								<span class="fas fa-shopping-cart"></span>
 								Lägg till i varukorg
@@ -83,12 +88,12 @@
 					<a href="/" class="sitemap-link">Home</a>
 					<a href="/" class="sitemap-link">Home</a>
 				</div>
-				<div class="copyright">
-					&copy; Liam Rabe, 2020
-				</div>
 			</div>
 			<div class="right">
-
+				
+			</div>
+			<div class="copyright">
+				&copy; Viggo Stenroth & Future - 2020
 			</div>
 		</div>
 	</div>
