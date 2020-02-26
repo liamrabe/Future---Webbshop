@@ -7,19 +7,19 @@
 			<description>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet leo ut arcu consequat, eu varius nisl sagittis. Sed lobortis et felis nec faucibus. Nulla id est mattis, ornare sapien pellentesque, lobortis ipsum. Proin viverra fermentum eleifend. Morbi viverra ligula eu gravida faucibus. Phasellus non tempus massa. Nullam rhoncus felis. 
 			</description>
-			<price>2500000</price>
+			<price>11999</price>
 		</destination>
 		<destination>
 			<title>Mate buds</title>
 			<banner>image/earbuds.png</banner>
 			<description>Mate buds</description>
-			<price>250000</price>
+			<price>1299</price>
 		</destination>
 		<destination>
 			<title>Mate X</title>
 			<banner>image/phone.jpg</banner>
 			<description>Mate X</description>
-			<price>13999999</price>
+			<price>14999</price>
 		</destination>
 	</destinations>
 </rss>
