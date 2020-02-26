@@ -76,6 +76,7 @@ body {
 }
 .banner {
   background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -188,30 +189,41 @@ body {
 .footer .footer-wrapper {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 20px;
+  padding: 50px;
   width: 80%;
 }
 .footer .footer-wrapper .left {
   width: 50%;
 }
 .footer .footer-wrapper .left .footer-title {
+  text-transform: uppercase;
+  margin: 25px 0 20px 0;
   font-family: Raleway;
   font-weight: bold;
   color: #FFFFFF;
   font-size: 50px;
-  margin: 25px 0;
 }
-.footer .footer-wrapper .left .sitemap .sitemap-link {
-  text-decoration: none;
-  font-size: 18px;
+.footer .footer-wrapper .left .sitemap-title {
+  font-family: Raleway;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #a3be8c;
+}
+.footer .footer-wrapper .left .sitemap-link {
   display: inline-block;
+  text-decoration: none;
   color: #d8dee9;
 }
-.footer .footer-wrapper .left .sitemap .sitemap-link:hover {
-  color: #FFFFFF;
+.footer .footer-wrapper .left .sitemap-link:not(:last-child) {
+  margin-right: 20px;
 }
-.footer .footer-wrapper .left .sitemap .sitemap-link:not(:first-child) {
-  margin-top: 10px;
+.footer .footer-wrapper .left .sitemap-link:hover {
+  color: #FFF;
+}
+.footer .footer-wrapper .left .copyright {
+  margin-top: 20px;
+  color: #FFF;
 }
 .footer .footer-wrapper .right {
   width: 50%;

@@ -60,6 +60,7 @@ body {
 }
 .banner {
 	background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
+	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
 	overflow: hidden;
@@ -171,28 +172,37 @@ body {
 	.footer-wrapper {
 		box-sizing: border-box;
 		margin: 0 auto;
-		padding: 20px;
+		padding: 50px;
 		width: 80%;
 		.left {
 			width: 50%;
 			.footer-title {
+				text-transform: uppercase;
+				margin: 25px 0 20px 0;
 				font-family: Raleway;
 				font-weight: bold;
 				color: #FFFFFF;
 				font-size: 50px;
-				margin: 25px 0;
 			}
 			.sitemap {
-				.sitemap-link {
-					text-decoration: none;
-					font-size: 18px;
-					display: inline-block;
-					color: @nord4;
-					&:hover { color: #FFFFFF; }
-					&:not(:first-child) {
-						margin-top: 10px;
-					}
+				&-title {
+					font-family: Raleway;
+					margin-bottom: 15px;
+					font-weight: bold;
+					font-size: 25px;
+					color: @nord14;
 				}
+				&-link {
+					&:not(:last-child) { margin-right: 20px; }
+					display: inline-block;
+					text-decoration: none;
+					color: @nord4;
+					&:hover { color: #FFF; }
+				}
+			}
+			.copyright {
+				margin-top: 20px;
+				color: #FFF;
 			}
 		}
 		.right {
