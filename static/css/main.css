@@ -19,3 +19,67 @@ body {
   font-size: 16px;
   margin: 0;
 }
+.navbar {
+  background-color: #191c22;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.navbar .navbar-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  height: 70px;
+  width: 90%;
+}
+.navbar .navbar-wrapper .left,
+.navbar .navbar-wrapper .right {
+  align-items: center;
+  display: flex;
+}
+.navbar .navbar-wrapper .nav-link {
+  text-decoration: none;
+  align-items: center;
+  color: #CCCCCC;
+  font-size: 16px;
+  padding: 0 20px;
+  display: flex;
+  height: 40px;
+}
+.navbar .navbar-wrapper .nav-link:not(:last-child) {
+  margin-right: 20px;
+}
+.navbar .navbar-wrapper .nav-link:hover {
+  color: #FFFFFF;
+}
+.banner {
+  background-image: url("https://liam.se/image/raphael-andres-3cwvFD-YPtk-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.banner .banner-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.banner .banner-container .banner-wrapper {
+  width: 50%;
+}
+.banner .banner-container .banner-wrapper .banner-title {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 20px 0;
+  color: #FFFFFF;
+  font-size: 75px;
+}
+.banner .banner-container .banner-wrapper .banner-paragraph {
+  margin: 0 0 20px 0;
+  line-height: 1.5em;
+  color: #FFFFFF;
+  font-size: 20px;
+}

@@ -27,4 +27,64 @@ body {
 	margin: 0;
 }
 
-// Local objects.
+.navbar {
+	background-color: darken(@nord0, 10%);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	.navbar-wrapper {
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		display: flex;
+		height: 70px;
+		width: 90%;
+		.left, .right {
+			align-items: center;
+			display: flex;
+		}
+		.nav-link {
+			text-decoration: none;
+			align-items: center;
+			color: #CCCCCC;
+			font-size: 16px;
+			padding: 0 20px;
+			display: flex;
+			height: 40px;
+			&:not(:last-child) { margin-right: 20px; }
+			&:hover { color: #FFFFFF; }
+		}
+	}
+}
+.banner {
+	background-image: url("https://liam.se/image/raphael-andres-3cwvFD-YPtk-unsplash.jpg");
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
+	.banner-container {
+		background-color: rgba(0,0,0,.6);
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		height: 100vh;
+		width: 100%;
+		.banner-wrapper {
+			width: 50%;
+			.banner {
+				&-title {
+					text-transform: uppercase;
+					text-align: center;
+					margin: 0 0 20px 0;
+					color: #FFFFFF;
+					font-size: 75px;
+				}
+				&-paragraph {
+					margin: 0 0 20px 0;
+					line-height: 1.5em;
+					color: #FFFFFF;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
