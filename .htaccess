@@ -5,7 +5,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
 
-RewriteRule ^product/(.+)$ product.php?name=$1
+RewriteRule ^product/([a-zA-Z])$ products/$1.php
 
 # Static files
 RewriteRule ^image/(.+)\.(jpg|png|gif)$ static/images/$1.$2
