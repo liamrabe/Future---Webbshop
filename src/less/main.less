@@ -30,6 +30,7 @@ body {
 .navbar {
 	background-color: darken(@nord0, 10%);
 	position: fixed;
+	z-index: 9002;
 	width: 100%;
 	top: 0;
 	.navbar-wrapper {
@@ -65,17 +66,27 @@ body {
 		&.homepage {
 			background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
 		}
-		background-attachment: fixed;
+		&.sea {
+			background-image: url("https://192.168.0.5/image/sea-banner.jpg");
+		}
+		//background-attachment: fixed;
 		background-position: center;
 		height: calc(100vh - 70px);
 		background-size: cover;
 		overflow: hidden;
+		.product-showcase {
+			position: absolute;
+			bottom:0;
+			right:0;
+			left:0;
+			top:0;
+		}
 		.banner-container {
 			background-image:
 				-webkit-linear-gradient(
 					-90deg,
 					transparent 50%,
-					rgba(0,0,0,1) 100%
+					rgba(0,0,0,.8) 100%
 				)
 			;
 			height: calc(100vh - 70px);
@@ -197,6 +208,136 @@ body {
 							svg { margin-right: 10px; }
 						}
 					}
+				}
+			}
+		}
+	}
+	.product-price-banner {
+		border-bottom: 1px solid #CCC;
+		.price-banner-wrapper {
+			text-align: right;
+			padding: 20px 0;
+			width: 80%;
+			.price {
+				font-family: Raleway;
+				font-weight: 400;
+				font-size: 25px;
+			}
+			.addtocart-btn {
+				background-color: @nord10;
+				justify-content: center;
+				font-family: Open Sans;
+				align-items: center;
+				margin-top: 20px;
+				font-size: 14px;
+				cursor: pointer;
+				color: #FFF;
+				height: 50px;
+				border: none;
+				width: 200px;
+				padding: 0;
+				&:hover { background-color: darken(@nord10, 10%); }
+				&:active { font-size: 13px; }
+				svg { margin-right: 10px; }
+			}
+		}
+	}
+	.product-view {
+		.product-header {
+			background-color: rgba(255,255,255,.9);
+			position: fixed;
+			height: 100px;
+			width: 100%;
+			top: 70px;
+			.product-header-wrapper {
+				align-items: center;
+				margin: 0 auto;
+				display: flex;
+				height: 100px;
+				width: 90%;
+				.left, .right { width: 50%; }
+				.right {
+					justify-content: flex-end;
+					align-items: center;
+					display: flex;
+				}
+				.product-name {
+					text-transform: uppercase;
+					font-family: Raleway;
+					font-weight: bold;
+					font-size: 30px;
+					color: #000;
+				}
+				.product-screen-size {
+					font-weight: 400;
+					font-size: 17px;
+					color: @nord3;
+				}
+				.product-price {
+					font-family: Open Sans;
+					margin-left: 20px;
+					font-size: 20px;
+					color: #000;
+				}
+				.product-addtocart {
+					background-color: @nord12;
+					justify-content: center;
+					font-family: open sans;
+					align-items: center;
+					cursor: pointer;
+					display: flex;
+					color: #FFF;
+					border: none;
+					height: 40px;
+					width: 170px;
+					padding: 0;
+					&:hover { background-color: darken(@nord12,5%); }
+					svg { margin-right: 10px; }
+				}
+			}
+		}
+		.product-banner {
+			background-image: url('https://192.168.0.5/image/matebook-banner.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			height: calc(100vh - 170px);
+			background-color: #000;
+			background-size: 50%;
+			margin-top: 170px;
+			width: 100%;
+		}
+		.product-info {
+			margin: 100px auto;
+			width: 70%;
+			h1 {
+				text-transform: uppercase;
+				color: darken(@nord4,8%);
+				font-family: Raleway;
+				font-weight: bold;
+				font-size: 50px;
+				margin: 0;
+				&:not(:last-child) {
+					margin-bottom: 20px;
+				}
+			}
+			img {
+				vertical-align: middle;
+				margin: 40px 0;
+				width: 100%;
+			}
+			h2 {
+				font-family: Raleway;
+				font-weight: bold;
+				font-size: 30px;
+				margin: 0;
+				&:not(:last-child) {
+					margin-bottom: 20px;
+				}
+			}
+			p {
+				margin: 0;
+				&:not(:last-child) {
+					margin-bottom: 20px;
 				}
 			}
 		}
