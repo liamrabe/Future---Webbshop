@@ -435,9 +435,12 @@ body {
   padding: 20px;
 }
 .main .guestbook .guestbook-entries .guestbook-entry .entry-title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: bold;
   font-size: 20px;
+}
+.main .guestbook .guestbook-entries .guestbook-entry .line-break {
+  height: 10px;
 }
 .main .guestbook .guestbook-entries .guestbook-entry:not(:first-child) {
   margin-top: 50px;

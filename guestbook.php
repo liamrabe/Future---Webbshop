@@ -37,7 +37,8 @@
 					<?php
 						$name = $entry["name"];
 						$message = $entry["message"];
-						$message = preg_replace("/\\n/", "<br>", $message );
+						// Använder div över br för enklare styling.
+						$message = preg_replace("/\\n/", "<div class=\"line-break\"></div>", $message );
 					?>
 
 					<div class="guestbook-entry">
