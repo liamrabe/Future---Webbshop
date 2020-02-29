@@ -1,24 +1,6 @@
 // Imports
 @import "fonts";
 
-// Colors
-@nord0: #2e3440;
-@nord1: #3b4252;
-@nord2: #434c5e;
-@nord3: #4c566a;
-@nord4: #d8dee9;
-@nord5: #e5e9f0;
-@nord6: #eceff4;
-@nord7: #8fbcbb;
-@nord8: #88c0d0;
-@nord9: #81a1c1;
-@nord10: #5e81ac;
-@nord11: #bf616a;
-@nord12: #d08770;
-@nord13: #ebcb8b;
-@nord14: #a3be8c;
-@nord15: #b48ead;
-
 // Global objects.
 body {
 	background-color: #FFFFFF;
@@ -28,7 +10,7 @@ body {
 }
 
 .navbar {
-	background-color: darken(@nord0, 10%);
+	background-color: #0a0d0f;
 	position: fixed;
 	z-index: 9002;
 	width: 100%;
@@ -156,7 +138,7 @@ body {
 								margin-bottom: 10px;
 								font-weight: 900;
 								font-size: 30px;
-								color: @nord10;
+								color: #575fcf;
 							}
 							&-price {
 								margin-bottom: 10px;
@@ -172,7 +154,7 @@ body {
 					}
 					.product-interact {
 						.product-addtocart {
-							background-color: @nord10;
+							background-color: #575fcf;
 							justify-content: center;
 							font-family: Open Sans;
 							align-items: center;
@@ -184,12 +166,12 @@ body {
 							border: none;
 							width: 200px;
 							padding: 0;
-							&:hover { background-color: darken(@nord10, 10%); }
+							&:hover { background-color: darken(#575fcf, 5%); }
 							&:active { font-size: 13px; }
 							svg { margin-right: 10px; }
 						}
 						.product-viewproduct {
-							background-color: @nord11;
+							background-color: #ff3f34;
 							justify-content: center;
 							font-family: Open Sans;
 							text-decoration: none;
@@ -203,7 +185,7 @@ body {
 							border: none;
 							width: 200px;
 							padding: 0;
-							&:hover { background-color: darken(@nord11, 10%); }
+							&:hover { background-color: darken(#ff3f34, 5%); }
 							&:active { font-size: 13px; }
 							svg { margin-right: 10px; }
 						}
@@ -213,7 +195,7 @@ body {
 		}
 	}
 	.product-price-banner {
-		border-bottom: 1px solid #CCC;
+		border-bottom: 1px solid #d2dae2;
 		.price-banner-wrapper {
 			text-align: right;
 			padding: 20px 0;
@@ -224,7 +206,7 @@ body {
 				font-size: 25px;
 			}
 			.addtocart-btn {
-				background-color: @nord10;
+				background-color: #ff3f34;
 				justify-content: center;
 				font-family: Open Sans;
 				align-items: center;
@@ -236,7 +218,7 @@ body {
 				border: none;
 				width: 200px;
 				padding: 0;
-				&:hover { background-color: darken(@nord10, 10%); }
+				&:hover { background-color: darken(#ff3f34, 10%); }
 				&:active { font-size: 13px; }
 				svg { margin-right: 10px; }
 			}
@@ -271,7 +253,7 @@ body {
 				.product-screen-size {
 					font-weight: 400;
 					font-size: 17px;
-					color: @nord3;
+					color: #AAA;
 				}
 				.product-price {
 					font-family: Open Sans;
@@ -280,7 +262,7 @@ body {
 					color: #000;
 				}
 				.product-addtocart {
-					background-color: @nord12;
+					background-color: #0be881;
 					justify-content: center;
 					font-family: open sans;
 					align-items: center;
@@ -291,7 +273,7 @@ body {
 					height: 40px;
 					width: 170px;
 					padding: 0;
-					&:hover { background-color: darken(@nord12,5%); }
+					&:hover { background-color: darken(#0be881,5%); }
 					svg { margin-right: 10px; }
 				}
 			}
@@ -311,7 +293,7 @@ body {
 			width: 70%;
 			h1 {
 				text-transform: uppercase;
-				color: darken(@nord4,8%);
+				color: darken(#000,8%);
 				font-family: Raleway;
 				font-weight: bold;
 				font-size: 50px;
@@ -345,7 +327,7 @@ body {
 }
 
 .footer {
-	background-color: darken(@nord0,10%);
+	background-color: #0a0d0f;
 	padding: 100px 0;
 	.footer-wrapper {
 		margin: 0 auto;
@@ -364,13 +346,13 @@ body {
 				.sitemap-title {
 					font-family: Raleway;
 					font-weight: 700;
+					color: #0be881;
 					font-size: 25px;
 					margin: 25px 0;
-					color: @nord14;
 				}
 				.sitemap-link {
-					color: lighten(@nord3, 10%);
 					text-decoration: none;
+					color: #CCC;
 					&:not(:last-child) { margin-right: 40px; }
 					&:hover { color: #FFF; }
 				}
@@ -382,7 +364,7 @@ body {
 					font-weight: 700;
 					font-size: 25px;
 					margin: 25px 0;
-					color: @nord14;
+					color: #0be881;
 				}
 				.email {
 					align-items: center;
@@ -391,7 +373,7 @@ body {
 					a {
 						text-decoration: none;
 						margin-right: 10px;
-						color: @nord4;
+						color: #CCC;
 						&:hover {
 							text-decoration: underline;
 							color: #FFF;
@@ -399,7 +381,7 @@ body {
 					}
 					svg {
 						margin-right: 10px;
-						color: @nord9;
+						color: #FFF;
 					}
 				}
 			}

@@ -22,7 +22,7 @@
 
 		public function GetProducts() {
 			$pdo = $this->Login();
-			$stmt = $pdo->prepare("SELECT name, image, description, price FROM products");
+			$stmt = $pdo->prepare("SELECT name, image, description, price, url FROM products");
 			$stmt->execute();
 			$res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 			return $res;
@@ -31,8 +31,7 @@
 		public function GetProduct($name) {
 			$pdo = $this->Login();
 			$stmt = $pdo->prepare(
-				"SELECT name, image, banner, description, price, tagline,
-				bgSize, color
+				"SELECT name, image, banner, description, price, tagline, url
 				FROM products WHERE name = :name
 			");
 			$stmt->bindParam(":name", $name, \PDO::PARAM_STR);

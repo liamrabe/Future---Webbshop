@@ -1,17 +1,10 @@
 <?php
 	require_once "./lib/database.php";
 	$db = new Database();
+
+	include "./partials/html_begin.html";
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<link rel="stylesheet" type="text/css" href="https://192.168.0.5/css/main.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://192.168.0.5/js/fontawesome.js"></script>
-	<title>Viggo Slutuppgift - Hem</title>
-	<meta charset="UTF-8">
-</head>
-<body>
 
 	<?php include "./partials/navbar.php"; ?>
 	<div class="main">
@@ -50,7 +43,7 @@
 									<span class="fas fa-shopping-cart"></span>
 									Lägg till i varukorg
 								</button>
-								<a href="product/<?= urlencode($product["name"]); ?>" class="product-viewproduct">
+								<a href="product/<?= $product["url"]; ?>" class="product-viewproduct">
 									<span class="fas fa-shopping-cart"></span>
 									Visa produkt
 								</a>
@@ -63,7 +56,7 @@
 
 	</div>
 
-	<?php include("./partials/footer.php"); ?>
-
-</body>
-</html>
+	<?php
+		include "./partials/footer.php";
+		include "./partials/html_end.html";
+	?>
