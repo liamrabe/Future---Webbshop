@@ -26,6 +26,24 @@
 
 	}
 
+	// Om användaren inte har en state-cookie kan vi anta
+	// att dom är en bot och skicka dom till Gästbok startsidan.
+	if(!isset($_COOKIE["state"]) || empty($_COOKIE["state"])) {
+		header("location: /guestbook");
+	}
+
+	// Om användaren inte har en state-cookie kan vi anta
+	// att dom är en bot och skicka dom till Gästbok startsidan.
+	if(!isset($_POST["state"]) || empty($_POST["state"])) {
+		header("location: /guestbook");
+	}
+
+	$state = $_POST["state"];
+
+	if($state == $_COOKIE["state"]) {
+		die("Din session har gått ut, gå tillbaka och försök igen.");
+	}
+
 	$pdo = $db->Login();
 	if(!$pdo) {
 		die("Det gick inte att ansluta till databasen, försök igen.");

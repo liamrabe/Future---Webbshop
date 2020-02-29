@@ -14,6 +14,10 @@
 	}
 	catch(PDOException $e) { die("Kunde inte hämta gästbok inlägg."); }
 
+	// Skapa en state-variabel.
+	$state = bin2hex(random_bytes(20));
+	setcookie("state", $state, strtotime("+20min"), "/", "192.168.0.5", true, false);
+
 ?>
 
 	<?php include "./partials/navbar.php"; ?>
@@ -22,6 +26,7 @@
 			<h1 class="guestbook-title">Skriv ett meddelande</h1>
 			<h3 class="guestbook-sub-title">Alla inlägg är offentliga</h3>
 			<form action="/guestbook" method="post" class="guestbook-form">
+				<input type="hidden" value="<?= $state; ?>">
 				<input type="text" placeholder="Ditt namn" id="name" name="name" required>
 				<textarea placeholder="Ditt meddelande" id="message" name="message" required></textarea>
 				<button type="submit" id="submit" class="send-btn">Skicka</button>
@@ -39,6 +44,7 @@
 						<div class="entry-title"><?= $name; ?> skrev:</div>
 						<div class="entry-message"><?= $message; ?></div>
 					</div>
+
 				<?php } ?>
 
 			</div>
