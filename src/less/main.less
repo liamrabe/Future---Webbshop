@@ -307,6 +307,74 @@ body {
 			}
 		}
 	}
+	.guestbook {
+		margin: 170px auto 100px auto;
+		overflow: hidden;
+		width: 75%;
+		.guestbook-title {
+			text-transform: uppercase;
+			margin: 0 auto 25px auto;
+			font-family: Raleway;
+			font-size: 50px;
+		}
+		.guestbook-form {
+			#name {
+				border: 2px solid #0a0d0f;
+				font-family: Open Sans;
+				color: #0a0d0f;
+				font-size: 17px;
+				display: block;
+				padding: 10px;
+				width: 50%;
+				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
+					color: #0a0d0f;
+					opacity: 1;
+				}
+				&:focus {
+					&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
+						color: transparent;
+						opacity: 1;
+					}
+				}
+			}
+			#message {
+				border: 2px solid #0a0d0f;
+				font-family: Open Sans;
+				margin-top: 25px;
+				resize: vertical;
+				color: #0a0d0f;
+				font-size: 17px;
+				display: block;
+				height: 250px;
+				padding: 10px;
+				width: 50%;
+				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
+					color: #0a0d0f;
+					opacity: 1;
+				}
+				&:focus {
+					&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
+						color: transparent;
+						opacity: 1;
+					}
+				}
+			}
+			#submit {
+				background-color: #0a0d0f;
+				text-transform: uppercase;
+				font-family: Raleway;
+				font-weight: 900;
+				margin-top: 25px;
+				cursor: pointer;
+				font-size: 18px;
+				display: block;
+				color: #FFF;
+				border: none;
+				width: 200px;
+				height: 50px;
+			}
+		}
+	}
 }
 
 .footer {

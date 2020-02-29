@@ -348,6 +348,76 @@ body {
   font-size: 15px;
   display: block;
 }
+.main .guestbook {
+  margin: 170px auto 100px auto;
+  overflow: hidden;
+  width: 75%;
+}
+.main .guestbook .guestbook-title {
+  text-transform: uppercase;
+  margin: 0 auto 25px auto;
+  font-family: Raleway;
+  font-size: 50px;
+}
+.main .guestbook .guestbook-form #name {
+  border: 2px solid #0a0d0f;
+  font-family: Open Sans;
+  color: #0a0d0f;
+  font-size: 17px;
+  display: block;
+  padding: 10px;
+  width: 50%;
+}
+.main .guestbook .guestbook-form #name::-moz-placeholder,
+.main .guestbook .guestbook-form #name::placeholder,
+.main .guestbook .guestbook-form #name::-webkit-input-placeholder {
+  color: #0a0d0f;
+  opacity: 1;
+}
+.main .guestbook .guestbook-form #name:focus::-moz-placeholder,
+.main .guestbook .guestbook-form #name:focus::placeholder,
+.main .guestbook .guestbook-form #name:focus::-webkit-input-placeholder {
+  color: transparent;
+  opacity: 1;
+}
+.main .guestbook .guestbook-form #message {
+  border: 2px solid #0a0d0f;
+  font-family: Open Sans;
+  margin-top: 25px;
+  resize: vertical;
+  color: #0a0d0f;
+  font-size: 17px;
+  display: block;
+  height: 250px;
+  padding: 10px;
+  width: 50%;
+}
+.main .guestbook .guestbook-form #message::-moz-placeholder,
+.main .guestbook .guestbook-form #message::placeholder,
+.main .guestbook .guestbook-form #message::-webkit-input-placeholder {
+  color: #0a0d0f;
+  opacity: 1;
+}
+.main .guestbook .guestbook-form #message:focus::-moz-placeholder,
+.main .guestbook .guestbook-form #message:focus::placeholder,
+.main .guestbook .guestbook-form #message:focus::-webkit-input-placeholder {
+  color: transparent;
+  opacity: 1;
+}
+.main .guestbook .guestbook-form #submit {
+  background-color: #0a0d0f;
+  text-transform: uppercase;
+  font-family: Raleway;
+  font-weight: 900;
+  margin-top: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  display: block;
+  color: #FFF;
+  border: none;
+  width: 200px;
+  height: 50px;
+}
 .footer {
   background-color: #000;
   padding: 100px 0;

@@ -4,6 +4,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
+RewriteRule ^guestbook$ guestbook.php
 
 RewriteRule ^product/([a-zA-Z]+)$ products/$1.php
 RewriteRule ^product/([a-zA-Z\-]+)/image/(.+)\.(jpg|png)$ static/images/$1/$2.$3
