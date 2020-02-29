@@ -17,10 +17,10 @@
 	// Skapa en state-variabel.
 	$state = bin2hex(random_bytes(20));
 	setcookie("state", $state, strtotime("+20min"), "/", "192.168.0.5", true, false);
-
+	
+	include "./partials/navbar.php";
 ?>
 
-	<?php include "./partials/navbar.php"; ?>
 	<div class="main">
 		<div class="guestbook">
 			<h1 class="guestbook-title">Skriv ett meddelande</h1>
