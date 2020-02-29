@@ -11,6 +11,16 @@ RewriteRule ^guestbook$ api/guestbook.php
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^guestbook$ guestbook.php
 
+# Login/Register URLs
+RewriteCond %{THE_REQUEST} POST
+RewriteRule ^login$ api/login.php
+RewriteCond %{THE_REQUEST} GET
+RewriteRule ^login$ login.php
+
+RewriteCond %{THE_REQUEST} POST
+RewriteRule ^register$ api/register.php
+RewriteCond %{THE_REQUEST} GET
+RewriteRule ^register$ register.php
 
 RewriteRule ^product/([a-zA-Z]+)$ products/$1.php
 RewriteRule ^product/([a-zA-Z\-]+)/image/(.+)\.(jpg|png)$ static/images/$1/$2.$3
