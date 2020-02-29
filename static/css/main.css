@@ -445,6 +445,9 @@ body {
 .main .guestbook .guestbook-entries .guestbook-entry:not(:first-child) {
   margin-top: 50px;
 }
+.form_splitview {
+  display: flex;
+}
 .footer {
   background-color: #000;
   padding: 100px 0;
