@@ -461,39 +461,38 @@ body {
   width: 100%;
 }
 .form-body .form-container .form {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 1px solid #000;
+  background-color: #FFF;
+  border-radius: 5px;
+  width: 450px;
   padding: 40px;
-  width: 30%;
 }
 .form-body .form-container .form .form-title {
   text-transform: uppercase;
   font-family: Raleway;
+  margin: 0 0 40px 0;
   text-align: center;
-  margin: 0 0 20px 0;
-  font-weight: 700;
-  font-size: 35px;
-  color: #FFF;
+  font-size: 40px;
+}
+.form-body .form-container .form .input-label {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
 }
 .form-body .form-container .form .input {
+  border: 1px solid #AAA;
   box-sizing: border-box;
   font-family: Open Sans;
-  align-items: center;
-  font-size: 15px;
-  padding: 0 20px;
-  color: #0a0d0f;
-  display: flex;
-  border: none;
-  height: 50px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  display: block;
+  padding: 10px;
   width: 100%;
-}
-.form-body .form-container .form .input:not(:first-child) {
-  margin-top: 40px;
 }
 .form-body .form-container .form .input::-moz-placeholder,
 .form-body .form-container .form .input::placeholder,
 .form-body .form-container .form .input::-webkit-input-placeholder {
-  color: #0a0d0f;
+  color: #999;
   opacity: 1;
 }
 .form-body .form-container .form .input:focus::-moz-placeholder,
@@ -503,20 +502,59 @@ body {
   opacity: 1;
 }
 .form-body .form-container .form .button {
-  font-family: Raleway;
+  background-color: #0a0d0f;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-radius: 5px;
   text-align: center;
-  font-weight: bold;
-  margin-top: 40px;
-  font-size: 17px;
+  font-size: 13px;
   cursor: pointer;
-  height: 50px;
+  color: #FFF;
+  height: 42px;
   border: none;
   padding: 0;
-  width: 30%;
+  width: 40%;
 }
-.form-body .form-container .form .button.submit {
-  background-color: #0be881;
-  color: #0a0d0f;
+.form-body .form-container .form .button:hover {
+  background-color: #1e272e;
+}
+.form-body .form-container .form .btn-link {
+  background-color: #ff3f34;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #FFF;
+  height: 42px;
+  border: none;
+  width: 40%;
+}
+.form-body .form-container .form .btn-link:hover {
+  background-color: #ff574e;
+}
+.form-body .form-container .form .text {
+  display: block;
+  color: #000;
+}
+.form-body .form-container .form .link {
+  text-decoration: none;
+  color: #575fcf;
+}
+.form-body .form-container .form .link:hover {
+  text-decoration: underline;
 }
 .footer {
   background-color: #000;

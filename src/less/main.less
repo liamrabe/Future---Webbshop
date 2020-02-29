@@ -418,35 +418,35 @@ body {
 		height: 100vh;
 		width: 100%;
 		.form {
-			background-color: rgba(0,0,0,.75);
-			border: 1px solid #000;
+			background-color: #FFF;
+			border-radius: 5px;
+			width: 450px;
 			padding: 40px;
-			width: 30%;
 			.form-title {
 				text-transform: uppercase;
 				font-family: Raleway;
+				margin: 0 0 40px 0;
 				text-align: center;
-				margin: 0 0 20px 0;
-				font-weight: 700;
-				font-size: 35px;
-				color: #FFF;
-			} 
+				font-size: 40px;
+			}
+			.input-label {
+				margin-bottom: 15px;
+				font-weight: bold;
+				font-size: 20px;
+				display: block;
+				
+			}
 			.input {
+				border: 1px solid #AAA;
 				box-sizing: border-box;
 				font-family: Open Sans;
-				align-items: center;
-				font-size: 15px;
-				padding: 0 20px;
-				color: #0a0d0f;
-				display: flex;
-				border: none;
-				height: 50px;
+				margin-bottom: 30px;
+				border-radius: 5px;
+				display: block;
+				padding: 10px;
 				width: 100%;
-				&:not(:first-child) {
-					margin-top: 40px;
-				}
 				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
-					color: #0a0d0f;
+					color: #999;
 					opacity: 1;
 				}
 				&:focus {
@@ -457,20 +457,55 @@ body {
 				}
 			}
 			.button {
-				font-family: Raleway;
+				background-color: #0a0d0f;
+				justify-content: center;
+				box-sizing: border-box;
+				font-family: Open Sans;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				margin-bottom: 30px;
+				border-radius: 5px;
 				text-align: center;
-				font-weight: bold;
-				margin-top: 40px;
-				font-size: 17px;
+				font-size: 13px;
 				cursor: pointer;
-				height: 50px;
+				color: #FFF;
+				height: 42px;
 				border: none;
 				padding: 0;
-				width: 30%;
-				&.submit {
-					background-color: #0be881;
-					color: #0a0d0f;
+				width: 40%;
+				&:hover { background-color: #1e272e; }
+			}
+			.btn-link {
+				background-color: #ff3f34;
+				justify-content: center;
+				box-sizing: border-box;
+				font-family: Open Sans;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				margin-bottom: 30px;
+				border-radius: 5px;
+				text-align: center;
+				margin-left: 10px;
+				font-size: 13px;
+				cursor: pointer;
+				color: #FFF;
+				height: 42px;
+				border: none;
+				width: 40%;
+				&:hover {
+					background-color: lighten(#ff3f34,5%);
 				}
+			}
+			.text {
+				display: block;
+				color: #000;
+			}
+			.link {
+				text-decoration: none;
+				color: #575fcf;
+				&:hover { text-decoration: underline; }
 			}
 		}
 	}

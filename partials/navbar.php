@@ -13,7 +13,7 @@
 				<span class="fas fa-shopping-cart"></span>
 				<span class="item-count">0</span>
 			</a>-->
-			<a href="/register" class="nav-link">Skapa konto</a>
+			<a href="/register" class="nav-link">Bli medlem</a>
 			<a href="/login" class="nav-link">Logga in</a>
 		</div>
 	</div>
