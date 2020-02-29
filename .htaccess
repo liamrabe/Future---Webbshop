@@ -6,7 +6,8 @@ RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
 
 RewriteRule ^product/([a-zA-Z]+)$ products/$1.php
-RewriteRule ^product/([a-zA-Z]+)/image/(.+)\.(jpg|png)$ static/images/$1/$2.$3
+RewriteRule ^product/([a-zA-Z\-]+)/image/(.+)\.(jpg|png)$ static/images/$1/$2.$3
+RewriteRule ^product/([a-zA-Z\-]+)/video/(.+)\.(mp4)$ static/videos/$1/$2.$3
 
 # Static files
 RewriteRule ^image/(.+)\.(jpg|png|gif)$ static/images/$1.$2

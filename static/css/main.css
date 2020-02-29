@@ -35,7 +35,7 @@ body {
   margin: 0;
 }
 .navbar {
-  background-color: #0a0d0f;
+  background-color: rgba(0, 0, 0, 0.95);
   position: fixed;
   z-index: 9002;
   width: 100%;
@@ -75,14 +75,11 @@ body {
 .navbar .navbar-wrapper .nav-link:hover {
   color: #FFFFFF;
 }
-.main {
-  margin-top: 70px;
-}
 .main .banner {
   background-position: center;
-  height: calc(100vh - 70px);
   background-size: cover;
   overflow: hidden;
+  height: 100vh;
 }
 .main .banner.homepage {
   background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
@@ -99,7 +96,7 @@ body {
 }
 .main .banner .banner-container {
   background-image: -webkit-linear-gradient(-90deg, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
-  height: calc(100vh - 70px);
+  height: 100vh;
   justify-content: center;
   align-items: flex-end;
   display: flex;
@@ -171,7 +168,8 @@ body {
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-info .product-price {
   margin-bottom: 10px;
-  font-weight: 400;
+  font-weight: 900;
+  color: #0a0d0f;
   font-size: 20px;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-info .product-description {
@@ -190,17 +188,20 @@ body {
   display: flex;
   height: 50px;
   border: none;
-  width: 200px;
+  width: 250px;
   padding: 0;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart:hover {
-  background-color: #434cc9;
+  background-color: #6b72d5;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart:active {
   font-size: 13px;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart svg {
   margin-right: 10px;
+}
+.main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart b {
+  margin-left: 10px;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct {
   background-color: #ff3f34;
@@ -215,11 +216,11 @@ body {
   display: flex;
   height: 50px;
   border: none;
-  width: 200px;
+  width: 250px;
   padding: 0;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct:hover {
-  background-color: #ff271a;
+  background-color: #ff574e;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct:active {
   font-size: 13px;
@@ -263,113 +264,92 @@ body {
 .main .product-price-banner .price-banner-wrapper .addtocart-btn svg {
   margin-right: 10px;
 }
-.main .product-view .product-header {
-  background-color: rgba(255, 255, 255, 0.9);
-  position: fixed;
-  height: 100px;
-  width: 100%;
-  top: 70px;
+.main .product-price {
+  text-align: right;
+  margin-top: 70px;
+  padding: 50px;
 }
-.main .product-view .product-header .product-header-wrapper {
-  align-items: center;
-  margin: 0 auto;
-  display: flex;
-  height: 100px;
-  width: 90%;
-}
-.main .product-view .product-header .product-header-wrapper .left,
-.main .product-view .product-header .product-header-wrapper .right {
-  width: 50%;
-}
-.main .product-view .product-header .product-header-wrapper .right {
-  justify-content: flex-end;
-  align-items: center;
-  display: flex;
-}
-.main .product-view .product-header .product-header-wrapper .product-name {
-  text-transform: uppercase;
-  font-family: Raleway;
-  font-weight: bold;
-  font-size: 30px;
-  color: #000;
-}
-.main .product-view .product-header .product-header-wrapper .product-screen-size {
-  font-weight: 400;
-  font-size: 17px;
-  color: #AAA;
-}
-.main .product-view .product-header .product-header-wrapper .product-price {
-  font-family: Open Sans;
-  margin-left: 20px;
-  font-size: 20px;
-  color: #000;
-}
-.main .product-view .product-header .product-header-wrapper .product-addtocart {
-  background-color: #0be881;
-  justify-content: center;
+.main .product-price .product-addtocart {
+  background-color: #ff3f34;
   font-family: open sans;
-  align-items: center;
+  margin-bottom: 20px;
+  font-size: 15px;
   cursor: pointer;
-  display: flex;
   color: #FFF;
-  border: none;
+  width: 150px;
   height: 40px;
-  width: 170px;
+  border: none;
   padding: 0;
 }
-.main .product-view .product-header .product-header-wrapper .product-addtocart:hover {
-  background-color: #0ad073;
+.main .product-price .product-addtocart:hover {
+  background-color: #ff574e;
 }
-.main .product-view .product-header .product-header-wrapper .product-addtocart svg {
-  margin-right: 10px;
+.main .product-price .price {
+  font-weight: bold;
+  font-size: 25px;
+}
+.main .product-view {
+  margin: 50px 0 100px 0;
+  overflow: hidden;
+}
+.main .product-view .product-title {
+  text-transform: uppercase;
+  font-family: Raleway;
+  text-align: center;
+  color: #0a0d0f;
+  font-size: 70px;
+  margin: 0px;
+}
+.main .product-view .product-title:not(:first-child) {
+  margin-top: 200px;
+}
+.main .product-view .product-sub-title {
+  text-transform: uppercase;
+  font-family: Raleway;
+  text-align: center;
+  font-weight: 400;
+  font-size: 40px;
+  margin: 100px 0 0 0;
+}
+.main .product-view .product-paragraph {
+  text-align: center;
+  margin: 25px auto;
+  max-width: 800px;
+  font-size: 25px;
 }
 .main .product-view .product-banner {
-  background-image: url('https://192.168.0.5/image/matebook-banner.png');
   background-repeat: no-repeat;
   background-position: center;
-  height: calc(100vh - 170px);
-  background-color: #000;
-  background-size: 50%;
-  margin-top: 170px;
-  width: 100%;
-}
-.main .product-view .product-info {
+  background-size: contain;
+  justify-content: center;
   margin: 100px auto;
-  width: 70%;
+  display: flex;
+  height: 750px;
+  width: 1000px;
 }
-.main .product-view .product-info h1 {
-  text-transform: uppercase;
-  color: #000000;
-  font-family: Raleway;
-  font-weight: bold;
-  font-size: 50px;
-  margin: 0;
-}
-.main .product-view .product-info h1:not(:last-child) {
-  margin-bottom: 20px;
-}
-.main .product-view .product-info img {
-  vertical-align: middle;
-  margin: 40px 0;
+.main .product-view .product-full-banner {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  margin: 50px auto;
+  display: flex;
+  height: 500px;
   width: 100%;
 }
-.main .product-view .product-info h2 {
-  font-family: Raleway;
-  font-weight: bold;
-  font-size: 30px;
-  margin: 0;
+.main .product-view .product-video {
+  max-width: 50%;
+  margin: 0 auto;
+  display: block;
 }
-.main .product-view .product-info h2:not(:last-child) {
-  margin-bottom: 20px;
-}
-.main .product-view .product-info p {
-  margin: 0;
-}
-.main .product-view .product-info p:not(:last-child) {
-  margin-bottom: 20px;
+.main .product-view .product-small {
+  text-align: center;
+  margin: 25px auto;
+  font-size: 15px;
+  display: block;
 }
 .footer {
-  background-color: #0a0d0f;
+  background-color: #000;
   padding: 100px 0;
 }
 .footer .footer-wrapper {

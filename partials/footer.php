@@ -4,12 +4,12 @@
 			<div class="footer-logo">future</div>
 			<div class="sitemap">
 				<div class="sitemap-title">Översikt</div>
-				<a href="/home" class="sitemap-link">Home</a>
-				<a href="/home" class="sitemap-link">Home</a>
-				<a href="/home" class="sitemap-link">Home</a>
-				<a href="/home" class="sitemap-link">Home</a>
-				<a href="/home" class="sitemap-link">Home</a>
-				<a href="/home" class="sitemap-link">Home</a>
+				<a href="/home" class="sitemap-link">Hem</a>
+				<a href="/about" class="sitemap-link">Om oss</a>
+				<a href="/home#produkter" class="sitemap-link">Våra produkter</a>
+				<a href="/blog" class="sitemap-link">Blogg</a>
+				<a href="/contact" class="sitemap-link">Kontakt</a>
+				<a href="/guestbook" class="sitemap-link">Gästbok</a>
 			</div>
 			<div class="contact">
 				<div class="contact-title">Kontaktdetaljer</div>

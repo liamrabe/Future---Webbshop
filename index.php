@@ -20,7 +20,7 @@
 		</div>
 
 		<?php $products = $db->GetProducts(); ?>
-		<div class="products">
+		<div class="products" id="produkter">
 			<div class="products-wrapper">
 				<h1 class="products-title">Våra produkter</h1>
 				<?php foreach($products as $product) { ?>
@@ -31,9 +31,6 @@
 								<div class="product-title">
 									Future <?= $product["name"]; ?>
 								</div>
-								<div class="product-price">
-									<?= number_format((int)$product["price"], 0, " ", " "); ?> kr
-								</div>
 								<div class="product-description">
 									<?= $product["description"]; ?>
 								</div>
@@ -42,6 +39,9 @@
 								<button class="product-addtocart">
 									<span class="fas fa-shopping-cart"></span>
 									Lägg till i varukorg
+									<b>
+										<?= number_format((int)$product["price"], 0, " ", " "); ?> kr
+									</b>
 								</button>
 								<a href="product/<?= $product["url"]; ?>" class="product-viewproduct">
 									<span class="fas fa-shopping-cart"></span>
