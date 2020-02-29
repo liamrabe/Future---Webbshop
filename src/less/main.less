@@ -313,9 +313,16 @@ body {
 		width: 75%;
 		.guestbook-title {
 			text-transform: uppercase;
-			margin: 0 auto 25px auto;
+			margin: 0 auto 10px auto;
 			font-family: Raleway;
 			font-size: 50px;
+		}
+		.guestbook-sub-title {
+			margin: 0 auto 25px auto;
+			text-transform: initial;
+			font-family: Raleway;
+			font-weight: 400;
+			font-size: 25px;
 		}
 		.guestbook-form {
 			#name {
@@ -372,6 +379,23 @@ body {
 				border: none;
 				width: 200px;
 				height: 50px;
+			}
+		}
+		.guestbook-entries {
+			margin-top: 100px;
+			width: 100%;
+			.guestbook-entry {
+				border: 1px solid #CCC;
+				box-sizing: border-box;
+				padding: 20px;
+				.entry {
+					&-title {
+						margin-bottom: 20px;
+						font-weight: bold;
+						font-size: 20px;
+					}
+				}
+				&:not(:first-child) { margin-top: 50px; }
 			}
 		}
 	}

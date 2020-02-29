@@ -6,7 +6,7 @@
 		private $database = "future";
 		private $hostname = "localhost";
 
-		private function Login() {
+		public function Login() {
 			try {
 				$db = new PDO(
 					"mysql:host=$this->hostname;dbname=$this->database",
