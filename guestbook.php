@@ -1,4 +1,5 @@
 <?php
+
 	require_once "./lib/database.php";
 	$db = new Database();
 
@@ -19,6 +20,7 @@
 	setcookie("state", $state, strtotime("+20min"), "/", "127.0.0.1", true, false);
 	
 	include "./partials/navbar.php";
+
 ?>
 
 	<div class="main">
