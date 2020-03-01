@@ -46,7 +46,7 @@ body {
   align-items: center;
   margin: 0 auto;
   display: flex;
-  height: 70px;
+  height: 55px;
   width: 90%;
 }
 .navbar .navbar-wrapper .left,
@@ -58,7 +58,7 @@ body {
   text-decoration: none;
   align-items: center;
   color: #CCCCCC;
-  font-size: 16px;
+  font-size: 14px;
   padding: 0 20px;
   display: flex;
   height: 40px;
@@ -266,7 +266,7 @@ body {
 }
 .main .product-price {
   text-align: right;
-  margin-top: 70px;
+  margin-top: 55px;
   padding: 50px;
 }
 .main .product-price .product-addtocart {
@@ -349,7 +349,7 @@ body {
   display: block;
 }
 .main .guestbook {
-  margin: 170px auto 100px auto;
+  margin: 155px auto 100px auto;
   overflow: hidden;
   width: 75%;
 }
