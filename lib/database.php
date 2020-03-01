@@ -6,6 +6,11 @@
 		private $database = "future";
 		private $hostname = "localhost";
 
+		function __construct() {
+			// Starta en session tillsammans med start av databas-klassen.
+			session_start();
+		}
+
 		public function Login() {
 			try {
 				$db = new PDO(
@@ -38,6 +43,62 @@
 			$stmt->execute();
 			$res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 			return $res;
+		}
+
+		public function IsLoggedIn() {
+			if(isset($_COOKIE["token"]) && !empty($_COOKIE["token"])) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		public function GetUsername() {
+
+			$access_token = $_COOKIE["token"];
+
+			$pdo = $this->Login();
+			$stmt = $pdo->prepare("SELECT username FROM users WHERE access_token = :access_token");
+			$stmt->bindParam(":access_token", $access_token, \PDO::PARAM_STR);
+			$stmt->execute();
+			$username = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+			return $username[0]["username"];
+
+		}
+
+		public function GetUserID() {
+
+			$access_token = $_COOKIE["token"];
+
+			$pdo = $this->Login();
+			$stmt = $pdo->prepare("SELECT id FROM users WHERE access_token = :access_token");
+			$stmt->bindParam(":access_token", $access_token, \PDO::PARAM_STR);
+			$stmt->execute();
+			$username = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+			return $username[0]["id"];
+
+		}
+
+		public function IsAdmin() {
+
+			$user_id = $this->GetUserID();
+
+			$pdo = $this->Login();
+			$stmt = $pdo->prepare("SELECT user_id FROM admins WHERE user_id = :user_id");
+			$stmt->bindParam(":user_id", $user_id, \PDO::PARAM_STR);
+			$stmt->execute();
+			$result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+			if(count($result) == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+
 		}
 
 	}
