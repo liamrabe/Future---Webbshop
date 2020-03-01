@@ -11,7 +11,7 @@
 	foreach($requiredinputs as $input) {
 
 		// Först kollar vi om våran input är tom.
-		if(!isset($_POST[$input])) { die("$input får måste existera."); }
+		if(!isset($_POST[$input])) { die("$input måste existera."); }
 		// Sedan kollar vi om den är tom.
 		if(empty($_POST[$input])) { die("$input får inte vara tom."); }
 
