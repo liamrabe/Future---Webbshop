@@ -7,7 +7,7 @@
 	$pdo = $db->Login();
 	if(!$pdo) { die("Kunde ansluta till databasen."); }
 
-	$stmt = $pdo->prepare("SELECT name, message FROM guestbook ORDER BY id DESC");
+	$stmt = $pdo->prepare("SELECT name, message,timestamp FROM guestbook ORDER BY id DESC");
 	try {
 		$stmt->execute();
 		$entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,6 +37,7 @@
 					<?php
 						$name = $entry["name"];
 						$message = $entry["message"];
+						$timestamp = date("Y-m-d H:i", strtotime($entry["timestamp"]));
 						// Använder div över br för enklare styling.
 						$message = preg_replace(
 							"/\\n/",
@@ -48,8 +49,8 @@
 					<div class="guestbook-entry">
 						<div class="entry-title">
 							<span class="name"><?= $name; ?></span>
-							skrev:
 						</div>
+						<div class="entry-timestamp"><?= $timestamp; ?></div>
 						<div class="entry-message"><?= $message; ?></div>
 					</div>
 

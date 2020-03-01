@@ -334,20 +334,6 @@ body {
 				display: block;
 				padding: 10px;
 				width: 50%;
-				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
-					color: #999;
-					opacity: 1;
-				}
-				&:focus {
-					&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
-						color: transparent;
-						opacity: 1;
-					}
-				}
-				&:invalid {
-					border-color: #ff3f34;
-					box-shadow: none;
-				}
 			}
 			#message {
 				border: 1px solid #AAA;
@@ -355,23 +341,38 @@ body {
 				font-family: Open Sans;
 				border-radius: 5px;
 				margin-top: 25px;
+				resize: vertical;
 				font-size: 13px;
 				display: block;
+				height: 250px;
 				padding: 10px;
 				width: 50%;
+			}
+			#name, #message {
 				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
 					color: #999;
 					opacity: 1;
 				}
 				&:focus {
+					border-color: #0a0d0f;
+					outline: none;
 					&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
 						color: transparent;
-						opacity: 1;
+						opacity: 0;
 					}
 				}
 				&:invalid {
 					border-color: #ff3f34;
 					box-shadow: none;
+					&:focus {
+						border-color: #0a0d0f;
+						outline: none;
+						&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder,
+						&::-ms-input-placeholder {
+							color: transparent;
+							opacity: 0;
+						}
+					}
 				}
 			}
 			#submit {
@@ -396,24 +397,32 @@ body {
 			}
 		}
 		.guestbook-entries {
-			margin-top: 100px;
+			margin-top: 20px;
 			width: 100%;
 			.guestbook-entry {
 				border: 1px solid #CCC;
 				box-sizing: border-box;
+				border-radius: 5px;
+				max-width: 100%;
+				margin: 0 auto;
 				padding: 20px;
+				width: 100%;
 				.entry {
 					&-title {
-						margin-bottom: 10px;
-						font-weight: bold;
+						margin-bottom: 5px;
+						font-weight: 400;
 						font-size: 20px;
 						.name {
-							color: #ff3f34;
+							font-weight: 700;
+							color: #000;
 						}
 					}
-					&-message {
-						font-size: 15px;
+					&-timestamp {
+						margin-bottom: 5px;
+						font-size: 13px;
+						color: #888;
 					}
+					&-message { font-size: 15px; }
 				}
 				.line-break {
 					height: 5px;
@@ -452,6 +461,7 @@ body {
 			.input-label {
 				margin-bottom: 15px;
 				font-weight: bold;
+				cursor: pointer;
 				font-size: 20px;
 				display: block;
 				
@@ -470,14 +480,25 @@ body {
 					opacity: 1;
 				}
 				&:focus {
+					border-color: #0a0d0f;
+					outline: none;
 					&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
 						color: transparent;
-						opacity: 1;
+						opacity: 0;
 					}
 				}
 				&:invalid {
 					border-color: #ff3f34;
 					box-shadow: none;
+					&:focus {
+						border-color: #0a0d0f;
+						outline: none;
+						&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder,
+						&::-ms-input-placeholder {
+							color: transparent;
+							opacity: 0;
+						}
+					}
 				}
 			}
 			.button {
