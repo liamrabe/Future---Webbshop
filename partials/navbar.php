@@ -7,6 +7,7 @@
 			<a href="/blog" class="nav-link">Blogg</a>
 			<a href="/contact" class="nav-link">Kontakt</a>
 			<a href="/guestbook" class="nav-link">Gästbok</a>
+			<a href="/forum" class="nav-link">Forum</a>
 		</div>
 		<div class="right">
 			<!--<a href="/cart" class="nav-link">
