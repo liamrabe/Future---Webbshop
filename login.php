@@ -9,7 +9,7 @@
 
 <div class="form-body">
 	<div class="form-container">
-		<form action="/register" method="post" class="form register">
+		<form action="/login" autocomplete="off" method="post" class="form register">
 
 			<h1 class="form-title">Logga in</h1>
 
