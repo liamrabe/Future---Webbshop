@@ -67,10 +67,14 @@
 	// Ta bort lösenordet.
 	unset($password);
 
-	$stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+	// Generera ett 255-bitars åtkomstnyckel.
+	$access_token = bin2hex(openssl_random_pseudo_bytes(255));
+
+	$stmt = $pdo->prepare("INSERT INTO users (username, email, password, access_token) VALUES (:username, :email, :password, :access_token)");
 	$stmt->bindParam(":username", $username, PDO::PARAM_STR);
 	$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 	$stmt->bindParam(":password", $hash, PDO::PARAM_STR);
+	$stmt->bindParam(":access_token", $access_token, PDO::PARAM_STR);
 
 	$result = $stmt->execute();
 
