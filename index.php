@@ -25,7 +25,7 @@
 				<h1 class="products-title">Våra produkter</h1>
 				<?php foreach($products as $product) { ?>
 					<div class="product">
-						<div class="product-image" style="background-image: url('https://192.168.0.5/image/<?= $product["image"]; ?>.png');"></div>
+						<div class="product-image" style="background-image: url('https://127.0.0.1/image/<?= $product["image"]; ?>.png');"></div>
 						<div class="product-info-wrapper">
 							<div class="product-info">
 								<div class="product-title">

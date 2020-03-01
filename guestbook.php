@@ -16,7 +16,7 @@
 
 	// Skapa en state-variabel.
 	$state = bin2hex(random_bytes(20));
-	setcookie("state", $state, strtotime("+20min"), "/", "192.168.0.5", true, false);
+	setcookie("state", $state, strtotime("+20min"), "/", "127.0.0.1", true, false);
 	
 	include "./partials/navbar.php";
 ?>
@@ -38,11 +38,18 @@
 						$name = $entry["name"];
 						$message = $entry["message"];
 						// Använder div över br för enklare styling.
-						$message = preg_replace("/\\n/", "<div class=\"line-break\"></div>", $message );
+						$message = preg_replace(
+							"/\\n/",
+							"<div class=\"line-break\"></div>",
+							$message
+						);
 					?>
 
 					<div class="guestbook-entry">
-						<div class="entry-title"><?= $name; ?> skrev:</div>
+						<div class="entry-title">
+							<span class="name"><?= $name; ?></span>
+							skrev:
+						</div>
 						<div class="entry-message"><?= $message; ?></div>
 					</div>
 

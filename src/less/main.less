@@ -45,10 +45,10 @@ body {
 .main {
 	.banner {
 		&.homepage {
-			background-image: url("https://192.168.0.5/image/laptop-dark.jpg");
+			background-image: url("https://127.0.0.1/image/laptop-dark.jpg");
 		}
 		&.sea {
-			background-image: url("https://192.168.0.5/image/sea-banner.jpg");
+			background-image: url("https://127.0.0.1/image/sea-banner.jpg");
 		}
 		//background-attachment: fixed;
 		background-position: center;
@@ -326,15 +326,16 @@ body {
 		}
 		.guestbook-form {
 			#name {
-				border: 2px solid #0a0d0f;
+				border: 1px solid #AAA;
+				box-sizing: border-box;
 				font-family: Open Sans;
-				color: #0a0d0f;
-				font-size: 17px;
+				border-radius: 5px;
+				font-size: 13px;
 				display: block;
 				padding: 10px;
 				width: 50%;
 				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
-					color: #0a0d0f;
+					color: #999;
 					opacity: 1;
 				}
 				&:focus {
@@ -342,21 +343,24 @@ body {
 						color: transparent;
 						opacity: 1;
 					}
+				}
+				&:invalid {
+					border-color: #ff3f34;
+					box-shadow: none;
 				}
 			}
 			#message {
-				border: 2px solid #0a0d0f;
+				border: 1px solid #AAA;
+				box-sizing: border-box;
 				font-family: Open Sans;
+				border-radius: 5px;
 				margin-top: 25px;
-				resize: vertical;
-				color: #0a0d0f;
-				font-size: 17px;
+				font-size: 13px;
 				display: block;
-				height: 250px;
 				padding: 10px;
 				width: 50%;
 				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
-					color: #0a0d0f;
+					color: #999;
 					opacity: 1;
 				}
 				&:focus {
@@ -364,21 +368,31 @@ body {
 						color: transparent;
 						opacity: 1;
 					}
+				}
+				&:invalid {
+					border-color: #ff3f34;
+					box-shadow: none;
 				}
 			}
 			#submit {
 				background-color: #0a0d0f;
-				text-transform: uppercase;
-				font-family: Raleway;
-				font-weight: 900;
+				justify-content: center;
+				box-sizing: border-box;
+				font-family: Open Sans;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				margin-bottom: 30px;
+				border-radius: 5px;
+				text-align: center;
 				margin-top: 25px;
+				font-size: 13px;
 				cursor: pointer;
-				font-size: 18px;
-				display: block;
+				padding: 0 50px;
 				color: #FFF;
+				height: 42px;
 				border: none;
-				width: 200px;
-				height: 50px;
+				&:hover { background-color: #1e272e; }
 			}
 		}
 		.guestbook-entries {
@@ -393,10 +407,16 @@ body {
 						margin-bottom: 10px;
 						font-weight: bold;
 						font-size: 20px;
+						.name {
+							color: #ff3f34;
+						}
+					}
+					&-message {
+						font-size: 15px;
 					}
 				}
 				.line-break {
-					height: 10px;
+					height: 5px;
 				}
 				&:not(:first-child) { margin-top: 50px; }
 			}
@@ -405,7 +425,7 @@ body {
 }
 
 .form-body {
-	background-image: url("https://192.168.0.5/image/czech-forrest.jpg");
+	background-image: url("https://127.0.0.1/image/czech-forrest.jpg");
 	background-position: center;
 	background-size: cover;
 	overflow: hidden;
@@ -454,6 +474,10 @@ body {
 						color: transparent;
 						opacity: 1;
 					}
+				}
+				&:invalid {
+					border-color: #ff3f34;
+					box-shadow: none;
 				}
 			}
 			.button {
