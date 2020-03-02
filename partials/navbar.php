@@ -16,33 +16,95 @@
 		$username = $db->GetUsername();
 	}
 
+	$products = $db->GetProducts();
+
 ?>
 <div class="navbar">
-	<div class="navbar-wrapper">
+	<ul class="navbar-wrapper">
 		<div class="left">
-			<a href="/home" class="nav-link">Hem</a>
-			<a href="/about" class="nav-link">Om oss</a>
-			<a href="/home#produkter" class="nav-link">Våra produkter</a>
-			<a href="/blog" class="nav-link">Blogg</a>
-			<a href="/contact" class="nav-link">Kontakt</a>
-			<a href="/guestbook" class="nav-link">Gästbok</a>
-			<a href="/forum" class="nav-link">Forum</a>
+			<li class="nav-item"><a href="/" class="nav-link">Hem</a></li>
+			<li class="nav-item">
+				<a class="nav-link">
+					Vårat företag
+					<span class="fas fa-angle-down icon-left"></span>
+				</a>
+				<ul class="nav-dropdown">
+					<li class="dropdown-item">
+						<a href="/about" class="dropdown-link">Vår historia</a>
+					</li>	
+					<li class="dropdown-item">
+						<a href="/contact" class="dropdown-link">Kontakta oss</a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav-item"><a href="/" class="nav-link">Blogg</a></li>
+			<li class="nav-item">
+				<a class="nav-link">
+					Våra produkter
+					<span class="fas fa-angle-down icon-left"></span>
+				</a>
+				<ul class="nav-dropdown">
+					<?php foreach($products as $product) { ?>
+						<li class="dropdown-item">
+							<a class="dropdown-link" href="/product/<?= $product["url"]; ?>">
+								<?= $product["name"]; ?>
+							</a>
+						</li>
+					<?php } ?>
+				</ul>
+			</li>
+			<li class="nav-item"><a href="/guestbook" class="nav-link">Gästbok</a></li>
 		</div>
 		<div class="right">
 			<?php if($db->IsLoggedIn()) { ?>
-				<a href="/cart" class="nav-link">
-					<span class="fas fa-shopping-cart"></span>
-					<span class="item-count">0</span>
-				</a>
-				<a href="/profile/<?= $username; ?>" class="nav-link">Min profil</a>
-				<?php if($db->IsAdmin()) { ?>
-					<a href="/admin/dashboard" class="nav-link">Admin översikt</a>
-				<?php } ?>
-				<a href="/signout" class="nav-link">Logga ut</a>
+				<li class="nav-item">
+					<a href="/cart" class="nav-link">
+						<span class="fas fa-shopping-cart icon-right"></span>
+						0
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">
+						<?= $db->GetUsername(); ?>
+						<span class="fas fa-angle-down icon-left"></span>
+					</a>
+					<ul class="nav-dropdown">
+						<li class="dropdown-item">
+							<a href="/profile" class="dropdown-link">Profil</a>
+						</li>
+						<?php if($db->IsAdmin()) { ?>
+							<li class="dropdown-item">
+								<a href="/admin/dashboard" class="dropdown-link">
+									Admin översikt
+								</a>
+							</li>
+						<?php } ?>
+						<li class="dropdown-item">
+							<a href="/profile/my-orders" class="dropdown-link">
+								Mina beställningar
+							</a>
+						</li>
+						<li class="dropdown-item">
+							<a href="/settings" class="dropdown-link">Inställningar</a>
+						</li>
+						<li class="dropdown-item">
+							<a href="/signout" class="dropdown-link">Logga ut</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item"><a href="/forum" class="nav-link">Forum</a></li>
 			<?php } else { ?>
-				<a href="/login" class="nav-link">Logga in</a>
-				<a href="/register" class="nav-link">Bli medlem</a>
+				<li class="nav-item">
+					<a href="/login" class="nav-link">
+						Logga in
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/register" class="nav-link">
+						Bli medlem
+					</a>
+				</li>
 			<?php } ?>
 		</div>
-	</div>
+	</ul>
 </div>
