@@ -4,12 +4,17 @@
 
 	include "./partials/html_begin.html";
 	//include "./partials/navbar.php";
-	
+
+	$token = bin2hex(random_bytes(32));
+	$db->setcookie("token", $token, "20minutes");
+
 ?>
 
 <div class="form-body">
 	<div class="form-container">
 		<form action="/register" autocomplete="off" method="post" id="form" class="form register">
+
+			<input type="hidden" value="<?= $token; ?>" name="token">
 
 			<h1 class="form-title">Bli medlem</h1>
 

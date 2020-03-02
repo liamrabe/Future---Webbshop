@@ -7,8 +7,17 @@
 		private $hostname = "localhost";
 
 		function __construct() {
+
 			// Starta en session tillsammans med start av databas-klassen.
 			session_start();
+
+			// Ta bort CSRF-token om användaren inte behöver dom.
+			$requri = $_SERVER["REQUEST_URI"];
+			if($requri != "/login" && $requri != "/register") {
+				$this->destroycookie("token");
+			}
+
+
 		}
 
 		public function Login() {
@@ -24,6 +33,28 @@
 				return false;
 			}
 		}
+
+		public function setcookie(string $name, string $value, string $age) {
+			return setcookie(
+				$name,
+				$value,
+				strtotime("+$age"),
+				"/",
+				"127.0.0.1",
+				true, false
+			);
+		}
+
+		public function VerifyCSRFToken() {
+			if(!isset($_POST["token"]) || empty($_POST["token"]) && !isset($_COOKIE["token"]) || empty($_COOKIE["token"])) { 
+				return false;
+			}
+			else if(!hash_equals($_COOKIE["token"], $_POST["token"])) {
+				return false;
+			}
+		}
+
+		public function destroycookie($name) { return setcookie($name, null, 1); }
 
 		public function GetProducts() {
 			$pdo = $this->Login();
@@ -46,7 +77,7 @@
 		}
 
 		public function IsLoggedIn() {
-			if(isset($_COOKIE["token"]) && !empty($_COOKIE["token"])) {
+			if(isset($_COOKIE["access_token"]) && !empty($_COOKIE["access_token"])) {
 				return true;
 			}
 			else {
@@ -56,7 +87,7 @@
 
 		public function GetUsername() {
 
-			$access_token = $_COOKIE["token"];
+			$access_token = $_COOKIE["access_token"];
 
 			$pdo = $this->Login();
 			$stmt = $pdo->prepare("SELECT username FROM users WHERE access_token = :access_token");
@@ -70,7 +101,7 @@
 
 		public function GetUserID() {
 
-			$access_token = $_COOKIE["token"];
+			$access_token = $_COOKIE["access_token"];
 
 			$pdo = $this->Login();
 			$stmt = $pdo->prepare("SELECT id FROM users WHERE access_token = :access_token");

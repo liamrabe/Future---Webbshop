@@ -4,6 +4,9 @@
 
 	include "./partials/html_begin.html";
 	//include "./partials/navbar.php";
+
+	$token = bin2hex(random_bytes(32));
+	$db->setcookie("token", $token, "20minutes");
 	
 ?>
 

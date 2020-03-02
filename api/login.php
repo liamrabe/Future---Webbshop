@@ -6,6 +6,19 @@
 	$pdo = $db->Login();
 	if(!$pdo) { die("Kunde ansluta till databasen."); }
 
+	// Verifiera CSRF-token.
+	if(!$db->VerifyCSRFToken()) {
+		die("Din session är ogiltig.");
+	}
+
+	// Stoppa bruteforce attacker.
+	if($db->FailedLogins() > 3) {
+		die(
+			"Du har skrivit in fel lösenord för många gånger,
+			försök igen om en stund."
+		);
+	}
+
 	$requiredinputs = [
 		"username",
 		"password"
@@ -53,7 +66,7 @@
 	if(password_verify($password, $user["password"])) {
 		// Spara inloggningsstatus i 30dagar.
 		$access_token = $user["access_token"];
-		setcookie("token", $access_token, strtotime("+30days"), "/", "127.0.0.1", true, false);
+		$db->setcookie("access_token", $access_token, "30days");
 		header("location: /");
 	}
 	else {
