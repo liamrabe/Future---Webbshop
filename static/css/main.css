@@ -35,7 +35,7 @@ body {
   margin: 0;
 }
 .navbar {
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: #0a0d0f;
   position: fixed;
   z-index: 9002;
   width: 100%;
@@ -43,37 +43,62 @@ body {
 }
 .navbar .navbar-wrapper {
   justify-content: space-between;
-  align-items: center;
+  list-style-type: none;
   margin: 0 auto;
   display: flex;
-  height: 55px;
-  width: 90%;
+  padding: 0;
+  width: 85%;
 }
 .navbar .navbar-wrapper .left,
 .navbar .navbar-wrapper .right {
-  align-items: center;
   display: flex;
 }
-.navbar .navbar-wrapper .nav-link {
+.navbar .navbar-wrapper .nav-item:hover .nav-link {
+  background-color: #141a1e;
+  color: #FFF;
+}
+.navbar .navbar-wrapper .nav-item:hover .nav-dropdown {
+  display: block;
+}
+.navbar .navbar-wrapper .nav-item .nav-link {
   text-decoration: none;
   align-items: center;
-  color: #CCCCCC;
-  font-size: 14px;
   padding: 0 20px;
+  cursor: pointer;
+  font-size: 15px;
   display: flex;
-  height: 40px;
+  color: #CCC;
+  height: 55px;
 }
-.navbar .navbar-wrapper .nav-link svg {
+.navbar .navbar-wrapper .nav-item .nav-link .icon-left {
+  margin-left: 10px;
+}
+.navbar .navbar-wrapper .nav-item .nav-link .icon-right {
   margin-right: 10px;
 }
-.navbar .navbar-wrapper .nav-link .item-count {
-  font-size: 14px;
+.navbar .navbar-wrapper .nav-item .nav-dropdown {
+  background-color: #141a1e;
+  list-style-type: none;
+  position: absolute;
+  border-top: none;
+  display: none;
+  width: 300px;
+  padding: 0;
+  margin: 0;
 }
-.navbar .navbar-wrapper .nav-link:not(:last-child) {
-  margin-right: 20px;
+.navbar .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link {
+  box-sizing: border-box;
+  text-decoration: none;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 15px;
+  color: #CCC;
+  display: flex;
+  height: 50px;
 }
-.navbar .navbar-wrapper .nav-link:hover {
-  color: #FFFFFF;
+.navbar .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link:hover {
+  background-color: #1e282e;
+  color: #FFF;
 }
 .main .banner {
   background-position: center;
@@ -414,24 +439,7 @@ body {
 }
 .main .guestbook .guestbook-form #name:invalid,
 .main .guestbook .guestbook-form #message:invalid {
-  border-color: #ff3f34;
   box-shadow: none;
-}
-.main .guestbook .guestbook-form #name:invalid:focus,
-.main .guestbook .guestbook-form #message:invalid:focus {
-  border-color: #0a0d0f;
-  outline: none;
-}
-.main .guestbook .guestbook-form #name:invalid:focus::-moz-placeholder,
-.main .guestbook .guestbook-form #message:invalid:focus::-moz-placeholder,
-.main .guestbook .guestbook-form #name:invalid:focus::placeholder,
-.main .guestbook .guestbook-form #message:invalid:focus::placeholder,
-.main .guestbook .guestbook-form #name:invalid:focus::-webkit-input-placeholder,
-.main .guestbook .guestbook-form #message:invalid:focus::-webkit-input-placeholder,
-.main .guestbook .guestbook-form #name:invalid:focus::-ms-input-placeholder,
-.main .guestbook .guestbook-form #message:invalid:focus::-ms-input-placeholder {
-  color: transparent;
-  opacity: 0;
 }
 .main .guestbook .guestbook-form #submit {
   background-color: #0a0d0f;
@@ -553,19 +561,7 @@ body {
   opacity: 0;
 }
 .form-body .form-container .form .input:invalid {
-  border-color: #ff3f34;
   box-shadow: none;
-}
-.form-body .form-container .form .input:invalid:focus {
-  border-color: #0a0d0f;
-  outline: none;
-}
-.form-body .form-container .form .input:invalid:focus::-moz-placeholder,
-.form-body .form-container .form .input:invalid:focus::placeholder,
-.form-body .form-container .form .input:invalid:focus::-webkit-input-placeholder,
-.form-body .form-container .form .input:invalid:focus::-ms-input-placeholder {
-  color: transparent;
-  opacity: 0;
 }
 .form-body .form-container .form .button {
   background-color: #0a0d0f;
@@ -585,6 +581,12 @@ body {
   border: none;
   padding: 0;
   width: 40%;
+}
+.form-body .form-container .form .button:disabled {
+  background-color: #AAA;
+}
+.form-body .form-container .form .button:disabled:hover {
+  background-color: #919191;
 }
 .form-body .form-container .form .button:hover {
   background-color: #1e272e;
@@ -623,7 +625,7 @@ body {
   text-decoration: underline;
 }
 .footer {
-  background-color: #000;
+  background-color: #0a0d0f;
   padding: 100px 0;
 }
 .footer .footer-wrapper {
