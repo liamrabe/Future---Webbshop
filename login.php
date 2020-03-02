@@ -9,17 +9,17 @@
 
 <div class="form-body">
 	<div class="form-container">
-		<form action="/login" autocomplete="off" method="post" class="form register">
+		<form action="/login" id="form" autocomplete="off" method="post" id="form" class="form register">
 
 			<h1 class="form-title">Logga in</h1>
 
-			<label class="input-label" for="username">Användarnamn</label>
-			<input type="text" placeholder="Användarnamn" name="username" class="input" id="username" required>
+			<label class="input-label" min="3" max="30" for="username">Användarnamn</label>
+			<input type="text" id="username" placeholder="Användarnamn" name="username" class="input" id="username" required>
 			
 			<label class="input-label" for="password">Lösenord</label>
-			<input type="password" placeholder="Lösenord" name="password" class="input" id="password" required>
+			<input type="password" id="password" placeholder="Lösenord" name="password" class="input" id="password" required>
 
-			<button class="button submit">Logga in</button>
+			<button type="submit" class="button submit">Logga in</button>
 			<a class="btn-link" href="/home">Gå tillbaka</a>
 
 			<span class="text">
@@ -31,7 +31,7 @@
 	</div>
 </div>
 
-
+<script src="https://127.0.0.1/js/loginform.js"></script>
 <?php
 	//include "./partials/footer.php";
 	include "./partials/html_end.html";
