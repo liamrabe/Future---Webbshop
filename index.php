@@ -3,10 +3,9 @@
 	$db = new Database();
 
 	include "./partials/html_begin.html";
-
+	include "./partials/navbar.php";
 ?>
 
-	<?php include "./partials/navbar.php"; ?>
 	<div class="main">
 		<div class="banner homepage">
 			<div class="banner-container">
