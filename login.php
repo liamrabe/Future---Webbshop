@@ -14,6 +14,8 @@
 	<div class="form-container">
 		<form action="/login" id="form" autocomplete="off" method="post" id="form" class="form register">
 
+			<input type="hidden" name="token" value="<?= $token; ?>">
+
 			<h1 class="form-title">Logga in</h1>
 
 			<label class="input-label" min="3" max="30" for="username">Användarnamn</label>

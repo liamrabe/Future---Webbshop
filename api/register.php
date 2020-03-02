@@ -6,15 +6,9 @@
 	$pdo = $db->Login();
 	if(!$pdo) { die("Kunde ansluta till databasen."); }
 
-
 	// Verifiera CSRF-token.
 	if(!$db->VerifyCSRFToken()) {
 		die("Din session är ogiltig.");
-	}
-
-	// Tillåt endast 1 kontoregistrering varje 5 minuter per IP address.
-	if($db->RegisteredUsers() == 1) {
-		die("Du skapar för många konton, sakta ner.");
 	}
 
 	$requiredinputs = [

@@ -17,7 +17,6 @@
 				$this->destroycookie("token");
 			}
 
-
 		}
 
 		public function Login() {
@@ -34,6 +33,18 @@
 			}
 		}
 
+		public function VerifyCSRFToken() {
+			if(!isset($_POST["token"]) || empty($_POST["token"]) && !isset($_COOKIE["token"]) || empty($_COOKIE["token"])) { 
+				return false;
+			}
+			else if(!hash_equals($_COOKIE["token"], $_POST["token"])) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+
 		public function setcookie(string $name, string $value, string $age) {
 			return setcookie(
 				$name,
@@ -43,15 +54,6 @@
 				"127.0.0.1",
 				true, false
 			);
-		}
-
-		public function VerifyCSRFToken() {
-			if(!isset($_POST["token"]) || empty($_POST["token"]) && !isset($_COOKIE["token"]) || empty($_COOKIE["token"])) { 
-				return false;
-			}
-			else if(!hash_equals($_COOKIE["token"], $_POST["token"])) {
-				return false;
-			}
 		}
 
 		public function destroycookie($name) { return setcookie($name, null, 1); }
