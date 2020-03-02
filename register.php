@@ -9,7 +9,7 @@
 
 <div class="form-body">
 	<div class="form-container">
-		<form action="/register" autocomplete="off" method="post" class="form register">
+		<form action="/register" autocomplete="off" method="post" id="form" class="form register">
 
 			<h1 class="form-title">Bli medlem</h1>
 
@@ -19,10 +19,10 @@
 			<label class="input-label" for="password">Lösenord</label>
 			<input type="password" placeholder="Lösenord" name="password" class="input" id="password" required>
 			
-			<label class="input-label" for="email">E-post</label>
+			<label class="input-label" min="6" max="255" for="email">E-post</label>
 			<input type="email" placeholder="E-post" name="email" class="input" id="email" required>
 		
-			<button class="button submit">Bli medlem</button>
+			<button type="submit" class="button submit">Bli medlem</button>
 			<a class="btn-link" href="/home">Gå tillbaka</a>
 
 			<span class="text">
