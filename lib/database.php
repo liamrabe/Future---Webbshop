@@ -13,7 +13,14 @@
 
 			// Ta bort CSRF-token om användaren inte behöver dom.
 			$requri = $_SERVER["REQUEST_URI"];
-			if($requri != "/login" && $requri != "/register") {
+
+			$CSRF_Forms = [
+				"/guestbook",
+				"/register",
+				"/login",
+			];
+
+			if(in_array($requri, $CSRF_Forms)) {
 				$this->destroycookie("token");
 			}
 
@@ -58,12 +65,31 @@
 
 		public function destroycookie($name) { return setcookie($name, null, 1); }
 
+		public function Array2XML($array, &$xml_user_info) {
+			foreach($array as $key => $value) {
+				if(is_array($value)) {
+					if(!is_numeric($key)){
+						$subnode = $xml_user_info->addChild("$key");
+						$this->Array2XML($value, $subnode);
+					}else{
+						$subnode = $xml_user_info->addChild("item$key");
+						$this->Array2XML($value, $subnode);
+					}
+				}else {
+					$xml_user_info->addChild("$key",htmlspecialchars("$value"));
+				}
+			}
+		}
+
 		public function GetProducts() {
+
 			$pdo = $this->Login();
-			$stmt = $pdo->prepare("SELECT name, image, description, price, url FROM products");
+
+			$stmt = $pdo->prepare("SELECT id, name, image, description, price, url FROM products");
 			$stmt->execute();
 			$res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 			return $res;
+
 		}
 
 		public function GetProduct($name) {
@@ -87,6 +113,20 @@
 			}
 		}
 
+		public function GetFullName() {
+
+			$access_token = $_COOKIE["access_token"];
+
+			$pdo = $this->Login();
+			$stmt = $pdo->prepare("SELECT firstname, lastname FROM users WHERE access_token = :access_token");
+			$stmt->bindParam(":access_token", $access_token, \PDO::PARAM_STR);
+			$stmt->execute();
+			$user = $stmt->fetchAll(\PDO::FETCH_ASSOC)[0];
+
+			return $user["firstname"] . " " . $user["lastname"];
+
+		}
+
 		public function GetUsername() {
 
 			$access_token = $_COOKIE["access_token"];
@@ -98,6 +138,20 @@
 			$username = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 			return $username[0]["username"];
+
+		}
+
+		public function GetAvatar() {
+
+			$access_token = $_COOKIE["access_token"];
+
+			$pdo = $this->Login();
+			$stmt = $pdo->prepare("SELECT avatar FROM users WHERE access_token = :access_token");
+			$stmt->bindParam(":access_token", $access_token, \PDO::PARAM_STR);
+			$stmt->execute();
+			$username = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+			return $username[0]["avatar"];
 
 		}
 

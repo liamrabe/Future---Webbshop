@@ -25,7 +25,7 @@
 			<li class="nav-item"><a href="/" class="nav-link">Hem</a></li>
 			<li class="nav-item">
 				<a class="nav-link">
-					Vårat företag
+					Vårt företag
 					<span class="fas fa-angle-down icon-left"></span>
 				</a>
 				<ul class="nav-dropdown">
@@ -65,7 +65,8 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link">
-						<?= $db->GetUsername(); ?>
+						<img class="avatar" src="<?= $db->GetAvatar(); ?>">
+						<?= $db->GetFullName(); ?>
 						<span class="fas fa-angle-down icon-left"></span>
 					</a>
 					<ul class="nav-dropdown">
@@ -74,7 +75,7 @@
 						</li>
 						<?php if($db->IsAdmin()) { ?>
 							<li class="dropdown-item">
-								<a href="/admin/dashboard" class="dropdown-link">
+								<a href="/admin/overview" class="dropdown-link">
 									Admin översikt
 								</a>
 							</li>

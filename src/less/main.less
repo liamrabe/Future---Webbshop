@@ -42,6 +42,13 @@ body {
 				display: flex;
 				color: #CCC;
 				height: 55px;
+				.avatar {
+					vertical-align: middle;
+					border-radius: 100%;
+					margin-right: 10px;
+					height: 20px;
+					width: 20px;
+				}
 				.icon-left { margin-left: 10px; }
 				.icon-right { margin-right: 10px; }
 			}
@@ -68,6 +75,32 @@ body {
 							background-color: lighten(#0a0d0f, 10%);
 							color: #FFF;
 						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.admin {
+	margin-top: 155px;
+	.admin-wrapper {
+		margin: 0 auto;
+		width: 75%;
+		.admin-title {
+			text-transform: uppercase;
+			font-family: Raleway;
+			font-weight: bold;
+			font-size: 30px;
+		}
+		.admin-section {
+			.admin-stats {
+				margin-top: 5px;
+				display: flex;
+				.stats-text {
+					font-size: 20px;
+					&:not(:last-child) {
+						margin-right: 20px;
 					}
 				}
 			}
@@ -169,18 +202,12 @@ body {
 								font-family: Raleway;
 								margin-bottom: 10px;
 								font-weight: 900;
-								font-size: 30px;
-								color: #575fcf;
-							}
-							&-price {
-								margin-bottom: 10px;
-								font-weight: 900;
-								color: #0a0d0f;
 								font-size: 20px;
+								color: #575fcf;
 							}
 							&-description {
 								line-height: 1.5em;
-								font-size: 15px;
+								font-size: 14px;
 								max-width: 80%;
 							}
 						}
@@ -191,7 +218,7 @@ body {
 							justify-content: center;
 							font-family: Open Sans;
 							align-items: center;
-							font-size: 14px;
+							font-size: 13px;
 							cursor: pointer;
 							color: #FFF;
 							display: flex;
@@ -211,7 +238,7 @@ body {
 							text-decoration: none;
 							align-items: center;
 							margin-top: 20px;
-							font-size: 14px;
+							font-size: 13px;
 							cursor: pointer;
 							color: #FFF;
 							display: flex;
@@ -589,11 +616,12 @@ body {
 					font-family: Raleway;
 					font-weight: 700;
 					color: #0be881;
-					font-size: 25px;
+					font-size: 20px;
 					margin: 25px 0;
 				}
 				.sitemap-link {
 					text-decoration: none;
+					font-size: 14px;
 					color: #CCC;
 					&:not(:last-child) { margin-right: 40px; }
 					&:hover { color: #FFF; }
@@ -604,12 +632,13 @@ body {
 				.contact-title {
 					font-family: Raleway;
 					font-weight: 700;
-					font-size: 25px;
+					font-size: 20px;
 					margin: 25px 0;
 					color: #0be881;
 				}
 				.email {
 					align-items: center;
+					font-size: 14px;
 					color: #FFF;
 					display: flex;
 					a {
@@ -630,10 +659,10 @@ body {
 		}
 	}
 	.copyright {
-		font-family: Raleway;
+		font-family: Open Sans;
 		text-align: center;
 		margin-top: 100px;
-		font-size: 20px;
+		font-size: 15px;
 		color: #FFF;
 	}
 }

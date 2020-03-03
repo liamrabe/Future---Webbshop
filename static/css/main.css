@@ -70,6 +70,13 @@ body {
   color: #CCC;
   height: 55px;
 }
+.navbar .navbar-wrapper .nav-item .nav-link .avatar {
+  vertical-align: middle;
+  border-radius: 100%;
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
 .navbar .navbar-wrapper .nav-item .nav-link .icon-left {
   margin-left: 10px;
 }
@@ -99,6 +106,29 @@ body {
 .navbar .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link:hover {
   background-color: #1e282e;
   color: #FFF;
+}
+.admin {
+  margin-top: 155px;
+}
+.admin .admin-wrapper {
+  margin: 0 auto;
+  width: 75%;
+}
+.admin .admin-wrapper .admin-title {
+  text-transform: uppercase;
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 30px;
+}
+.admin .admin-wrapper .admin-section .admin-stats {
+  margin-top: 5px;
+  display: flex;
+}
+.admin .admin-wrapper .admin-section .admin-stats .stats-text {
+  font-size: 20px;
+}
+.admin .admin-wrapper .admin-section .admin-stats .stats-text:not(:last-child) {
+  margin-right: 20px;
 }
 .main .banner {
   background-position: center;
@@ -188,18 +218,12 @@ body {
   font-family: Raleway;
   margin-bottom: 10px;
   font-weight: 900;
-  font-size: 30px;
-  color: #575fcf;
-}
-.main .products .products-wrapper .product .product-info-wrapper .product-info .product-price {
-  margin-bottom: 10px;
-  font-weight: 900;
-  color: #0a0d0f;
   font-size: 20px;
+  color: #575fcf;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-info .product-description {
   line-height: 1.5em;
-  font-size: 15px;
+  font-size: 14px;
   max-width: 80%;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart {
@@ -207,7 +231,7 @@ body {
   justify-content: center;
   font-family: Open Sans;
   align-items: center;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   color: #FFF;
   display: flex;
@@ -235,7 +259,7 @@ body {
   text-decoration: none;
   align-items: center;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   color: #FFF;
   display: flex;
@@ -648,11 +672,12 @@ body {
   font-family: Raleway;
   font-weight: 700;
   color: #0be881;
-  font-size: 25px;
+  font-size: 20px;
   margin: 25px 0;
 }
 .footer .footer-wrapper .left .sitemap .sitemap-link {
   text-decoration: none;
+  font-size: 14px;
   color: #CCC;
 }
 .footer .footer-wrapper .left .sitemap .sitemap-link:not(:last-child) {
@@ -667,12 +692,13 @@ body {
 .footer .footer-wrapper .left .contact .contact-title {
   font-family: Raleway;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
   margin: 25px 0;
   color: #0be881;
 }
 .footer .footer-wrapper .left .contact .email {
   align-items: center;
+  font-size: 14px;
   color: #FFF;
   display: flex;
 }
@@ -690,9 +716,9 @@ body {
   color: #FFF;
 }
 .footer .copyright {
-  font-family: Raleway;
+  font-family: Open Sans;
   text-align: center;
   margin-top: 100px;
-  font-size: 20px;
+  font-size: 15px;
   color: #FFF;
 }

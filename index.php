@@ -4,6 +4,7 @@
 
 	include "./partials/html_begin.html";
 	include "./partials/navbar.php";
+
 ?>
 
 	<div class="main">

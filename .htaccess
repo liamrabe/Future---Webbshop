@@ -6,20 +6,29 @@ RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
 RewriteRule ^signout$ signout.php
 
+# API URLs
+RewriteRule ^api/user/([a-zA-Z0-9]+)$ api/user.php?id=$1
+RewriteRule ^api/users/([0-9]+)$ api/users.php?amount=$1
+RewriteRule ^api/all_users$ api/all_users.php
+RewriteRule ^api/all_users/(ASC|DESC)$ api/all_users.php?sort=$1
+
+# Admin URLs
+RewriteRule ^admin/overview$ admin/overview.php
+
 # Guestbook URLs
 RewriteCond %{THE_REQUEST} POST
-RewriteRule ^guestbook$ api/guestbook.php
+RewriteRule ^guestbook$ auth/guestbook.php
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^guestbook$ guestbook.php
 
 # Login/Register URLs
 RewriteCond %{THE_REQUEST} POST
-RewriteRule ^login$ api/login.php
+RewriteRule ^login$ auth/login.php
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^login$ login.php
 
 RewriteCond %{THE_REQUEST} POST
-RewriteRule ^register$ api/register.php
+RewriteRule ^register$ auth/register.php
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^register$ register.php
 

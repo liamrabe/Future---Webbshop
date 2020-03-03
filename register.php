@@ -18,9 +18,15 @@
 
 			<h1 class="form-title">Bli medlem</h1>
 
+			<label class="input-label" for="firstname">Förnamn</label>
+			<input type="text" placeholder="Förnamn" name="firstname" class="input" id="firstname" required>
+
+			<label class="input-label" for="username">Efternamn</label>
+			<input type="text" placeholder="Efternamn" name="lastname" class="input" id="efternamn" required>
+
 			<label class="input-label" for="username">Användarnamn</label>
 			<input type="text" placeholder="Användarnamn" name="username" class="input" id="username" required>
-			
+
 			<label class="input-label" for="password">Lösenord</label>
 			<input type="password" placeholder="Lösenord" name="password" class="input" id="password" required>
 			

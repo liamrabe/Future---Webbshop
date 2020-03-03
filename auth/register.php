@@ -12,6 +12,8 @@
 	}
 
 	$requiredinputs = [
+		"firstname",
+		"lastname",
 		"email",
 		"username",
 		"password"
@@ -20,9 +22,10 @@
 	foreach($requiredinputs as $input) {
 
 		// Först kollar vi om våran input är tom.
-		if(!isset($_POST[$input])) { die("$input måste existera."); }
+		if(!isset($_POST[$input])) { die("Icke-komplett formluär."); }
+
 		// Sedan kollar vi om den är tom.
-		if(empty($_POST[$input])) { die("$input får inte vara tom."); }
+		if(empty($_POST[$input])) { die("Icke-komplett formulär."); }
 
 		// Om våra variabler finns och inte är tomma kan vi
 		// börja processera dom.
@@ -32,6 +35,7 @@
 
 		// Filtrera inputs.
 		${$input} = strip_tags(${$input});
+		${$input} = trim(${$input});
 
 	}
 
@@ -63,6 +67,9 @@
 		die("Ogiltig e-post address.");
 	}
 
+	// Hämta Gravatar avatar baserat på email.
+	$avatar = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email)));
+
 	// Hasha lösenord och verifiera hashen.
 	$hash = password_hash($password, PASSWORD_BCRYPT);
 	if(!password_verify($password, $hash)) {
@@ -75,7 +82,18 @@
 	// Generera ett 255-bitars åtkomstnyckel.
 	$access_token = bin2hex(openssl_random_pseudo_bytes(255));
 
-	$stmt = $pdo->prepare("INSERT INTO users (username, email, password, access_token) VALUES (:username, :email, :password, :access_token)");
+	$stmt = $pdo->prepare(
+		"INSERT INTO users (
+			avatar, firstname, lastname, username, email, password, access_token
+		)
+		VALUES (
+			:avatar, :firstname, :lastname, :username, :email, :password, :access_token
+		)
+	");
+
+	$stmt->bindParam(":avatar", $avatar, PDO::PARAM_STR);
+	$stmt->bindParam(":firstname", $firstname, PDO::PARAM_STR);
+	$stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
 	$stmt->bindParam(":username", $username, PDO::PARAM_STR);
 	$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 	$stmt->bindParam(":password", $hash, PDO::PARAM_STR);
