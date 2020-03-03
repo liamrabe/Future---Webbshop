@@ -8,6 +8,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
+RewriteRule ^profile$ profile.php
 RewriteRule ^signout$ signout.php
 
 # API URLs
