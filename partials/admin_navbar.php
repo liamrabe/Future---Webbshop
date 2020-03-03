@@ -1,22 +1,3 @@
-<?php
-
-	require_once $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
-
-	// Kolla om variabel db finns och är en instans av Database-klassen.
-	if(isset($db)) {
-		if(!$db instanceof Database) {
-			$db = new Database();
-		}
-	}
-	else {
-		$db = new Database();
-	}
-
-	if($db->IsLoggedIn()) {
-		$username = $db->GetUsername();
-	}
-
-?>
 <div class="navbar">
 	<ul class="navbar-wrapper">
 		<div class="left">

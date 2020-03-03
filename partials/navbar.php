@@ -12,11 +12,8 @@
 		$db = new Database();
 	}
 
-	if($db->IsLoggedIn()) {
-		$username = $db->GetUsername();
-	}
-
-	$products = $db->GetProducts();
+	$products = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/products"));
+	$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$db->GetUserID()));
 
 ?>
 <div class="navbar">
@@ -31,7 +28,7 @@
 				<ul class="nav-dropdown">
 					<li class="dropdown-item">
 						<a href="/about" class="dropdown-link">Vår historia</a>
-					</li>	
+					</li>
 					<li class="dropdown-item">
 						<a href="/contact" class="dropdown-link">Kontakta oss</a>
 					</li>
@@ -46,8 +43,8 @@
 				<ul class="nav-dropdown">
 					<?php foreach($products as $product) { ?>
 						<li class="dropdown-item">
-							<a class="dropdown-link" href="/product/<?= $product["url"]; ?>">
-								<?= $product["name"]; ?>
+							<a class="dropdown-link" href="/product/<?= $product->url; ?>">
+								<?= $product->name; ?>
 							</a>
 						</li>
 					<?php } ?>
@@ -65,8 +62,8 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link">
-						<img class="avatar" src="<?= $db->GetAvatar(); ?>">
-						<?= $db->GetFullName(); ?>
+						<img class="avatar" src="<?= $user->avatar; ?>">
+						<?= $user->username; ?>
 						<span class="fas fa-angle-down icon-left"></span>
 					</a>
 					<ul class="nav-dropdown">

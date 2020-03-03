@@ -12,6 +12,8 @@
 
 	$pdo = $db->Login();
 
+	$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$db->GetUserID()));
+
 	// Hämta mängden användare i databasen.
 	$stmt = $pdo->prepare("SELECT username FROM users");
 	$stmt->execute();
@@ -35,7 +37,7 @@
 
 <div class="admin">
 	<div class="admin-wrapper">
-		<div class="admin-title"><?= $db->GetFullName(); ?></div>
+		<div class="admin-title"><?= $user->firstname . " " . $user->lastname; ?></div>
 		<section class="admin-section">
 			<div class="admin-stats">
 				<div class="stats-text">

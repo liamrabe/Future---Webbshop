@@ -1,30 +1,30 @@
 @font-face {
-  src: url("https://127.0.0.1/font/opensans-bold.ttf");
+  src: url("../../static/fonts/opensans-bold.ttf");
   font-family: Open Sans;
   font-weight: 700;
 }
 @font-face {
-  src: url("https://127.0.0.1/font/opensans-regular.ttf");
+  src: url("../../static/fonts/OpenSans-Regular.ttf");
   font-family: Open Sans;
   font-weight: 400;
 }
 @font-face {
-  src: url("https://127.0.0.1/font/opensans-light.ttf");
+  src: url("../../static/fonts/opensans-light.ttf");
   font-family: Open Sans;
   font-weight: 100;
 }
 @font-face {
-  src: url("https://127.0.0.1/font/raleway-bold.ttf");
+  src: url("../../static/fonts/raleway-bold.ttf");
   font-family: Raleway;
   font-weight: 700;
 }
 @font-face {
-  src: url("https://127.0.0.1/font/raleway-regular.ttf");
+  src: url("../../static/fonts/raleway-regular.ttf");
   font-family: Raleway;
   font-weight: 400;
 }
 @font-face {
-  src: url("https://127.0.0.1/font/raleway-thin.ttf");
+  src: url("../../static/fonts/raleway-thin.ttf");
   font-family: Raleway;
   font-weight: 100;
 }
@@ -137,10 +137,7 @@ body {
   height: 100vh;
 }
 .main .banner.homepage {
-  background-image: url("https://127.0.0.1/image/laptop-dark.jpg");
-}
-.main .banner.sea {
-  background-image: url("https://127.0.0.1/image/sea-banner.jpg");
+  background-image: url("../../static/images/laptop-dark.jpg");
 }
 .main .banner .product-showcase {
   position: absolute;
