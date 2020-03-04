@@ -662,42 +662,13 @@ body {
   text-decoration: underline;
 }
 .profile {
-  margin-top: 55px;
+  margin-top: 155px;
   overflow: hidden;
 }
 .profile .profile-wrapper {
   margin: 0 auto;
-  width: 80%;
-}
-.profile .profile-wrapper .profile-header {
-  background-color: #0a0d0f;
-  box-sizing: border-box;
-  margin-top: 50px;
-  color: #FFF;
   display: flex;
-  padding: 10px;
-}
-.profile .profile-wrapper .profile-header .avatar {
-  vertical-align: middle;
-  height: 80px;
-  width: 80px;
-}
-.profile .profile-wrapper .profile-header .profile-details {
-  width: calc(80% - 100px);
-  padding-left: 20px;
-}
-.profile .profile-wrapper .profile-header .profile-details .title {
-  font-weight: bold;
-  color: #0be881;
-  font-size: 15px;
-}
-.profile .profile-wrapper .profile-header .profile-details .title:not(:first-child) {
-  margin-top: 10px;
-}
-.profile .profile-wrapper .profile-header .profile-details .text {
-  margin-top: 2.5px;
-  font-size: 20px;
-  color: #FFF;
+  width: 70%;
 }
 .footer {
   background-color: #0a0d0f;

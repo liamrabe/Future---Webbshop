@@ -109,5 +109,42 @@
 
 		}
 
+		public function Pagination(string $table) {
+
+			$pdo = $this->Login();
+
+			// Hämta totala mängden inlägg i databasen.
+			$total = $pdo->query("SELECT count(*) FROM $table")->fetchColumn();
+
+			// Max 20 resultat per sida.
+			$limit = 20;
+
+			// Antalet sidor tillgängliga.
+			$pages = ceil($total / $limit);
+
+			$page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+				'options' => array(
+					'default'   => 1,
+					'min_range' => 1,
+				),
+			)));
+
+			$offset = ($page - 1) * $limit;
+			
+			$start = $offset + 1;
+			$end = min(($offset + $limit), $total);
+
+			return [
+				"offset" => $offset,
+				"limit" => $limit,
+				"pages" => $pages,
+				"total" => $total,
+				"start" => $start,
+				"page" => $page,
+				"end" => $end,
+			];
+
+		}
+
 	}
 ?>

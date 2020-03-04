@@ -7,14 +7,14 @@
 
 	$pdo = $db->Login();
 
-	$id = $_GET["id"];
+	$key = $_GET["key"];
 
 	$stmt = $pdo->prepare(
 		"SELECT firstname, lastname, avatar, username, email, reg_date
-		FROM users WHERE id = :id
+		FROM users WHERE access_token = :key
 	");
 
-	$stmt->bindParam(":id", $id, PDO::PARAM_STR);
+	$stmt->bindParam(":key", $key, PDO::PARAM_STR);
 	$stmt->execute();
 
 	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,9 +31,10 @@
 		echo '</user>';
 	}
 	else {
-		echo '<error>';
+		echo '<response>';
+			echo '<status>404</status>';
 			echo '<message>Ingen användare hittad</message>';
-		echo '</error>';
+		echo '</response>';
 	}
 
 

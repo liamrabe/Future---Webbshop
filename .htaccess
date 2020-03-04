@@ -13,10 +13,8 @@ RewriteRule ^signout$ signout.php
 
 # API URLs
 	# Användar-API
-	RewriteRule ^api/user/([a-zA-Z0-9]+)$ api/user.php?id=$1
-	RewriteRule ^api/users/([0-9]+)$ api/users.php?amount=$1
-	RewriteRule ^api/all_users$ api/all_users.php
-	RewriteRule ^api/all_users/(ASC|DESC)$ api/all_users.php?sort=$1
+	RewriteRule ^api/user/([a-zA-Z0-9]+)$ api/user.php?key=$1
+	RewriteRule ^api/users$ api/users.php
 
 	# Produkter
 	RewriteRule ^api/products$ api/products.php

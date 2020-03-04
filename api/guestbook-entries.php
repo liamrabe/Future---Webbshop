@@ -8,39 +8,26 @@
 
 	$pdo = $db->Login();
 	if(!$pdo) {
-		echo "<error>";
-			echo "<message>Kund inte komma åt databasen.</message>";
-		echo "</error>";
+		echo "<response>";
+			echo "<status>404</status>";
+			echo "<message>Kunde inte ansluta till databasen.</message>";
+		echo "</response>";
 		die();
 	}
 
+	$page = $_GET["page"];
+
 	try {
 
-		// Hämta totala mängden inlägg i databasen.
-		$total = $stmt = $pdo->query("SELECT count(*) FROM guestbook")->fetchColumn();
-
-		// Max 20 resultat per sida.
-		$limit = 20;
-
-		// Antalet sidor tillgängliga.
-		$pages = ceil($total / $limit);
-
-		$page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
-			'options' => array(
-				'default'   => 1,
-				'min_range' => 1,
-			),
-		)));
-
-		$offset = ($page - 1) * $limit;
-		
-		$start = $offset + 1;
-		$end = min(($offset + $limit), $total);
+		$pagination = $db->Pagination("guestbook");
+		if($page > $pagination["pages"]) {
+			header("location: /api/guestbook/entries/".$pagination["pages"]);
+		}
 
 		$stmt = $pdo->prepare("SELECT name, message, timestamp FROM guestbook ORDER BY id DESC LIMIT :limit OFFSET :offset");
 
-		$stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
-		$stmt->bindParam(":offset", $offset, PDO::PARAM_INT);
+		$stmt->bindParam(":limit", $pagination["limit"], PDO::PARAM_INT);
+		$stmt->bindParam(":offset", $pagination["offset"], PDO::PARAM_INT);
 
 		$stmt->execute();
 
@@ -51,11 +38,11 @@
 			echo "<response>";
 
 				echo "<status>200</status>";
-				echo "<page>$page</page>";
-				if($page != $pages) {
-					echo "<nextPage>".floor($page+1)."</nextPage>";
+				echo "<page>".$pagination["page"]."</page>";
+				if($pagination["page"] != $pagination["pages"]) {
+					echo "<nextPage>".floor($pagination["page"]+1)."</nextPage>";
 				}
-				echo "<lastPage>$pages</lastPage>";
+				echo "<lastPage>".$pagination["pages"]."</lastPage>";
 
 				echo "<entries>";
 					foreach($entries as $entry) {

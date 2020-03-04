@@ -45,6 +45,13 @@
 				<?php
 					if($entries->status == 200) {
 						foreach($entries->entries->entry as $entry) {
+
+							$message = preg_replace(
+								"/\\n/",
+								"<div class=\"line-break\"></div>",
+								$entry->message
+							);
+
 							echo "<div class=\"guestbook-entry\">";
 								echo "<div class=\"entry-title\">";
 									echo "<span class=\"name\">$entry->name</span>";
@@ -52,7 +59,7 @@
 								echo "<div class=\"entry-timestamp\">";
 									echo date("Y-m-d", strtotime($entry->created));
 								echo "</div>";
-								echo "<div class=\"entry-message\">$entry->message</div>";
+								echo "<div class=\"entry-message\">$message</div>";
 							echo "</div>";
 						}
 						if($entries->lastPage != 1) {
