@@ -520,6 +520,22 @@ body {
 .main .guestbook .guestbook-entries .guestbook-entry:not(:first-child) {
   margin-top: 50px;
 }
+.main .guestbook .pagination {
+  margin-top: 100px;
+}
+.main .guestbook .pagination .pagination-page {
+  margin-bottom: 10px;
+}
+.main .guestbook .pagination .pagination-links .pagination-link {
+  text-decoration: none;
+  color: #3c40c6;
+}
+.main .guestbook .pagination .pagination-links .pagination-link:not(:last-child) {
+  margin-left: 10px;
+}
+.main .guestbook .pagination .pagination-links .pagination-link:hover {
+  text-decoration: underline;
+}
 .form-body {
   background-image: url("https://127.0.0.1/image/czech-forrest.jpg");
   background-position: center;
