@@ -13,7 +13,10 @@
 	}
 
 	$products = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/products"));
-	$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$db->GetUserID()));
+
+	if($db->IsLoggedIn()) {
+		$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$db->GetUserID()));
+	}
 
 ?>
 <div class="navbar">
