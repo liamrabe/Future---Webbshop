@@ -2,12 +2,19 @@
 
 	include "../partials/html_begin.php";
 	include "../partials/navbar.php";
+
+	$token = bin2hex(random_bytes(32));
+	$db->setcookie("token", $token, "20minutes");
 	
 ?>
 
 <div class="main">
 	<div class="product-price">
-		<button class="product-addtocart">Add to cart</button>
+		<form action="/order" method="post">
+			<input type="hidden" value="<?= $token; ?>" name="token">
+			<input type="hidden" value="1" name="product_id">
+			<button class="product-addtocart">Add to cart</button>
+		</form>
 		<div class="price">14 999 kr</div>
 	</div>
 	<div class="product-view">
