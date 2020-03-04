@@ -611,9 +611,50 @@ body {
 	overflow: hidden;
 	.profile-wrapper {
 		margin: 0 auto;
-		display: flex;
-		
 		width: 70%;
+		.profile-header {
+			background-color: #FFF;
+			box-sizing: border-box;
+			overflow: hidden;
+			display: flex;
+			.profile-avatar {
+				height: 128px;
+				width: 128px;
+				img {
+					vertical-align: middle;
+					border-radius: 5px;
+					height: 100%;
+					width: 100%;
+				}
+			}
+			.profile-info {
+				align-items: flex-end;
+				padding-left: 20px;
+				height: 128px;
+				display: flex;
+				.profile-username {
+					font-family: Raleway;
+					margin-bottom: 5px;
+					font-weight: bold;
+					font-size: 30px;
+					color: #000;
+				}
+				.profile-registered {
+					margin-bottom: 5px;
+					font-size: 16px;
+					color: #000;
+				}
+				.profile-stats {
+					font-size: 14px;
+					display: flex;
+					color: #999;
+					.profile-stat {
+						svg { margin-right: 5px; }
+						&:not(:last-child) { margin-right: 20px; }
+					}
+				}
+			}
+		}
 	}
 }
 

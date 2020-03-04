@@ -667,8 +667,52 @@ body {
 }
 .profile .profile-wrapper {
   margin: 0 auto;
-  display: flex;
   width: 70%;
+}
+.profile .profile-wrapper .profile-header {
+  background-color: #FFF;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+}
+.profile .profile-wrapper .profile-header .profile-avatar {
+  height: 128px;
+  width: 128px;
+}
+.profile .profile-wrapper .profile-header .profile-avatar img {
+  vertical-align: middle;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+.profile .profile-wrapper .profile-header .profile-info {
+  align-items: flex-end;
+  padding-left: 20px;
+  height: 128px;
+  display: flex;
+}
+.profile .profile-wrapper .profile-header .profile-info .profile-username {
+  font-family: Raleway;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #000;
+}
+.profile .profile-wrapper .profile-header .profile-info .profile-registered {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #000;
+}
+.profile .profile-wrapper .profile-header .profile-info .profile-stats {
+  font-size: 14px;
+  display: flex;
+  color: #999;
+}
+.profile .profile-wrapper .profile-header .profile-info .profile-stats .profile-stat svg {
+  margin-right: 5px;
+}
+.profile .profile-wrapper .profile-header .profile-info .profile-stats .profile-stat:not(:last-child) {
+  margin-right: 20px;
 }
 .footer {
   background-color: #0a0d0f;
