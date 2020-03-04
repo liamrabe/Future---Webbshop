@@ -13,9 +13,11 @@
 	}
 
 	$products = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/products"));
+	$products = $products->products;
 
 	if($db->IsLoggedIn()) {
 		$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$_COOKIE["access_token"]));
+		$user = $user->user;
 	}
 
 ?>
@@ -44,7 +46,7 @@
 					<span class="fas fa-angle-down icon-left"></span>
 				</a>
 				<ul class="nav-dropdown">
-					<?php foreach($products as $product) { ?>
+					<?php foreach($products->product as $product) { ?>
 						<li class="dropdown-item">
 							<a class="dropdown-link" href="/product/<?= $product->url; ?>">
 								<?= $product->name; ?>
@@ -57,12 +59,6 @@
 		</div>
 		<div class="right">
 			<?php if($db->IsLoggedIn()) { ?>
-				<li class="nav-item">
-					<a href="/cart" class="nav-link">
-						<span class="fas fa-shopping-cart icon-right"></span>
-						0
-					</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link">
 						<img class="avatar" src="<?= $user->avatar; ?>">
