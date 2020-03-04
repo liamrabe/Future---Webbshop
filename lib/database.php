@@ -63,7 +63,9 @@
 			);
 		}
 
-		public function destroycookie($name) { return setcookie($name, null, 1); }
+		public function destroycookie(string $name) {
+			return setcookie($name, "", -1, "/", $_SERVER["SERVER_NAME"], true, false);
+		}
 
 		public function IsLoggedIn() {
 			if(isset($_COOKIE["access_token"]) && !empty($_COOKIE["access_token"])) {
