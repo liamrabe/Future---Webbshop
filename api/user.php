@@ -1,6 +1,6 @@
 <?php
 
-	//header("Content-Type: text/xml");
+	header("Content-Type: text/xml");
 
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
@@ -22,15 +22,19 @@
 	echo '<?xml version="1.0" encoding="UTF-8"?>';
 	if(count($user) == 1) {
 
-		echo '<user>';
-			echo '<username>'.$user[0]["username"].'</username>';
-			echo '<firstname>'.$user[0]["firstname"].'</firstname>';
-			echo '<lastname>'.$user[0]["lastname"].'</lastname>';
-			echo '<email>'.$user[0]["email"].'</email>';
-			echo '<registered>'.$user[0]["reg_date"].'</registered>';
-			echo '<avatar>'.$user[0]["avatar"].'</avatar>';
-			echo '<role>'.$user[0]["role"].'</role>';
-		echo '</user>';
+		echo '<response>';
+			echo '<status>200</status>';
+			echo '<user>';
+				echo '<id>'.$user[0]["id"].'</id>';
+				echo '<username>'.$user[0]["username"].'</username>';
+				echo '<firstname>'.$user[0]["firstname"].'</firstname>';
+				echo '<lastname>'.$user[0]["lastname"].'</lastname>';
+				echo '<email>'.$user[0]["email"].'</email>';
+				echo '<registered>'.$user[0]["reg_date"].'</registered>';
+				echo '<avatar>'.$user[0]["avatar"].'</avatar>';
+				echo '<role>'.$user[0]["role"].'</role>';
+			echo '</user>';
+		echo '</response>';
 
 	}
 	else {
