@@ -21,6 +21,9 @@ RewriteRule ^signout$ signout.php
 	# Produkter
 	RewriteRule ^api/products$ api/products.php
 
+	# Gästbok
+	RewriteRule ^api/guestbook/entries/([0-9]+)$ api/guestbook-entries.php?page=$1
+
 # Admin URLs
 RewriteRule ^admin/overview$ admin/overview.php
 
@@ -29,6 +32,8 @@ RewriteCond %{THE_REQUEST} POST
 RewriteRule ^guestbook$ auth/guestbook.php
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^guestbook$ guestbook.php
+
+RewriteRule ^guestbook/([0-9]+)$ guestbook.php?page=$1
 
 # Login/Register URLs
 RewriteCond %{THE_REQUEST} POST
