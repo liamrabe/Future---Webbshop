@@ -11,6 +11,10 @@ RewriteRule ^home$ index.php
 RewriteRule ^profile$ profile.php
 RewriteRule ^signout$ signout.php
 
+# Varukorg URLS
+RewriteCond %{THE_REQUEST} POST
+RewriteRule ^order$ auth/order.php
+
 # API URLs
 	# Användar-API
 	RewriteRule ^api/user/([a-zA-Z0-9]+)$ api/user.php?key=$1
@@ -18,6 +22,7 @@ RewriteRule ^signout$ signout.php
 
 	# Produkter
 	RewriteRule ^api/products$ api/products.php
+	RewriteRule ^api/product/([0-9]+)$ api/product.php?id=$1
 
 	# Gästbok
 	RewriteRule ^api/guestbook/entries/([0-9]+)$ api/guestbook-entries.php?page=$1
@@ -28,6 +33,7 @@ RewriteRule ^admin/overview$ admin/overview.php
 # Guestbook URLs
 RewriteCond %{THE_REQUEST} POST
 RewriteRule ^guestbook$ auth/guestbook.php
+
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^guestbook$ guestbook.php
 
@@ -36,11 +42,13 @@ RewriteRule ^guestbook/([0-9]+)$ guestbook.php?page=$1
 # Login/Register URLs
 RewriteCond %{THE_REQUEST} POST
 RewriteRule ^login$ auth/login.php
+
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^login$ login.php
 
 RewriteCond %{THE_REQUEST} POST
 RewriteRule ^register$ auth/register.php
+
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^register$ register.php
 

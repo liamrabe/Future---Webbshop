@@ -7,9 +7,11 @@
 
 	$pdo = $db->Login();
 
-	$stmt = $pdo->prepare(
-		"SELECT id, name, description, price, image, url FROM products"
-	);
+	$id = $_GET["id"];
+
+	$stmt = $pdo->prepare("SELECT id, name, description, price, image, url FROM products WHERE id = :id");
+	$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
 	$stmt->execute();
 
 	$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +20,6 @@
 	if(count($products) > 0) {
 		echo '<response>';
 			echo '<status>200</status>';
-			echo '<products>';
 			foreach($products as $product) {
 				echo '<product>';
 					echo '<id>'.$product["id"].'</id>';
@@ -29,15 +30,15 @@
 					echo '<description>'.$product["description"].'</description>';
 				echo '</product>';
 			}
-			echo '</products>';
 		echo '</response>';
 	}
 	else {
 		echo '<response>';
 			echo '<status>404</status>';
-			echo '<message>Misslyckades att hätma användare.</message>';
+			echo '<error>';
+				echo '<message>Hittade ingen produkt med det ID\'t.</message>';
+			echo '</error>';
 		echo '</response>';
 	}
-
 
 ?>
