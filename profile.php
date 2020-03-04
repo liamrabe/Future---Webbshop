@@ -10,6 +10,7 @@
 	include "./partials/navbar.php";
 
 	$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$_COOKIE["access_token"]));
+	$user = $user->user;
 
 ?>
 
