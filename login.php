@@ -2,7 +2,7 @@
 	require_once "./lib/database.php";
 	$db = new Database();
 
-	include "./partials/html_begin.html";
+	include "./partials/html_begin.php";
 	//include "./partials/navbar.php";
 
 	$token = bin2hex(random_bytes(32));
@@ -36,7 +36,6 @@
 	</div>
 </div>
 
-<script src="https://127.0.0.1/js/loginform.js"></script>
 <?php
 	//include "./partials/footer.php";
 	include "./partials/html_end.html";

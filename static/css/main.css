@@ -72,10 +72,9 @@ body {
 }
 .navbar .navbar-wrapper .nav-item .nav-link .avatar {
   vertical-align: middle;
-  border-radius: 100%;
   margin-right: 10px;
-  height: 20px;
-  width: 20px;
+  height: 32px;
+  width: 32px;
 }
 .navbar .navbar-wrapper .nav-item .nav-link .icon-left {
   margin-left: 10px;
@@ -537,7 +536,7 @@ body {
   text-decoration: underline;
 }
 .form-body {
-  background-image: url("https://127.0.0.1/image/czech-forrest.jpg");
+  background-image: url("../../static/images/czech-forrest.jpg");
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -662,57 +661,86 @@ body {
   text-decoration: underline;
 }
 .profile {
-  margin-top: 155px;
+  margin-top: 55px;
   overflow: hidden;
 }
-.profile .profile-wrapper {
-  margin: 0 auto;
+.profile .profile-header {
+  background-image: url("../../static/images/czech-forrest.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.profile .profile-header .profile-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: flex-end;
+  display: flex;
+  height: 300px;
+}
+.profile .profile-header .profile-background .profile-wrapper {
+  margin: 0 auto 20px auto;
+  align-items: center;
+  display: flex;
   width: 70%;
 }
-.profile .profile-wrapper .profile-header {
-  background-color: #FFF;
+.profile .profile-header .profile-background .profile-wrapper .profile-avatar {
+  margin-right: 40px;
+}
+.profile .profile-header .profile-background .profile-wrapper .profile-avatar img {
+  border: 5px solid rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-}
-.profile .profile-wrapper .profile-header .profile-avatar {
-  height: 128px;
-  width: 128px;
-}
-.profile .profile-wrapper .profile-header .profile-avatar img {
   vertical-align: middle;
-  border-radius: 5px;
-  height: 100%;
-  width: 100%;
 }
-.profile .profile-wrapper .profile-header .profile-info {
+.profile .profile-header .profile-background .profile-wrapper .profile-info {
   align-items: flex-end;
-  padding-left: 20px;
-  height: 128px;
   display: flex;
+  height: 128px;
 }
-.profile .profile-wrapper .profile-header .profile-info .profile-username {
+.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-title {
+  text-transform: uppercase;
   font-family: Raleway;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: bold;
   font-size: 30px;
-  color: #000;
+  color: #FFF;
 }
-.profile .profile-wrapper .profile-header .profile-info .profile-registered {
-  margin-bottom: 5px;
-  font-size: 16px;
-  color: #000;
+.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-text {
+  margin-bottom: 10px;
+  color: #FFF;
 }
-.profile .profile-wrapper .profile-header .profile-info .profile-stats {
-  font-size: 14px;
+.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats {
   display: flex;
-  color: #999;
 }
-.profile .profile-wrapper .profile-header .profile-info .profile-stats .profile-stat svg {
-  margin-right: 5px;
+.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats .profile-stat {
+  color: #FFF;
 }
-.profile .profile-wrapper .profile-header .profile-info .profile-stats .profile-stat:not(:last-child) {
+.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats .profile-stat:not(:last-child) {
   margin-right: 20px;
+}
+.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats .profile-stat svg {
+  margin-right: 10px;
+  color: #CCC;
+}
+.profile .profile-navbar {
+  border-bottom: 1px solid #CCC;
+  background-color: #FFF;
+}
+.profile .profile-navbar .profile-navbar-wrapper {
+  margin: 0 auto;
+  display: flex;
+  width: 70%;
+}
+.profile .profile-navbar .profile-navbar-wrapper .nav-link {
+  text-decoration: none;
+  align-items: center;
+  font-size: 15px;
+  color: #555;
+  display: flex;
+  height: 50px;
+}
+.profile .profile-navbar .profile-navbar-wrapper .nav-link:hover {
+  color: #000;
+}
+.profile .profile-navbar .profile-navbar-wrapper .nav-link:not(:last-child) {
+  margin-right: 40px;
 }
 .footer {
   background-color: #0a0d0f;

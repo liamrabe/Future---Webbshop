@@ -44,10 +44,9 @@ body {
 				height: 55px;
 				.avatar {
 					vertical-align: middle;
-					border-radius: 100%;
 					margin-right: 10px;
-					height: 20px;
-					width: 20px;
+					height: 32px;
+					width: 32px;
 				}
 				.icon-left { margin-left: 10px; }
 				.icon-right { margin-right: 10px; }
@@ -493,7 +492,7 @@ body {
 }
 
 .form-body {
-	background-image: url("https://127.0.0.1/image/czech-forrest.jpg");
+	background-image: url("../../static/images/czech-forrest.jpg");
 	background-position: center;
 	background-size: cover;
 	overflow: hidden;
@@ -607,52 +606,79 @@ body {
 }
 
 .profile {
-	margin-top: 155px;
+	margin-top: 55px;
 	overflow: hidden;
-	.profile-wrapper {
-		margin: 0 auto;
-		width: 70%;
-		.profile-header {
-			background-color: #FFF;
-			box-sizing: border-box;
-			overflow: hidden;
+	.profile-header {
+		background-image: url("../../static/images/czech-forrest.jpg");
+		background-position: center;
+		background-size: cover;
+		.profile-background {
+			background-color: rgba(0,0,0,.5);
+			align-items: flex-end;
 			display: flex;
-			.profile-avatar {
-				height: 128px;
-				width: 128px;
-				img {
-					vertical-align: middle;
-					border-radius: 5px;
-					height: 100%;
-					width: 100%;
-				}
-			}
-			.profile-info {
-				align-items: flex-end;
-				padding-left: 20px;
-				height: 128px;
+			height: 300px;
+			.profile-wrapper {
+				margin: 0 auto 20px auto;
+				align-items: center;
 				display: flex;
-				.profile-username {
-					font-family: Raleway;
-					margin-bottom: 5px;
-					font-weight: bold;
-					font-size: 30px;
-					color: #000;
-				}
-				.profile-registered {
-					margin-bottom: 5px;
-					font-size: 16px;
-					color: #000;
-				}
-				.profile-stats {
-					font-size: 14px;
-					display: flex;
-					color: #999;
-					.profile-stat {
-						svg { margin-right: 5px; }
-						&:not(:last-child) { margin-right: 20px; }
+				width: 70%;
+				.profile-avatar {
+					margin-right: 40px;
+					img {
+						border: 5px solid rgba(0,0,0,.5);
+						box-sizing: border-box;
+						vertical-align: middle;
 					}
 				}
+				.profile-info {
+					align-items: flex-end;
+					display: flex;
+					height: 128px;
+					.profile-title {
+						text-transform: uppercase;
+						font-family: Raleway;
+						margin-bottom: 10px;
+						font-weight: bold;
+						font-size: 30px;
+						color: #FFF;
+					}
+					.profile-text {
+						margin-bottom: 10px;
+						color: #FFF;
+					}
+					.profile-stats {
+						display: flex;
+						.profile-stat {
+							color: #FFF;
+							&:not(:last-child) {
+								margin-right: 20px;
+							}
+							svg {
+								margin-right: 10px;
+								color: #CCC;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.profile-navbar {
+		border-bottom: 1px solid #CCC;
+		background-color: #FFF;
+		.profile-navbar-wrapper {
+			margin: 0 auto;
+			display: flex;
+			width: 70%;
+			.nav-link {
+				text-decoration: none;
+				align-items: center;
+				font-size: 15px;
+				color: #555;
+				display: flex;
+				height: 50px;
+				&:hover { color: #000; }
+				&:not(:last-child) { margin-right: 40px; }
 			}
 		}
 	}

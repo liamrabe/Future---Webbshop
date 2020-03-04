@@ -95,8 +95,11 @@
 			$user_id = $this->GetUserID();
 
 			$pdo = $this->Login();
-			$stmt = $pdo->prepare("SELECT user_id FROM admins WHERE user_id = :user_id");
-			$stmt->bindParam(":user_id", $user_id, \PDO::PARAM_STR);
+			$stmt = $pdo->prepare(
+				"SELECT role FROM users WHERE role = 'admin'
+				AND id = :id
+			");
+			$stmt->bindParam(":id", $user_id, \PDO::PARAM_STR);
 			$stmt->execute();
 			$result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 

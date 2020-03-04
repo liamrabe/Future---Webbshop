@@ -7,7 +7,7 @@
 		header("location: /");
 	}
 
-	include $_SERVER["DOCUMENT_ROOT"] . "/partials/html_begin.html";
+	include $_SERVER["DOCUMENT_ROOT"] . "/partials/html_begin.php";
 	include $_SERVER["DOCUMENT_ROOT"] . "/partials/admin_navbar.php";
 
 	$pdo = $db->Login();

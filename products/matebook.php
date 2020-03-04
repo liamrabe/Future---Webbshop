@@ -1,6 +1,6 @@
 <?php
 
-	include "../partials/html_begin.html";
+	include "../partials/html_begin.php";
 	include "../partials/navbar.php";
 	
 ?>

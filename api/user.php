@@ -1,6 +1,6 @@
 <?php
 
-	header("Content-Type: text/xml");
+	//header("Content-Type: text/xml");
 
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
@@ -10,7 +10,7 @@
 	$key = $_GET["key"];
 
 	$stmt = $pdo->prepare(
-		"SELECT firstname, lastname, avatar, username, email, reg_date
+		"SELECT id, role, firstname, lastname, avatar, username, email, reg_date
 		FROM users WHERE access_token = :key
 	");
 
@@ -21,6 +21,7 @@
 
 	echo '<?xml version="1.0" encoding="UTF-8"?>';
 	if(count($user) == 1) {
+
 		echo '<user>';
 			echo '<username>'.$user[0]["username"].'</username>';
 			echo '<firstname>'.$user[0]["firstname"].'</firstname>';
@@ -28,7 +29,9 @@
 			echo '<email>'.$user[0]["email"].'</email>';
 			echo '<registered>'.$user[0]["reg_date"].'</registered>';
 			echo '<avatar>'.$user[0]["avatar"].'</avatar>';
+			echo '<role>'.$user[0]["role"].'</role>';
 		echo '</user>';
+
 	}
 	else {
 		echo '<response>';
