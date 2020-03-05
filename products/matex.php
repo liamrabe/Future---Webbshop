@@ -13,7 +13,7 @@
 		<form action="/order" method="post">
 			<input type="hidden" value="<?= $token; ?>" name="token">
 			<input type="hidden" value="1" name="product_id">
-			<button class="product-addtocart">Add to cart</button>
+			<button class="product-addtocart">Beställ</button>
 		</form>
 		<div class="price">14 999 kr</div>
 	</div>
@@ -36,5 +36,5 @@
 
 <?php
 	include "../partials/footer.php";
-	include "../partials/html_end.html";
+	include "../partials/html_end.php";
 ?>

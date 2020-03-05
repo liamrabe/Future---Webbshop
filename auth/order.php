@@ -25,28 +25,28 @@
 	// Simulera betalning.
 	$payment = rand(0, 1);
 
-	if($payment == 0) {
+	include "../partials/html_begin.php";
+	include "../partials/navbar.php";
 
-		// Betalning lyckades.
-		$stmt = $pdo->prepare("INSERT INTO orders (product_id, user_id) VALUES (:product_id, :user_id)");
-		$stmt->bindParam(":product_id", $product_id, PDO::PARAM_INT);
-		$stmt->bindParam(":user_id", $user->id, PDO::PARAM_INT);
+	// Lägg till beställning i databasen.
+	$stmt = $pdo->prepare("INSERT INTO orders (product_id, user_id, price) VALUES (:product_id, :user_id, :price)");
 
-		try {
-			$result = $stmt->execute();
-			include $_SERVER["DOCUMENT_ROOT"] . "/partials/order-success.php";
-		}
-		catch(PDOException $e) {
-			include $_SERVER["DOCUMENT_ROOT"] . "/partials/order-success.php";
-		}
+	$stmt->bindParam(":product_id", $product_id, PDO::PARAM_INT);
+	$stmt->bindParam(":user_id", $user->id, PDO::PARAM_INT);
 
+	// Vi sparar priset vid köpet i databasen så användaren inte behöver
+	// betala fullpris om dom köpte produkten under rea.
+	$stmt->bindParam(":price", $product->price, PDO::PARAM_INT);
 
+	try {
+		$result = $stmt->execute();
+		include $_SERVER["DOCUMENT_ROOT"] . "/partials/order-success.php";
 	}
-	else {
-
-		// Betalning misslyckades.
-		die("Betalning misslyckades.");
-
+	catch(PDOException $e) {
+		include $_SERVER["DOCUMENT_ROOT"] . "/partials/order-failed.php";
 	}
+
+	include "../partials/footer.php";
+	include "../partials/html_end.php";
 
 ?>

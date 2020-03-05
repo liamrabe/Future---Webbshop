@@ -3,6 +3,7 @@
 	$db = new Database();
 
 	include "./partials/html_begin.php";
+	include "./partials/small_navbar.php";
 	include "./partials/navbar.php";
 
 ?>
@@ -57,5 +58,5 @@
 
 <?php
 	include "./partials/footer.php";
-	include "./partials/html_end.html";
+	include "./partials/html_end.php";
 ?>

@@ -8,7 +8,7 @@
 	$pdo = $db->Login();
 
 	$stmt = $pdo->prepare(
-		"SELECT id, name, description, price, image, url FROM products"
+		"SELECT id, name, description, price, image, url, banner FROM products"
 	);
 	$stmt->execute();
 
@@ -25,6 +25,7 @@
 					echo '<name>'.$product["name"].'</name>';
 					echo '<price>'.$product["price"].'</price>';
 					echo '<image>../../static/images/'.$product["image"].'.png</image>';
+					echo '<banner>../../static/images/'.$product["banner"].'.png</banner>';
 					echo '<url>'.$product["url"].'</url>';
 					echo '<description>'.$product["description"].'</description>';
 				echo '</product>';

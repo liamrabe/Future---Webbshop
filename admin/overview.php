@@ -51,4 +51,4 @@
 	</div>
 </div>
 
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/partials/html_end.html"; ?>
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/partials/html_end.php"; ?>

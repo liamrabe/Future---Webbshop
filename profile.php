@@ -55,5 +55,5 @@
 
 <?php
 	//include "./partials/footer.php";
-	include "./partials/html_end.html";
+	include "./partials/html_end.php";
 ?>
