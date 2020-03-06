@@ -175,49 +175,13 @@ body {
 	}
 }
 
-.admin {
-	margin-top: 155px;
-	.admin-wrapper {
-		margin: 0 auto;
-		width: 75%;
-		.admin-title {
-			text-transform: uppercase;
-			font-family: Raleway;
-			font-weight: bold;
-			font-size: 30px;
-		}
-		.admin-section {
-			.admin-stats {
-				margin-top: 5px;
-				display: flex;
-				.stats-text {
-					font-size: 20px;
-					&:not(:last-child) {
-						margin-right: 20px;
-					}
-				}
-			}
-		}
-	}
-}
-
 .main {
 	.banner {
-		&.homepage {
-			background-image: url("../../static/images/laptop-dark.jpg");
-		}
-		//background-attachment: fixed;
+		background-image: url("../../static/images/laptop-dark.jpg");
 		background-position: center;
 		background-size: cover;
 		overflow: hidden;
 		height: 100vh;
-		.product-showcase {
-			position: absolute;
-			bottom:0;
-			right:0;
-			left:0;
-			top:0;
-		}
 		.banner-container {
 			background-image:
 				-webkit-linear-gradient(
@@ -244,7 +208,7 @@ body {
 						margin: 0 0 5px 0;
 						font-weight: 400;
 						color: #FFFFFF;
-						font-size: 75px;
+						font-size: 5em;
 					}
 					&-paragraph {
 						margin-bottom: 50px;
@@ -252,7 +216,7 @@ body {
 						line-height: 1.5em;
 						font-weight: 100;
 						color: #FFFFFF;
-						font-size: 30px;
+						font-size: 1.8em;
 					}
 				}
 			}
@@ -267,6 +231,10 @@ body {
 			margin: 0 auto;
 			width: 80%;
 			.products-title {
+				@media screen and (max-width: 950px) {
+					text-align: center;
+					width: 100%;
+				}
 				text-transform: uppercase;
 				font-family: Raleway;
 				margin-bottom: 40px;
@@ -280,15 +248,13 @@ body {
 				}
 				border: 1px solid #DDD;
 				box-sizing: border-box;
+				border-radius: 5px;
 				padding: 30px;
 				display: flex;
 				&:not(:last-child) { margin-bottom: 50px; }
 				.product-image {
 					@media screen and (max-width: 950px) {
-						background-repeat: no-repeat;
-						background-size: cover;
-						height: 300px;
-						width: 100%;
+						display: none;
 					}
 					background-position: center;
 					background-size: cover;
@@ -312,36 +278,42 @@ body {
 								font-family: Raleway;
 								margin-bottom: 10px;
 								font-weight: 900;
-								font-size: 20px;
-								color: #575fcf;
+								font-size: 30px;
+								color: #000;
 							}
 							&-description {
 								@media screen and (max-width: 950px) {
 									max-width: 100%;
 								}
 								line-height: 1.5em;
-								font-size: 14px;
+								font-size: 16px;
 								max-width: 80%;
 							}
 						}
 					}
 					.product-interact {
+						@media screen and (max-width: 950px) {
+							justify-content: center;
+							margin-top: 20px;
+							display: flex;
+						}
 						.product-viewproduct {
-							background-color: #0be881;
+							background-color: #575fcf;
 							justify-content: center;
 							font-family: Open Sans;
 							text-decoration: none;
 							align-items: center;
+							border-radius: 5px;
 							margin-top: 20px;
-							color: #0a0d0f;
 							font-size: 13px;
 							cursor: pointer;
 							display: flex;
+							color: #FFF;
 							height: 50px;
 							border: none;
 							width: 250px;
 							padding: 0;
-							&:hover { background-color: lighten(#0be881, 5%); }
+							&:hover { background-color: lighten(#575fcf, 5%); }
 							&:active { font-size: 13px; }
 							svg { margin-right: 10px; }
 						}
@@ -783,6 +755,39 @@ body {
 	}
 }
 
+.forum {
+	margin: 55px 0 100px 0;
+	.forum-wrapper {
+		@media screen and (max-width: 992px) {
+			width: 95%;
+		}
+		margin: 100px auto 0 auto;
+		width: 80%;
+		.forum-title {
+			font-weight: bold;
+			font-size: 30px;
+			&:not(:first-child) {
+				margin-top: 25px;
+			}
+		}
+		.forum-showcase {
+			a {
+				background-color: #575fcf;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				border-radius: 30px;
+				font-size: 14px;
+				padding: 0 20px;
+				color: #FFF;
+				height: 30px;
+				&:not(:last-child) { margin-right: 20px; }
+				&:hover { background-color: lighten(#575fcf, 5%); }
+			}
+		}
+	}
+}
+
 .order {
 	height: calc(100vh - 55px);
 	margin-top: 55px;
@@ -847,6 +852,13 @@ body {
 					margin: 25px 0;
 				}
 				.sitemap-link {
+					@media screen and (max-width: 950px) {
+						margin-right: 0px;
+						display: block;
+						&:not(:first-child) {
+							margin-top: 20px;
+						}
+					}
 					text-decoration: none;
 					font-size: 14px;
 					color: #CCC;

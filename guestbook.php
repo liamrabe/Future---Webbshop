@@ -15,7 +15,7 @@
 		$page = $_GET["page"];
 	}
 
-	$entries = new SimpleXMLElement(file_get_contents("https://liam.se/api/guestbook/entries/$page"));
+	$entries = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/guestbook/entries/$page"));
 
 	if($entries->status == 200) {
 		// Skicka användaren till sista sidan om

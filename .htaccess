@@ -8,6 +8,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
+RewriteRule ^forum$ forum.php
 RewriteRule ^profile$ profile.php
 RewriteRule ^signout$ signout.php
 
@@ -26,6 +27,9 @@ RewriteRule ^order$ auth/order.php
 
 	# Gästbok
 	RewriteRule ^api/guestbook/entries/([0-9]+)$ api/guestbook-entries.php?page=$1
+
+	# Forum inlägg
+	RewriteRule ^api/posts/([0-9]+)$ api/posts.php?page=$1
 
 # Admin URLs
 RewriteRule ^admin/overview$ admin/overview.php

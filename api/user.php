@@ -7,7 +7,7 @@
 
 	$pdo = $db->Login();
 
-	$key = $_GET["key"];
+	$id = $_GET["id"];
 
 	$stmt = $pdo->prepare(
 		"SELECT id, role, firstname, lastname, avatar, username, email, reg_date
@@ -43,6 +43,5 @@
 			echo '<message>Ingen användare hittad</message>';
 		echo '</response>';
 	}
-
 
 ?>

@@ -197,44 +197,12 @@ body {
   background-color: #141a1e;
   color: #FFF;
 }
-.admin {
-  margin-top: 155px;
-}
-.admin .admin-wrapper {
-  margin: 0 auto;
-  width: 75%;
-}
-.admin .admin-wrapper .admin-title {
-  text-transform: uppercase;
-  font-family: Raleway;
-  font-weight: bold;
-  font-size: 30px;
-}
-.admin .admin-wrapper .admin-section .admin-stats {
-  margin-top: 5px;
-  display: flex;
-}
-.admin .admin-wrapper .admin-section .admin-stats .stats-text {
-  font-size: 20px;
-}
-.admin .admin-wrapper .admin-section .admin-stats .stats-text:not(:last-child) {
-  margin-right: 20px;
-}
 .main .banner {
+  background-image: url("../../static/images/laptop-dark.jpg");
   background-position: center;
   background-size: cover;
   overflow: hidden;
   height: 100vh;
-}
-.main .banner.homepage {
-  background-image: url("../../static/images/laptop-dark.jpg");
-}
-.main .banner .product-showcase {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
 }
 .main .banner .banner-container {
   background-image: -webkit-linear-gradient(-90deg, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
@@ -259,7 +227,7 @@ body {
   margin: 0 0 5px 0;
   font-weight: 400;
   color: #FFFFFF;
-  font-size: 75px;
+  font-size: 5em;
 }
 .main .banner .banner-container .banner-wrapper .banner-paragraph {
   margin-bottom: 50px;
@@ -267,7 +235,7 @@ body {
   line-height: 1.5em;
   font-weight: 100;
   color: #FFFFFF;
-  font-size: 30px;
+  font-size: 1.8em;
 }
 .main .products {
   margin: 150px 0;
@@ -289,9 +257,16 @@ body {
   font-size: 40px;
   width: 80%;
 }
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper .products-title {
+    text-align: center;
+    width: 100%;
+  }
+}
 .main .products .products-wrapper .product {
   border: 1px solid #DDD;
   box-sizing: border-box;
+  border-radius: 5px;
   padding: 30px;
   display: flex;
 }
@@ -312,10 +287,7 @@ body {
 }
 @media screen and (max-width: 950px) {
   .main .products .products-wrapper .product .product-image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 300px;
-    width: 100%;
+    display: none;
   }
 }
 .main .products .products-wrapper .product .product-info-wrapper {
@@ -335,12 +307,12 @@ body {
   font-family: Raleway;
   margin-bottom: 10px;
   font-weight: 900;
-  font-size: 20px;
-  color: #575fcf;
+  font-size: 30px;
+  color: #000;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-info .product-description {
   line-height: 1.5em;
-  font-size: 14px;
+  font-size: 16px;
   max-width: 80%;
 }
 @media screen and (max-width: 950px) {
@@ -348,24 +320,32 @@ body {
     max-width: 100%;
   }
 }
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper .product .product-info-wrapper .product-interact {
+    justify-content: center;
+    margin-top: 20px;
+    display: flex;
+  }
+}
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct {
-  background-color: #0be881;
+  background-color: #575fcf;
   justify-content: center;
   font-family: Open Sans;
   text-decoration: none;
   align-items: center;
+  border-radius: 5px;
   margin-top: 20px;
-  color: #0a0d0f;
   font-size: 13px;
   cursor: pointer;
   display: flex;
+  color: #FFF;
   height: 50px;
   border: none;
   width: 250px;
   padding: 0;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct:hover {
-  background-color: #18f48e;
+  background-color: #6b72d5;
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct:active {
   font-size: 13px;
@@ -842,6 +822,42 @@ body {
 .profile .profile-navbar .profile-navbar-wrapper .nav-link:not(:last-child) {
   margin-right: 40px;
 }
+.forum {
+  margin: 55px 0 100px 0;
+}
+.forum .forum-wrapper {
+  margin: 100px auto 0 auto;
+  width: 80%;
+}
+@media screen and (max-width: 992px) {
+  .forum .forum-wrapper {
+    width: 95%;
+  }
+}
+.forum .forum-wrapper .forum-title {
+  font-weight: bold;
+  font-size: 30px;
+}
+.forum .forum-wrapper .forum-title:not(:first-child) {
+  margin-top: 25px;
+}
+.forum .forum-wrapper .forum-showcase a {
+  background-color: #575fcf;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 30px;
+  font-size: 14px;
+  padding: 0 20px;
+  color: #FFF;
+  height: 30px;
+}
+.forum .forum-wrapper .forum-showcase a:not(:last-child) {
+  margin-right: 20px;
+}
+.forum .forum-wrapper .forum-showcase a:hover {
+  background-color: #6b72d5;
+}
 .order {
   height: calc(100vh - 55px);
   margin-top: 55px;
@@ -918,6 +934,15 @@ body {
   text-decoration: none;
   font-size: 14px;
   color: #CCC;
+}
+@media screen and (max-width: 950px) {
+  .footer .footer-wrapper .left .sitemap .sitemap-link {
+    margin-right: 0px;
+    display: block;
+  }
+  .footer .footer-wrapper .left .sitemap .sitemap-link:not(:first-child) {
+    margin-top: 20px;
+  }
 }
 .footer .footer-wrapper .left .sitemap .sitemap-link:not(:last-child) {
   margin-right: 40px;
