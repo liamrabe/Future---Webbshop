@@ -6,6 +6,8 @@
 		private $database = "future";
 		private $hostname = "localhost";
 
+		public $api_key = "0j4sRxWBVUpiNIsuzUdrKyIPduBNZZbPx1cyYrD4nnAdZvlCoFfF8me4LQDtQRBKjyVm0WlAURUFmkvCKz36909Vgu1K1mrKnvADiTubvmjSKv1sjQv49kqtGN3Y1lx1oSFsN9sp1EME8Tq6oj9TS2dP0t3Ziyx70dGjDgyqb70bfsfx4hQq02UhdSHxxGckTQ2jciNXbmt9I8Z5e3WJqjIWnHXjxsWPc1lB4cjRWxDf04NOnAiA9eD9ldgsrOu";
+
 		function __construct() {
 
 			// Starta en session tillsammans med start av databas-klassen.
