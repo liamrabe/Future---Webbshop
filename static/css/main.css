@@ -34,14 +34,14 @@ body {
   font-size: 16px;
   margin: 0;
 }
-.navbar {
+.navbar.big {
   background-color: #0a0d0f;
   position: fixed;
   z-index: 9002;
   width: 100%;
   top: 0;
 }
-.navbar .navbar-wrapper {
+.navbar.big .navbar-wrapper {
   justify-content: space-between;
   list-style-type: none;
   margin: 0 auto;
@@ -49,33 +49,33 @@ body {
   padding: 0;
   width: 85%;
 }
-@media only screen and (max-width: 700px) {
-  .navbar .navbar-wrapper {
+@media only screen and (max-width: 850px) {
+  .navbar.big .navbar-wrapper {
     display: none;
   }
 }
 @media only screen and (max-width: 992px) {
-  .navbar .navbar-wrapper {
+  .navbar.big .navbar-wrapper {
     width: 100%;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .navbar .navbar-wrapper {
+  .navbar.big .navbar-wrapper {
     width: 85%;
   }
 }
-.navbar .navbar-wrapper .left,
-.navbar .navbar-wrapper .right {
+.navbar.big .navbar-wrapper .left,
+.navbar.big .navbar-wrapper .right {
   display: flex;
 }
-.navbar .navbar-wrapper .nav-item:hover .nav-link {
+.navbar.big .navbar-wrapper .nav-item:hover .nav-link {
   background-color: #141a1e;
   color: #FFF;
 }
-.navbar .navbar-wrapper .nav-item:hover .nav-dropdown {
+.navbar.big .navbar-wrapper .nav-item:hover .nav-dropdown {
   display: block;
 }
-.navbar .navbar-wrapper .nav-item .nav-link {
+.navbar.big .navbar-wrapper .nav-item .nav-link {
   text-decoration: none;
   align-items: center;
   padding: 0 20px;
@@ -85,19 +85,19 @@ body {
   color: #CCC;
   height: 55px;
 }
-.navbar .navbar-wrapper .nav-item .nav-link .avatar {
+.navbar.big .navbar-wrapper .nav-item .nav-link .avatar {
   vertical-align: middle;
   margin-right: 10px;
   height: 32px;
   width: 32px;
 }
-.navbar .navbar-wrapper .nav-item .nav-link .icon-left {
+.navbar.big .navbar-wrapper .nav-item .nav-link .icon-left {
   margin-left: 10px;
 }
-.navbar .navbar-wrapper .nav-item .nav-link .icon-right {
+.navbar.big .navbar-wrapper .nav-item .nav-link .icon-right {
   margin-right: 10px;
 }
-.navbar .navbar-wrapper .nav-item .nav-dropdown {
+.navbar.big .navbar-wrapper .nav-item .nav-dropdown {
   background-color: #141a1e;
   list-style-type: none;
   position: absolute;
@@ -107,7 +107,7 @@ body {
   padding: 0;
   margin: 0;
 }
-.navbar .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link {
+.navbar.big .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link {
   box-sizing: border-box;
   text-decoration: none;
   align-items: center;
@@ -117,44 +117,85 @@ body {
   display: flex;
   height: 50px;
 }
-.navbar .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link:hover {
+.navbar.big .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link:hover {
   background-color: #1e282e;
   color: #FFF;
 }
-.small_navbar {
+.navbar.small {
   background-color: #0a0d0f;
   position: fixed;
   margin: 0 auto;
   display: none;
   width: 100%;
+  top: 0;
 }
-@media only screen and (max-width: 700px) {
-  .small_navbar {
+@media only screen and (max-width: 850px) {
+  .navbar.small {
     display: block;
   }
 }
-.small_navbar .navbar-bar {
+.navbar.small .navbar-bar {
   padding-left: 20px;
 }
-.small_navbar .navbar-bar .navbar-toggle-button {
+.navbar.small .navbar-bar .navbar-toggle {
   background-color: transparent;
+  justify-content: center;
   font-family: Raleway;
   align-items: center;
+  font-size: 1.2em;
   cursor: pointer;
   font-size: 20px;
   display: flex;
   color: #FFF;
+  outline: none;
   height: 55px;
   border: none;
   padding: 0;
 }
-.small_navbar .navbar-bar .navbar-toggle-button svg {
-  margin-right: 10px;
-  font-size: 15px;
+.navbar.small .navbar-wrapper {
+  max-height: calc(100vh - 55px);
+  overflow: auto;
+  display: none;
 }
-.small_navbar .navbar-links .navbar-link {
+.navbar.small .navbar-wrapper .nav-item .nav-link {
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
   display: block;
-  padding: 10px;
+  font-size: 1em;
+  padding: 20px;
+  display: flex;
+  color: #CCC;
+}
+.navbar.small .navbar-wrapper .nav-item .nav-link img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.navbar.small .navbar-wrapper .nav-item .nav-link svg {
+  margin-left: 5px;
+}
+.navbar.small .navbar-wrapper .nav-item .nav-link:hover {
+  background-color: #141a1e;
+  color: #FFF;
+}
+.navbar.small .navbar-wrapper .nav-item .nav-dropdown {
+  list-style-type: none;
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar.small .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link {
+  text-decoration: none;
+  text-indent: 20px;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  padding: 20px;
+  color: #CCC;
+}
+.navbar.small .navbar-wrapper .nav-item .nav-dropdown .dropdown-item .dropdown-link:hover {
+  background-color: #141a1e;
+  color: #FFF;
 }
 .admin {
   margin-top: 155px;
@@ -235,6 +276,11 @@ body {
   margin: 0 auto;
   width: 80%;
 }
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper {
+    width: 95%;
+  }
+}
 .main .products .products-wrapper .products-title {
   text-transform: uppercase;
   font-family: Raleway;
@@ -249,6 +295,11 @@ body {
   padding: 30px;
   display: flex;
 }
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper .product {
+    display: block;
+  }
+}
 .main .products .products-wrapper .product:not(:last-child) {
   margin-bottom: 50px;
 }
@@ -259,10 +310,25 @@ body {
   height: 150px;
   width: 150px;
 }
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper .product .product-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+  }
+}
 .main .products .products-wrapper .product .product-info-wrapper {
   justify-content: space-between;
   width: calc(100% - 150px);
-  display: flex;
+  display: block;
+}
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper .product .product-info-wrapper {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+  }
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-info .product-title {
   text-transform: uppercase;
@@ -277,31 +343,10 @@ body {
   font-size: 14px;
   max-width: 80%;
 }
-.main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart {
-  background-color: #575fcf;
-  justify-content: center;
-  font-family: Open Sans;
-  align-items: center;
-  font-size: 13px;
-  cursor: pointer;
-  color: #FFF;
-  display: flex;
-  height: 50px;
-  border: none;
-  width: 250px;
-  padding: 0;
-}
-.main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart:hover {
-  background-color: #6b72d5;
-}
-.main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart:active {
-  font-size: 13px;
-}
-.main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart svg {
-  margin-right: 10px;
-}
-.main .products .products-wrapper .product .product-info-wrapper .product-interact .product-addtocart b {
-  margin-left: 10px;
+@media screen and (max-width: 950px) {
+  .main .products .products-wrapper .product .product-info-wrapper .product-info .product-description {
+    max-width: 100%;
+  }
 }
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct {
   background-color: #0be881;
@@ -840,9 +885,20 @@ body {
   display: flex;
   width: 80%;
 }
+@media screen and (max-width: 950px) {
+  .footer .footer-wrapper {
+    display: block;
+  }
+}
 .footer .footer-wrapper .left,
 .footer .footer-wrapper .right {
   width: 50%;
+}
+@media screen and (max-width: 950px) {
+  .footer .footer-wrapper .left,
+  .footer .footer-wrapper .right {
+    width: 100%;
+  }
 }
 .footer .footer-wrapper .left .footer-logo {
   text-transform: uppercase;
@@ -897,6 +953,11 @@ body {
 .footer .footer-wrapper .left .contact .email svg {
   margin-right: 10px;
   color: #FFF;
+}
+@media screen and (max-width: 950px) {
+  .footer .footer-wrapper .right {
+    margin-top: 50px;
+  }
 }
 .footer .copyright {
   font-family: Open Sans;

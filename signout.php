@@ -1,6 +1,6 @@
 <?php
 
-	require_once "./lib/database.php";
+	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
 
 	$db->destroycookie("access_token");

@@ -1,13 +1,11 @@
 <?php
-	require_once "./lib/database.php";
-	$db = new Database();
+
+	include "./partials/html_begin.php";
+	include "./partials/navbar.php";
 
 	if(!$db->IsLoggedIn()) {
 		header("location: /");
 	}
-
-	include "./partials/html_begin.php";
-	include "./partials/navbar.php";
 
 	$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$_COOKIE["access_token"]));
 	$user = $user->user;

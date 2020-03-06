@@ -1,15 +1,19 @@
 <?php
 
-	require_once "../lib/database.php";
-	$db = new Database();
+	include "../partials/html_begin.php";
+	include "../partials/navbar.php";
 
 	$pdo = $db->Login();
 	if(!$pdo) { die("Kunde ansluta till databasen."); }
 
+	if(!$db->IsLoggedIn()) {
+		header("location: /login");
+	}
+
 	// Verifiera CSRF-token.
-	//if(!$db->VerifyCSRFToken()) {
-	//	die("Din session är ogiltig.");
-	//}
+	if(!$db->VerifyCSRFToken()) {
+		die("Din session är ogiltig.");
+	}
 
 	if(isset($_POST["product_id"])) {
 		$product_id = $_POST["product_id"];
@@ -24,9 +28,6 @@
 
 	// Simulera betalning.
 	$payment = rand(0, 1);
-
-	include "../partials/html_begin.php";
-	include "../partials/navbar.php";
 
 	// Lägg till beställning i databasen.
 	$stmt = $pdo->prepare("INSERT INTO orders (product_id, user_id, price) VALUES (:product_id, :user_id, :price)");

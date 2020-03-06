@@ -6,7 +6,6 @@
 				<div class="sitemap-title">Översikt</div>
 				<a href="/home" class="sitemap-link">Hem</a>
 				<a href="/about" class="sitemap-link">Om oss</a>
-				<a href="/home#produkter" class="sitemap-link">Våra produkter</a>
 				<a href="/blog" class="sitemap-link">Blogg</a>
 				<a href="/contact" class="sitemap-link">Kontakt</a>
 				<a href="/guestbook" class="sitemap-link">Gästbok</a>

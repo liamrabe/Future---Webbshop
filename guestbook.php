@@ -1,10 +1,20 @@
 <?php
 
+	include "./partials/html_begin.php";
+
+	// Spara token i cookie innan headers har skickats.
+	$token = bin2hex(random_bytes(32));
+	$db->setcookie("token", $token, "20minutes");
+
+	include "./partials/navbar.php";
+
 	if(!isset($_GET["page"])) {
-		header("location: /guestbook/1");
+		$page = 1;
+	}
+	else {
+		$page = $_GET["page"];
 	}
 
-	$page = $_GET["page"];
 	$entries = new SimpleXMLElement(file_get_contents("https://liam.se/api/guestbook/entries/$page"));
 
 	if($entries->status == 200) {
@@ -14,16 +24,6 @@
 			header("location: /guestbook/".$entries->lastPage);
 		}
 	}
-
-	require_once "./lib/database.php";
-	$db = new Database();
-
-	$token = bin2hex(random_bytes(32));
-	$db->setcookie("token", $token, "20minutes");
-
-	include "./partials/html_begin.php";
-	include "./partials/navbar.php";
-
 
 ?>
 

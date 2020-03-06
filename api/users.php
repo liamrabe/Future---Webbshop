@@ -6,8 +6,12 @@
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
 
-	// Blockera förfrågningar från användare som inte
-	// är admins
+	// Blockera förfrågningar från användare som inte är inloggade.
+	if(!$db->IsLoggedIn()) {
+		header("location: /");
+	}
+	
+	// Blockera förfrågningar från användare som inte är admins.
 	if(!$db->IsAdmin()) {
 		header("location: /");
 	}
@@ -21,9 +25,14 @@
 		die();
 	}
 
+	$page = $_GET["page"];
+	
 	try {
 
 		$pagination = $db->Pagination("users");
+		if($page > $pagination["pages"]) {
+			header("location: /api/users/".$pagination["pages"]);
+		}
 
 		$stmt = $pdo->prepare(
 			"SELECT firstname, lastname, username, email, reg_date, avatar FROM users ORDER BY id DESC LIMIT :limit OFFSET :offset

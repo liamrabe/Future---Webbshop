@@ -18,7 +18,7 @@ RewriteRule ^order$ auth/order.php
 # API URLs
 	# Användar-API
 	RewriteRule ^api/user/([a-zA-Z0-9]+)$ api/user.php?key=$1
-	RewriteRule ^api/users$ api/users.php
+	RewriteRule ^api/users/([0-9]+)$ api/users.php?page=$1
 
 	# Produkter
 	RewriteRule ^api/products$ api/products.php

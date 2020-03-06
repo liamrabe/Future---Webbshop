@@ -1,8 +1,5 @@
 <?php
 
-	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
-	$db = new Database();
-
 	if(!$db->IsAdmin()) {
 		header("location: /");
 	}

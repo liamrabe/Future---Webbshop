@@ -1,9 +1,6 @@
 <?php
-	require_once "./lib/database.php";
-	$db = new Database();
 
 	include "./partials/html_begin.php";
-	//include "./partials/navbar.php";
 
 	$token = bin2hex(random_bytes(32));
 	$db->setcookie("token", $token, "20minutes");
@@ -36,7 +33,4 @@
 	</div>
 </div>
 
-<?php
-	//include "./partials/footer.php";
-	include "./partials/html_end.php";
-?>
+<?php include "./partials/html_end.php"; ?>

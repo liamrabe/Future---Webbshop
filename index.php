@@ -1,9 +1,6 @@
 <?php
-	require_once "./lib/database.php";
-	$db = new Database();
 
 	include "./partials/html_begin.php";
-	include "./partials/small_navbar.php";
 	include "./partials/navbar.php";
 
 ?>
