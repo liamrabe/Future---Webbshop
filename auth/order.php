@@ -23,17 +23,13 @@
 	$product = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/product/$product_id"));
 	$product = $product->product;
 
-	$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$_COOKIE["access_token"]));
-	$user = $user->user;
-
-	// Simulera betalning.
-	$payment = rand(0, 1);
+	$user = $db->GetUser();
 
 	// Lägg till beställning i databasen.
 	$stmt = $pdo->prepare("INSERT INTO orders (product_id, user_id, price) VALUES (:product_id, :user_id, :price)");
 
 	$stmt->bindParam(":product_id", $product_id, PDO::PARAM_INT);
-	$stmt->bindParam(":user_id", $user->id, PDO::PARAM_INT);
+	$stmt->bindParam(":user_id", $user["id"], PDO::PARAM_INT);
 
 	// Vi sparar priset vid köpet i databasen så användaren inte behöver
 	// betala fullpris om dom köpte produkten under rea.
