@@ -87,6 +87,7 @@ body {
 }
 .navbar.big .navbar-wrapper .nav-item .nav-link .avatar {
   vertical-align: middle;
+  border-radius: 5px;
   margin-right: 10px;
   height: 32px;
   width: 32px;
@@ -99,8 +100,10 @@ body {
 }
 .navbar.big .navbar-wrapper .nav-item .nav-dropdown {
   background-color: #141a1e;
+  border-radius: 0 0 5px 5px;
   list-style-type: none;
   position: absolute;
+  overflow: hidden;
   border-top: none;
   display: none;
   width: 300px;
@@ -169,6 +172,7 @@ body {
 }
 .navbar.small .navbar-wrapper .nav-item .nav-link img {
   vertical-align: middle;
+  border-radius: 5px;
   margin-right: 10px;
 }
 .navbar.small .navbar-wrapper .nav-item .nav-link svg {
@@ -834,6 +838,14 @@ body {
 }
 .forum .forum-wrapper .posts .post .post-content {
   font-size: 15px;
+}
+.forum .forum-wrapper .posts .post .post-comments {
+  text-decoration: none;
+  color: #575fcf;
+  font-size: 13px;
+}
+.forum .forum-wrapper .posts .post .post-comments:hover {
+  text-decoration: underline;
 }
 .forum .forum-wrapper .pagination {
   margin-top: 100px;

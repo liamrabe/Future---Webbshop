@@ -39,7 +39,9 @@
 							echo "<span class=\"timestamp\">".date("Y-m-d H:i", strtotime($post->created))."</span>";
 						echo "</div>";
 						echo "<div class=\"post-content\">".$post->content."</div>";
-						echo "<a href=\"/post/\">Kommentarer</a>";
+						echo "<a class=\"post-comments\" href=\"/post/$post->id\">";
+							echo $db->GetCommentCountFromPostID($post->id) . " Kommentar(er)";
+						echo "</a>";
 					echo "</div>";
 				}
 			?>
