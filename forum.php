@@ -1,5 +1,18 @@
 <?php
 
+	if(!isset($_GET["page"])) {
+		header("location: /forum/1");
+	}
+
+	$page = $_GET["page"];
+	$result = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/posts/$page"));
+	
+	if($page > $result->lastPage) {
+		header("location: /forum/$result->lastPage");
+	}
+
+	$posts = $result->posts->post;
+
 	include "./partials/html_begin.php";
 	include "./partials/navbar.php";
 
@@ -10,26 +23,41 @@
 
 	$communities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	$posts = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/posts/1"));
-	$posts = $posts->posts->post;
-
 ?>
 
 <div class="forum">
 	<div class="forum-wrapper">
-		<div class="forum-showcase">
-			<?php foreach($communities as $community) { ?>
-				<a href="/forum/<?= $community["url"]; ?>"><?= $community["name"]; ?></a>
-			<?php } ?>
-		</div>
-		<div class="forum-title">Inlägg</div>
+		<div class="forum-title">Diskussioner</div>
 		<div class="posts">
 			<?php
 				foreach($posts as $post) {
-					$author = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$post->user_id."/".$db->api_key));
-					echo '<div class="post">';
-						echo '<div class="post-title">'.$post->title.'</div>';
-					echo '</div>';
+					$user = $db->GetUserByID($post->user_id);
+					echo "<div class=\"post\">";
+						echo "<div class=\"post-header\">";
+							echo "<span class=\"head-text\">Skrivet av</span>";
+							echo "<a href=\"/profile/".$user["username"]."\" class=\"author\">".$user["username"]."</a>";
+							echo "<span class=\"timestamp\">".date("Y-m-d H:i", strtotime($post->created))."</span>";
+						echo "</div>";
+						echo "<div class=\"post-content\">".$post->content."</div>";
+						echo "<a href=\"/post/\">Kommentarer</a>";
+					echo "</div>";
+				}
+			?>
+		</div>
+		<div class="forum-pagination">
+			<?php
+				if($result->lastPage != 1) {
+					echo "<div class=\"pagination\">";
+						echo "<div class=\"pagination-page\">$result->page / $result->lastPage</div>";
+						echo "<div class=\"pagination-links\">";
+							if($page > 1) {
+								echo "<a class=\"pagination-link\" href=\"/forum/".floor($page - 1)."\">Förgående sida</a>";
+							}
+							if($page < $result->lastPage) {
+								echo "<a class=\"pagination-link\" href=\"/forum/".floor($page + 1)."\">Nästa sida</a>";
+							}
+						echo "</div>";
+					echo "</div>";
 				}
 			?>
 		</div>
@@ -37,6 +65,6 @@
 </div>
 
 <?php
-	//include "./partials/footer.php";
+	include "./partials/footer.php";
 	include "./partials/html_end.php";
 ?>
