@@ -407,6 +407,7 @@ body {
   background-color: #ff3f34;
   font-family: open sans;
   margin-bottom: 20px;
+  border-radius: 5px;
   font-size: 15px;
   cursor: pointer;
   color: #FFF;
@@ -454,12 +455,12 @@ body {
 .main .product-view .product-banner {
   background-repeat: no-repeat;
   background-position: center;
+  width: 52.08333333%;
   background-size: contain;
   justify-content: center;
   margin: 100px auto;
   display: flex;
   height: 750px;
-  width: 1000px;
 }
 .main .product-view .product-full-banner {
   background-repeat: no-repeat;
@@ -666,6 +667,48 @@ body {
 }
 .main .guestbook .pagination .pagination-links .pagination-link:hover {
   text-decoration: underline;
+}
+.admin .admin-wrapper {
+  margin: 155px auto 100px auto;
+  width: 75%;
+}
+@media screen and (max-width: 950px) {
+  .admin .admin-wrapper {
+    width: 100%;
+  }
+}
+.admin .admin-wrapper .admin-title {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 25px;
+}
+@media screen and (max-width: 950px) {
+  .admin .admin-wrapper .admin-title {
+    text-align: center;
+  }
+}
+.admin .admin-wrapper .admin-links {
+  background-color: #FFF;
+}
+.admin .admin-wrapper .admin-links .admin-link {
+  box-sizing: border-box;
+  text-decoration: none;
+  display: block;
+  color: #555;
+  padding: 10px;
+}
+@media screen and (max-width: 950px) {
+  .admin .admin-wrapper .admin-links .admin-link {
+    padding: 20px;
+  }
+}
+.admin .admin-wrapper .admin-links .admin-link:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.admin .admin-wrapper .admin-links .admin-link:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #000;
 }
 .form-body {
   background-image: url("../../static/images/czech-forrest.jpg");

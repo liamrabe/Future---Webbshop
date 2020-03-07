@@ -367,6 +367,7 @@ body {
 			background-color: #ff3f34;
 			font-family: open sans;
 			margin-bottom: 20px;
+			border-radius: 5px;
 			font-size: 15px;
 			cursor: pointer;
 			color: #FFF;
@@ -411,12 +412,12 @@ body {
 			&-banner {
 				background-repeat: no-repeat;
 				background-position: center;
+				width: 52.083333333333336%;
 				background-size: contain;
 				justify-content: center;
 				margin: 100px auto;
 				display: flex;
 				height: 750px;
-				width: 1000px;
 			}
 			&-full-banner {
 				background-repeat: no-repeat;
@@ -592,6 +593,45 @@ body {
 					color: #3c40c6;
 					&:not(:last-child) { margin-left: 10px; }
 					&:hover { text-decoration: underline; }
+				}
+			}
+		}
+	}
+}
+
+.admin {
+	.admin-wrapper {
+		@media screen and (max-width: 950px) {
+			width: 100%;
+		}
+		margin: 155px auto 100px auto;
+		width: 75%;
+		.admin-title {
+			@media screen and (max-width: 950px) {
+				text-align: center;
+			}
+			text-transform: uppercase;
+			margin-bottom: 20px;
+			font-weight: bold;
+			font-size: 25px;
+		}
+		.admin-links {
+			background-color: #FFF;
+			.admin-link {
+				@media screen and (max-width: 950px) {
+					padding: 20px;
+				}
+				box-sizing: border-box;
+				text-decoration: none;
+				display: block;
+				color: #555;
+				padding: 10px;
+				&:nth-child(even) {
+					background-color: rgba(0,0,0,.1);
+				}
+				&:hover {
+					background-color: rgba(0,0,0,.2);
+					color: #000;
 				}
 			}
 		}

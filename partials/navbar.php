@@ -137,9 +137,6 @@
 						<span class="fas fa-angle-down icon-left"></span>
 					</a>
 					<ul class="nav-dropdown">
-						<li class="dropdown-item">
-							<a href="/profile" class="dropdown-link">Profil</a>
-						</li>
 						<?php if($db->IsAdmin()) { ?>
 							<li class="dropdown-item">
 								<a href="/admin/overview" class="dropdown-link">
@@ -151,9 +148,6 @@
 							<a href="/profile/my-orders" class="dropdown-link">
 								Mina beställningar
 							</a>
-						</li>
-						<li class="dropdown-item">
-							<a href="/settings" class="dropdown-link">Inställningar</a>
 						</li>
 						<li class="dropdown-item">
 							<a href="/signout" class="dropdown-link">Logga ut</a>
