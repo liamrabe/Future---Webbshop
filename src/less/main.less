@@ -790,8 +790,16 @@ body {
 						&:hover { color: #000; }
 					}
 				}
+				.post-title {
+					font-weight: bold;
+					font-size: 20px;
+				}
 				.post-content {
 					font-size: 15px;
+					.line-break {
+						display: block;
+						height: 5px;
+					}
 				}
 				.post-comments {
 					text-decoration: none;
@@ -812,6 +820,45 @@ body {
 					color: #3c40c6;
 					&:not(:last-child) { margin-right: 10px; }
 					&:hover { text-decoration: underline; }
+				}
+			}
+		}
+	}
+}
+
+.forum-post {
+	.forum-post-wrapper {
+		margin: 155px auto 100px auto;
+		width: 80%;
+		.post-title {
+			margin-bottom: 20px;
+			font-weight: bold;
+			font-size: 25px;
+		}
+		.post-header {
+			align-items: center;
+			margin-bottom: 20px;
+			display: flex;
+			.avatar {
+				height: 64px;
+				width: 64px;
+				img {
+					vertical-align: middle;
+					border-radius: 5px;
+				}
+			}
+			.user-info {
+				width: calc(100% - 64px);
+				box-sizing: border-box;
+				padding-left: 20px;
+				.post-username {
+					font-weight: bold;
+					font-size: 20px;
+				}
+				.post-timestamp {
+					font-size: 14px;
+					margin-top: 2px;
+					color: #555;
 				}
 			}
 		}

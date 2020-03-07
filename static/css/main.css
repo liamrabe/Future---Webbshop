@@ -879,8 +879,16 @@ body {
 .forum .forum-wrapper .posts .post .post-header a:hover {
   color: #000;
 }
+.forum .forum-wrapper .posts .post .post-title {
+  font-weight: bold;
+  font-size: 20px;
+}
 .forum .forum-wrapper .posts .post .post-content {
   font-size: 15px;
+}
+.forum .forum-wrapper .posts .post .post-content .line-break {
+  display: block;
+  height: 5px;
 }
 .forum .forum-wrapper .posts .post .post-comments {
   text-decoration: none;
@@ -905,6 +913,42 @@ body {
 }
 .forum .forum-wrapper .pagination .pagination-links .pagination-link:hover {
   text-decoration: underline;
+}
+.forum-post .forum-post-wrapper {
+  margin: 155px auto 100px auto;
+  width: 80%;
+}
+.forum-post .forum-post-wrapper .post-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 25px;
+}
+.forum-post .forum-post-wrapper .post-header {
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+}
+.forum-post .forum-post-wrapper .post-header .avatar {
+  height: 64px;
+  width: 64px;
+}
+.forum-post .forum-post-wrapper .post-header .avatar img {
+  vertical-align: middle;
+  border-radius: 5px;
+}
+.forum-post .forum-post-wrapper .post-header .user-info {
+  width: calc(100% - 64px);
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+.forum-post .forum-post-wrapper .post-header .user-info .post-username {
+  font-weight: bold;
+  font-size: 20px;
+}
+.forum-post .forum-post-wrapper .post-header .user-info .post-timestamp {
+  font-size: 14px;
+  margin-top: 2px;
+  color: #555;
 }
 .order {
   height: calc(100vh - 55px);

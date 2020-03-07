@@ -32,14 +32,20 @@
 			<?php
 				foreach($posts as $post) {
 					$user = $db->GetUserByID($post->user_id);
+					$content = preg_replace(
+						"/\\n/",
+						"<div class=\"line-break\"></div>",
+						$post->content
+					);
 					echo "<div class=\"post\">";
 						echo "<div class=\"post-header\">";
 							echo "<span class=\"head-text\">Skrivet av</span>";
 							echo "<a href=\"/profile/".$user["username"]."\" class=\"author\">".$user["username"]."</a>";
 							echo "<span class=\"timestamp\">".date("Y-m-d H:i", strtotime($post->created))."</span>";
 						echo "</div>";
-						echo "<div class=\"post-content\">".$post->content."</div>";
-						echo "<a class=\"post-comments\" href=\"/post/$post->id\">";
+						echo "<div class=\"post-title\">".$post->title."</div>";
+						echo "<div class=\"post-content\">".$content."</div>";
+						echo "<a class=\"post-comments\" href=\"/forum/post/$post->id\">";
 							echo $db->GetCommentCountFromPostID($post->id) . " Kommentar(er)";
 						echo "</a>";
 					echo "</div>";

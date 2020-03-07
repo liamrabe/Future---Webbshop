@@ -49,6 +49,9 @@ RewriteRule ^guestbook$ guestbook.php
 
 RewriteRule ^guestbook/([0-9]+)$ guestbook.php?page=$1
 
+# Forum inlägg
+RewriteRule ^forum/post/([0-9]+)$ forum_post.php?id=$1
+
 # Login/Register URLs
 RewriteCond %{THE_REQUEST} POST
 RewriteRule ^login$ auth/login.php
