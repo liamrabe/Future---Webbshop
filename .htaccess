@@ -31,6 +31,10 @@ RewriteRule ^order$ auth/order.php
 	# Forum inlägg
 	RewriteRule ^api/posts/([0-9]+)$ api/posts.php?page=$1
 
+# Forum URLs
+RewriteRule ^forum$ forum.php
+RewriteRule ^forum/([0-9]+)$ forum.php?page=$1
+
 # Admin URLs
 RewriteRule ^admin/overview$ admin/overview.php
 
