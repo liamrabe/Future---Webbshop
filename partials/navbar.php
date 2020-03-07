@@ -4,8 +4,7 @@
 	$products = $products->products;
 
 	if($db->IsLoggedIn()) {
-		$user = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/user/".$db->GetUserID()."/".$db->api_key));
-		$user = $user->user;
+		$user = $db->GetUser();
 	}
 
 ?>
@@ -49,8 +48,8 @@
 		<?php if($db->IsLoggedIn()) { ?>
 			<li class="nav-item dropdown">
 				<a class="nav-link">
-					<img class="avatar" src="<?= $user->avatar; ?>?s=20">
-					<?= $user->username; ?>
+					<img class="avatar" src="<?= $user["avatar"]; ?>?s=20">
+					<?= $user["username"]; ?>
 					<span class="fas fa-angle-down icon-left"></span>
 				</a>
 				<ul class="nav-dropdown">
@@ -133,8 +132,8 @@
 			<?php if($db->IsLoggedIn()) { ?>
 				<li class="nav-item">
 					<a class="nav-link">
-						<img class="avatar" src="<?= $user->avatar; ?>">
-						<?= $user->username; ?>
+						<img class="avatar" src="<?= $user["avatar"]; ?>">
+						<?= $user["username"]; ?>
 						<span class="fas fa-angle-down icon-left"></span>
 					</a>
 					<ul class="nav-dropdown">

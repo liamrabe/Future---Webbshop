@@ -298,6 +298,9 @@ body {
 							display: flex;
 						}
 						.product-viewproduct {
+							@media screen and (max-width: 600px) {
+								width: 100%;
+							}
 							background-color: #575fcf;
 							justify-content: center;
 							font-family: Open Sans;
@@ -435,16 +438,27 @@ body {
 		}
 	}
 	.guestbook {
+		@media screen and (max-width: 950px) {
+			width: 100%;
+		}
 		margin: 155px auto 100px auto;
 		overflow: hidden;
 		width: 75%;
 		.guestbook-title {
+			@media screen and (max-width: 950px) {
+				margin: 0 auto 10px auto;
+				width: 95%;
+			}
 			text-transform: uppercase;
 			margin: 0 auto 10px auto;
 			font-family: Raleway;
 			font-size: 50px;
 		}
 		.guestbook-sub-title {
+			@media screen and (max-width: 950px) {
+				margin: 0 auto 10px auto;
+				width: 95%;
+			}
 			margin: 0 auto 25px auto;
 			text-transform: initial;
 			font-family: Raleway;
@@ -452,7 +466,15 @@ body {
 			font-size: 25px;
 		}
 		.guestbook-form {
+			@media screen and (max-width: 950px) {
+				margin: 0 auto;
+				width: 95%;
+			}
 			#name {
+				@media screen and (max-width: 950px) {
+					margin: 0 auto;
+					width: 100%;
+				}
 				border: 1px solid #AAA;
 				box-sizing: border-box;
 				font-family: Open Sans;
@@ -460,9 +482,13 @@ body {
 				font-size: 13px;
 				display: block;
 				padding: 10px;
-				width: 50%;
+				width: 75%;
 			}
 			#message {
+				@media screen and (max-width: 950px) {
+					margin: 25px auto 0 auto;
+					width: 100%;
+				}
 				border: 1px solid #AAA;
 				box-sizing: border-box;
 				font-family: Open Sans;
@@ -473,7 +499,7 @@ body {
 				display: block;
 				height: 250px;
 				padding: 10px;
-				width: 50%;
+				width: 75%;
 			}
 			#name, #message {
 				&::-moz-placeholder, &::placeholder, &::-webkit-input-placeholder {
@@ -515,6 +541,12 @@ body {
 			margin-top: 20px;
 			width: 100%;
 			.guestbook-entry {
+				@media screen and (max-width: 950px) {
+					border: 1px solid #CCC;
+					border-radius: 0px;
+					border-right: none;
+					border-left: none;
+				}
 				border: 1px solid #CCC;
 				box-sizing: border-box;
 				border-radius: 5px;
@@ -676,113 +708,61 @@ body {
 	}
 }
 
-.profile {
-	margin-top: 55px;
-	overflow: hidden;
-	.profile-header {
-		background-image: url("../../static/images/czech-forrest.jpg");
-		background-position: center;
-		background-size: cover;
-		.profile-background {
-			background-color: rgba(0,0,0,.5);
-			align-items: flex-end;
-			display: flex;
-			height: 300px;
-			.profile-wrapper {
-				margin: 0 auto 20px auto;
-				align-items: center;
-				display: flex;
-				width: 70%;
-				.profile-avatar {
-					margin-right: 40px;
-					img {
-						border: 5px solid rgba(0,0,0,.5);
-						box-sizing: border-box;
-						vertical-align: middle;
-					}
-				}
-				.profile-info {
-					align-items: flex-end;
-					display: flex;
-					height: 128px;
-					.profile-title {
-						text-transform: uppercase;
-						font-family: Raleway;
-						margin-bottom: 10px;
-						font-weight: bold;
-						font-size: 30px;
-						color: #FFF;
-					}
-					.profile-text {
-						margin-bottom: 10px;
-						color: #FFF;
-					}
-					.profile-stats {
-						display: flex;
-						.profile-stat {
-							color: #FFF;
-							&:not(:last-child) {
-								margin-right: 20px;
-							}
-							svg {
-								margin-right: 10px;
-								color: #CCC;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.profile-navbar {
-		border-bottom: 1px solid #CCC;
-		background-color: #FFF;
-		.profile-navbar-wrapper {
-			margin: 0 auto;
-			display: flex;
-			width: 70%;
-			.nav-link {
-				text-decoration: none;
-				align-items: center;
-				font-size: 15px;
-				color: #555;
-				display: flex;
-				height: 50px;
-				&:hover { color: #000; }
-				&:not(:last-child) { margin-right: 40px; }
-			}
-		}
-	}
-}
-
 .forum {
-	margin: 55px 0 100px 0;
+	margin-bottom: 100px;
+	margin-top: 155px;
 	.forum-wrapper {
-		@media screen and (max-width: 992px) {
+		@media screen and (max-width: 950px) {
 			width: 95%;
 		}
-		margin: 100px auto 0 auto;
-		width: 80%;
+		margin: 0 auto;
+		width: 60%;
 		.forum-title {
+			font-family: Open Sans;
+			margin-bottom: 50px;
 			font-weight: bold;
 			font-size: 30px;
-			&:not(:first-child) {
-				margin-top: 25px;
+		}
+		.posts {
+			.post {
+				border: 1px solid #AAA;
+				box-sizing: border-box;
+				border-radius: 5px;
+				margin: 0 auto;
+				padding: 10px;
+				width: 100%;
+				&:not(:first-child) {
+					margin-top: 20px;
+				}
+				.post-header {
+					font-size: 12px;
+					color: #AAA;
+					.head-text {
+						margin-right: 5px;
+					}
+					a {
+						margin-right: 5px;
+						color: #555;
+						&:hover { color: #000; }
+					}
+				}
+				.post-content {
+					font-size: 15px;
+				}
 			}
 		}
-		.forum-showcase {
-			a {
-				background-color: #575fcf;
-				text-decoration: none;
-				display: inline-flex;
-				align-items: center;
-				border-radius: 30px;
-				font-size: 14px;
-				padding: 0 20px;
-				color: #FFF;
-				height: 30px;
-				&:not(:last-child) { margin-right: 20px; }
-				&:hover { background-color: lighten(#575fcf, 5%); }
+		.pagination {
+			margin-top: 100px;
+			.pagination-page {
+				margin-bottom: 10px;
+			}
+			.pagination-links {
+				.pagination-link {
+					text-decoration: none;
+					color: #3c40c6;
+					&:not(:last-child) { margin-right: 10px; }
+					&:hover { text-decoration: underline; }
+				}
 			}
 		}
 	}

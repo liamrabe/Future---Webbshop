@@ -344,6 +344,11 @@ body {
   width: 250px;
   padding: 0;
 }
+@media screen and (max-width: 600px) {
+  .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct {
+    width: 100%;
+  }
+}
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct:hover {
   background-color: #6b72d5;
 }
@@ -478,11 +483,22 @@ body {
   overflow: hidden;
   width: 75%;
 }
+@media screen and (max-width: 950px) {
+  .main .guestbook {
+    width: 100%;
+  }
+}
 .main .guestbook .guestbook-title {
   text-transform: uppercase;
   margin: 0 auto 10px auto;
   font-family: Raleway;
   font-size: 50px;
+}
+@media screen and (max-width: 950px) {
+  .main .guestbook .guestbook-title {
+    margin: 0 auto 10px auto;
+    width: 95%;
+  }
 }
 .main .guestbook .guestbook-sub-title {
   margin: 0 auto 25px auto;
@@ -490,6 +506,18 @@ body {
   font-family: Raleway;
   font-weight: 400;
   font-size: 25px;
+}
+@media screen and (max-width: 950px) {
+  .main .guestbook .guestbook-sub-title {
+    margin: 0 auto 10px auto;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .main .guestbook .guestbook-form {
+    margin: 0 auto;
+    width: 95%;
+  }
 }
 .main .guestbook .guestbook-form #name {
   border: 1px solid #AAA;
@@ -499,7 +527,13 @@ body {
   font-size: 13px;
   display: block;
   padding: 10px;
-  width: 50%;
+  width: 75%;
+}
+@media screen and (max-width: 950px) {
+  .main .guestbook .guestbook-form #name {
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 .main .guestbook .guestbook-form #message {
   border: 1px solid #AAA;
@@ -512,7 +546,13 @@ body {
   display: block;
   height: 250px;
   padding: 10px;
-  width: 50%;
+  width: 75%;
+}
+@media screen and (max-width: 950px) {
+  .main .guestbook .guestbook-form #message {
+    margin: 25px auto 0 auto;
+    width: 100%;
+  }
 }
 .main .guestbook .guestbook-form #name::-moz-placeholder,
 .main .guestbook .guestbook-form #message::-moz-placeholder,
@@ -575,6 +615,14 @@ body {
   margin: 0 auto;
   padding: 20px;
   width: 100%;
+}
+@media screen and (max-width: 950px) {
+  .main .guestbook .guestbook-entries .guestbook-entry {
+    border: 1px solid #CCC;
+    border-radius: 0px;
+    border-right: none;
+    border-left: none;
+  }
 }
 .main .guestbook .guestbook-entries .guestbook-entry .entry-title {
   margin-bottom: 5px;
@@ -740,123 +788,68 @@ body {
 .form-body .form-container .form .link:hover {
   text-decoration: underline;
 }
-.profile {
-  margin-top: 55px;
-  overflow: hidden;
-}
-.profile .profile-header {
-  background-image: url("../../static/images/czech-forrest.jpg");
-  background-position: center;
-  background-size: cover;
-}
-.profile .profile-header .profile-background {
-  background-color: rgba(0, 0, 0, 0.5);
-  align-items: flex-end;
-  display: flex;
-  height: 300px;
-}
-.profile .profile-header .profile-background .profile-wrapper {
-  margin: 0 auto 20px auto;
-  align-items: center;
-  display: flex;
-  width: 70%;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-avatar {
-  margin-right: 40px;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-avatar img {
-  border: 5px solid rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-  vertical-align: middle;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info {
-  align-items: flex-end;
-  display: flex;
-  height: 128px;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-title {
-  text-transform: uppercase;
-  font-family: Raleway;
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 30px;
-  color: #FFF;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-text {
-  margin-bottom: 10px;
-  color: #FFF;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats {
-  display: flex;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats .profile-stat {
-  color: #FFF;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats .profile-stat:not(:last-child) {
-  margin-right: 20px;
-}
-.profile .profile-header .profile-background .profile-wrapper .profile-info .profile-stats .profile-stat svg {
-  margin-right: 10px;
-  color: #CCC;
-}
-.profile .profile-navbar {
-  border-bottom: 1px solid #CCC;
-  background-color: #FFF;
-}
-.profile .profile-navbar .profile-navbar-wrapper {
-  margin: 0 auto;
-  display: flex;
-  width: 70%;
-}
-.profile .profile-navbar .profile-navbar-wrapper .nav-link {
-  text-decoration: none;
-  align-items: center;
-  font-size: 15px;
-  color: #555;
-  display: flex;
-  height: 50px;
-}
-.profile .profile-navbar .profile-navbar-wrapper .nav-link:hover {
-  color: #000;
-}
-.profile .profile-navbar .profile-navbar-wrapper .nav-link:not(:last-child) {
-  margin-right: 40px;
-}
 .forum {
-  margin: 55px 0 100px 0;
+  margin-bottom: 100px;
+  margin-top: 155px;
 }
 .forum .forum-wrapper {
-  margin: 100px auto 0 auto;
-  width: 80%;
+  margin: 0 auto;
+  width: 60%;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 950px) {
   .forum .forum-wrapper {
     width: 95%;
   }
 }
 .forum .forum-wrapper .forum-title {
+  font-family: Open Sans;
+  margin-bottom: 50px;
   font-weight: bold;
   font-size: 30px;
 }
-.forum .forum-wrapper .forum-title:not(:first-child) {
-  margin-top: 25px;
+.forum .forum-wrapper .posts .post {
+  border: 1px solid #AAA;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
 }
-.forum .forum-wrapper .forum-showcase a {
-  background-color: #575fcf;
+.forum .forum-wrapper .posts .post:not(:first-child) {
+  margin-top: 20px;
+}
+.forum .forum-wrapper .posts .post .post-header {
+  font-size: 12px;
+  color: #AAA;
+}
+.forum .forum-wrapper .posts .post .post-header .head-text {
+  margin-right: 5px;
+}
+.forum .forum-wrapper .posts .post .post-header a {
+  margin-right: 5px;
+  color: #555;
+}
+.forum .forum-wrapper .posts .post .post-header a:hover {
+  color: #000;
+}
+.forum .forum-wrapper .posts .post .post-content {
+  font-size: 15px;
+}
+.forum .forum-wrapper .pagination {
+  margin-top: 100px;
+}
+.forum .forum-wrapper .pagination .pagination-page {
+  margin-bottom: 10px;
+}
+.forum .forum-wrapper .pagination .pagination-links .pagination-link {
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 30px;
-  font-size: 14px;
-  padding: 0 20px;
-  color: #FFF;
-  height: 30px;
+  color: #3c40c6;
 }
-.forum .forum-wrapper .forum-showcase a:not(:last-child) {
-  margin-right: 20px;
+.forum .forum-wrapper .pagination .pagination-links .pagination-link:not(:last-child) {
+  margin-right: 10px;
 }
-.forum .forum-wrapper .forum-showcase a:hover {
-  background-color: #6b72d5;
+.forum .forum-wrapper .pagination .pagination-links .pagination-link:hover {
+  text-decoration: underline;
 }
 .order {
   height: calc(100vh - 55px);

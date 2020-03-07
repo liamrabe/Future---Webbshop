@@ -45,7 +45,7 @@
 					echo '<post>';
 						echo '<user_id>'.$post["user_id"].'</user_id>';
 						echo '<id>'.$post["id"].'</id>';
-						echo '<name>'.$post["title"].'</name>';
+						echo '<title>'.$post["title"].'</title>';
 						echo '<content>'.$post["content"].'</content>';
 						echo '<created>'.$post["created"].'</created>';
 						echo '<updated>'.$post["updated"].'</updated>';

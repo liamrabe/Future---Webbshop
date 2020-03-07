@@ -19,7 +19,6 @@
 				</span>
 			</div>
 		</div>
-		<div class="right">Right</div>
 	</div>
 	<div class="copyright">
 		&copy; Viggo Stenroth & Future, 2020

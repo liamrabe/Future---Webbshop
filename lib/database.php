@@ -13,16 +13,15 @@
 			// Starta en session tillsammans med start av databas-klassen.
 			session_start();
 
-			// Ta bort CSRF-token om användaren inte behöver dom.
 			$requri = $_SERVER["REQUEST_URI"];
-
 			$CSRF_Forms = [
 				"/guestbook",
 				"/register",
 				"/login",
 			];
-
-			if(in_array($requri, $CSRF_Forms)) {
+			
+			// Ta bort CSRF-token om användaren inte behöver dom.
+			if(!in_array($requri, $CSRF_Forms)) {
 				$this->destroycookie("token");
 			}
 
@@ -111,6 +110,54 @@
 			else {
 				return false;
 			}
+
+		}
+
+		public function GetUser() {
+
+			$id = $this->GetUserID();
+			$pdo = $this->Login();
+
+			$stmt = $pdo->prepare("
+				SELECT id,username,email,avatar,firstname,lastname,reg_date
+				FROM users
+				WHERE id = :id
+			");
+			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+			$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $user[0];
+
+		}
+
+		public function GetUserByID($id) {
+
+			$pdo = $this->Login();
+
+			$stmt = $pdo->prepare("
+				SELECT id,username,email,avatar,firstname,lastname
+				FROM users
+				WHERE id = :id
+			");
+			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+			$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $user[0];
+
+		}
+
+		public function GetCommentCountFromPostID($id) {
+
+			$pdo = $this->Login();
+
+			$stmt = $pdo->prepare("SELECT count(*) FROM comments WHERE post_id = :id");
+			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+			$count = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $count[0]["count(*)"];
 
 		}
 
