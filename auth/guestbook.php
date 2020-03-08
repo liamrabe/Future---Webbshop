@@ -1,16 +1,18 @@
 <?php
 
+	require $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
+	$CSRF = new CSRF();
+
+	if(!$CSRF->Validate()) {
+		die("Din session är ogiltig.");
+	}
+
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
 
 	$pdo = $db->Login();
 	if(!$pdo) {
 		die("Det gick inte att ansluta till databasen, försök igen.");
-	}
-
-	// Verifiera CSRF-token.
-	if(!$db->VerifyCSRFToken()) {
-		die("Din session är ogiltig.");
 	}
 
 	$requiredinputs = [

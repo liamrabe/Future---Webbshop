@@ -1,15 +1,20 @@
 <?php
 
+	require $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
+	$CSRF = new CSRF();
+
+	if(!$CSRF->Validate()) {
+		die("Din session är ogiltig.");
+	}
+
+	// Ta bort CSRF-token, vi behöver den inte längre.
+	$CSRF->Remove();
+
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
 
 	$pdo = $db->Login();
 	if(!$pdo) { die("Kunde ansluta till databasen."); }
-
-	// Verifiera CSRF-token.
-	if(!$db->VerifyCSRFToken()) {
-		die("Din session är ogiltig.");
-	}
 
 	$requiredinputs = [
 		"username",
@@ -57,9 +62,11 @@
 
 	if(password_verify($password, $user["password"])) {
 
-		// Spara inloggningsstatus i 30dagar.
 		$access_token = $user["access_token"];
-		$db->setcookie("access_token", $access_token, "30days");
+		
+		// Spara inloggningsstatus i 30 dagar.
+		setcookie("access_token", $access_token, strtotime("+30days"), "/", $_SERVER["SERVER_NAME"], true, false);
+
 		header("location: /");
 
 	}

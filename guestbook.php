@@ -1,11 +1,14 @@
 <?php
 
+	include $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
+	$CSRF = new CSRF();
+
+	// Generera ett CSRF-token.
+	if(!$CSRF->Generate()) {
+		die("Din session är ogiltig, ladda om och försök igen.");
+	}
+
 	include "./partials/html_begin.php";
-
-	// Spara token i cookie innan headers har skickats.
-	$token = bin2hex(random_bytes(32));
-	$db->setcookie("token", $token, "20minutes");
-
 	include "./partials/navbar.php";
 
 	if(!isset($_GET["page"])) {
@@ -34,7 +37,7 @@
 			<h3 class="guestbook-sub-title">Alla inlägg är offentliga</h3>
 
 			<form action="/guestbook" autocomplete="off" method="post" class="guestbook-form">
-				<input type="hidden" name="token" value="<?= $token; ?>">
+				<input type="hidden" name="token" value="<?= $CSRF->token; ?>">
 				<input type="text" placeholder="Ditt namn" id="name" name="name" required>
 				<textarea placeholder="Ditt meddelande" id="message" name="message" required></textarea>
 				<button type="submit" id="submit" class="send-btn">Skicka</button>
