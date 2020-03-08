@@ -710,129 +710,210 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   color: #000;
 }
-.form-body {
-  background-image: url("../../static/images/czech-forrest.jpg");
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  height: 100vh;
-  width: 100%;
-}
-.form-body .form-container {
+.form-body.login {
+  background-color: #DDD;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   display: flex;
-  height: 100vh;
   width: 100%;
 }
-.form-body .form-container .form {
-  background-color: #FFF;
-  border-radius: 5px;
-  width: 450px;
-  padding: 40px;
+@media screen and (max-width: 800px) {
+  .form-body.login {
+    background-color: #FFF;
+  }
 }
-.form-body .form-container .form .form-title {
+.form-body.login .form-container {
+  background-color: #FFF;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 40px;
+  width: 750px;
+}
+@media screen and (max-width: 800px) {
+  .form-body.login .form-container {
+    border-radius: 0px;
+    width: 100%;
+  }
+}
+.form-body.login .form-container .form .form-title {
   text-transform: uppercase;
   font-family: Raleway;
   margin: 0 0 20px 0;
   text-align: center;
   font-size: 40px;
 }
-.form-body .form-container .form .input-label {
-  margin-bottom: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 20px;
+.form-body.login .form-container .form .input-label,
+.form-body.login .form-container .form .input {
+  margin-top: 20px;
   display: block;
 }
-.form-body .form-container .form .input {
-  border: 1px solid #AAA;
+.form-body.login .form-container .form .input-label {
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+.form-body.login .form-container .form .input {
+  border: 1px solid #CCC;
   box-sizing: border-box;
-  font-family: Open Sans;
-  margin-bottom: 30px;
   border-radius: 5px;
-  display: block;
   padding: 10px;
   width: 100%;
 }
-.form-body .form-container .form .input::-moz-placeholder,
-.form-body .form-container .form .input::placeholder,
-.form-body .form-container .form .input::-webkit-input-placeholder {
-  color: #999;
+.form-body.login .form-container .form .input::placeholder,
+.form-body.login .form-container .form .input::-moz-placeholder,
+.form-body.login .form-container .form .input::-webkit-input-placeholder {
+  color: #555;
   opacity: 1;
 }
-.form-body .form-container .form .input:focus {
-  border-color: #0a0d0f;
-  outline: none;
+.form-body.login .form-container .form .input:focus {
+  border-color: #000;
 }
-.form-body .form-container .form .input:focus::-moz-placeholder,
-.form-body .form-container .form .input:focus::placeholder,
-.form-body .form-container .form .input:focus::-webkit-input-placeholder {
-  color: transparent;
+.form-body.login .form-container .form .input:focus::placeholder,
+.form-body.login .form-container .form .input:focus::-moz-placeholder,
+.form-body.login .form-container .form .input:focus::-webkit-input-placeholder {
   opacity: 0;
 }
-.form-body .form-container .form .input:invalid {
-  box-shadow: none;
+.form-body.login .form-container .form .form_actions {
+  margin: 20px 0;
+  display: flex;
+  height: 40px;
+  width: 100%;
 }
-.form-body .form-container .form .button {
-  background-color: #0a0d0f;
+.form-body.login .form-container .form .form_actions .button {
+  background-color: transparent;
   justify-content: center;
-  box-sizing: border-box;
   font-family: Open Sans;
-  text-decoration: none;
-  display: inline-flex;
   align-items: center;
-  margin-bottom: 30px;
   border-radius: 5px;
-  text-align: center;
-  font-size: 13px;
-  cursor: pointer;
+  font-size: 14px;
+  display: flex;
   color: #FFF;
-  height: 42px;
+  width: 150px;
   border: none;
-  padding: 0;
-  width: 40%;
+  height: 35px;
 }
-.form-body .form-container .form .button:disabled {
-  background-color: #AAA;
-}
-.form-body .form-container .form .button:disabled:hover {
-  background-color: #919191;
-}
-.form-body .form-container .form .button:hover {
-  background-color: #1e272e;
-}
-.form-body .form-container .form .btn-link {
-  background-color: #ff3f34;
-  justify-content: center;
-  box-sizing: border-box;
-  font-family: Open Sans;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 30px;
-  border-radius: 5px;
-  text-align: center;
-  margin-left: 10px;
-  font-size: 13px;
+.form-body.login .form-container .form .form_actions .button.submit {
+  background-color: #575fcf;
+  margin-right: 10px;
   cursor: pointer;
-  color: #FFF;
-  height: 42px;
-  border: none;
-  width: 40%;
 }
-.form-body .form-container .form .btn-link:hover {
-  background-color: #ff574e;
+.form-body.login .form-container .form .form_actions .button.submit:hover {
+  background-color: #6b72d5;
 }
-.form-body .form-container .form .text {
-  display: block;
-  color: #000;
+.form-body.login .form-container .form .text {
+  font-size: 13px;
 }
-.form-body .form-container .form .link {
+.form-body.login .form-container .form .text .link {
   text-decoration: none;
   color: #575fcf;
 }
-.form-body .form-container .form .link:hover {
+.form-body.login .form-container .form .text .link:hover {
+  color: #6b72d5;
+  text-decoration: underline;
+}
+.form-body.register {
+  padding: 155px 0 100px 0;
+  background-color: #DDD;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .form-body.register {
+    background-color: #FFF;
+    padding: 155px 0 100px 0;
+  }
+}
+.form-body.register .form-container {
+  background-color: #FFF;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 40px;
+  width: 750px;
+}
+@media screen and (max-width: 800px) {
+  .form-body.register .form-container {
+    border-radius: 0px;
+    width: 100%;
+  }
+}
+.form-body.register .form-container .form .form-title {
+  text-transform: uppercase;
+  font-family: Raleway;
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-size: 40px;
+}
+.form-body.register .form-container .form .input-label,
+.form-body.register .form-container .form .input {
+  margin-top: 20px;
+  display: block;
+}
+.form-body.register .form-container .form .input-label {
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+.form-body.register .form-container .form .input {
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+.form-body.register .form-container .form .input::placeholder,
+.form-body.register .form-container .form .input::-moz-placeholder,
+.form-body.register .form-container .form .input::-webkit-input-placeholder {
+  color: #555;
+  opacity: 1;
+}
+.form-body.register .form-container .form .input:focus {
+  border-color: #000;
+}
+.form-body.register .form-container .form .input:focus::placeholder,
+.form-body.register .form-container .form .input:focus::-moz-placeholder,
+.form-body.register .form-container .form .input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.form-body.register .form-container .form .form_actions {
+  margin: 20px 0;
+  display: flex;
+  height: 40px;
+  width: 100%;
+}
+.form-body.register .form-container .form .form_actions .button {
+  background-color: transparent;
+  justify-content: center;
+  font-family: Open Sans;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  color: #FFF;
+  width: 150px;
+  border: none;
+  height: 35px;
+}
+.form-body.register .form-container .form .form_actions .button.submit {
+  background-color: #575fcf;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.form-body.register .form-container .form .form_actions .button.submit:hover {
+  background-color: #6b72d5;
+}
+.form-body.register .form-container .form .text {
+  font-size: 13px;
+}
+.form-body.register .form-container .form .text .link {
+  text-decoration: none;
+  color: #575fcf;
+}
+.form-body.register .form-container .form .text .link:hover {
+  color: #6b72d5;
   text-decoration: underline;
 }
 .forum {
