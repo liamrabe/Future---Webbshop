@@ -1031,6 +1031,44 @@ body {
   margin-top: 2px;
   color: #555;
 }
+.profile {
+  margin-top: 55px;
+  overflow: hidden;
+}
+.profile .profile-wrapper {
+  margin: 0 auto;
+  width: 85%;
+}
+.profile .profile-wrapper .profile-banner {
+  border-radius: 5px;
+  margin-top: 50px;
+  overflow: hidden;
+  display: flex;
+}
+.profile .profile-wrapper .profile-banner .avatar {
+  vertical-align: middle;
+  border-radius: 5px;
+}
+.profile .profile-wrapper .profile-banner .user-info {
+  width: calc(100% - 128px);
+  box-sizing: border-box;
+  padding: 0 0 0 20px;
+  align-items: center;
+  height: 128px;
+  display: flex;
+}
+.profile .profile-wrapper .profile-banner .user-info .user-username {
+  text-transform: uppercase;
+  font-family: Raleway;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 30px;
+}
+.profile .profile-wrapper .profile-banner .user-info .user-registered {
+  font-weight: 400;
+  font-size: 15px;
+  color: #555;
+}
 .order {
   height: calc(100vh - 55px);
   margin-top: 55px;

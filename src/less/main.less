@@ -942,6 +942,47 @@ body {
 	}
 }
 
+.profile {
+	margin-top: 55px;
+	overflow: hidden;
+	.profile-wrapper {
+		margin: 0 auto;
+		width: 85%;
+		.profile-banner {
+			border-radius: 5px;
+			margin-top: 50px;
+			overflow: hidden;
+			display: flex;
+			.avatar {
+				vertical-align: middle;
+				border-radius: 5px;
+			}
+			.user-info {
+				width: calc(100% - 128px);
+				box-sizing: border-box;
+				padding: 0 0 0 20px;
+				align-items: center;
+				height: 128px;
+				display: flex;
+				.user {
+					&-username {
+						text-transform: uppercase;
+						font-family: Raleway;
+						margin-bottom: 5px;
+						font-weight: bold;
+						font-size: 30px;
+					}
+					&-registered {
+						font-weight: 400;
+						font-size: 15px;
+						color: #555;
+					}
+				}
+			}
+		}
+	}
+}
+
 .order {
 	height: calc(100vh - 55px);
 	margin-top: 55px;
