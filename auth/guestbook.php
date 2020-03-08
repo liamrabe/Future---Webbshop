@@ -7,6 +7,9 @@
 		die("Din session är ogiltig.");
 	}
 
+	// Ta bort CSRF-token, vi behöver den inte längre.
+	$CSRF->Remove();
+
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
 

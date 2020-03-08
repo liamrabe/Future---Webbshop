@@ -1,5 +1,12 @@
 <?php
 
+	require $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
+	$CSRF = new CSRF();
+
+	if(!$CSRF->Validate()) {
+		die("Din session är ogiltig.");
+	}
+
 	include "../partials/html_begin.php";
 	include "../partials/navbar.php";
 
@@ -8,11 +15,6 @@
 
 	if(!$db->IsLoggedIn()) {
 		header("location: /login");
-	}
-
-	// Verifiera CSRF-token.
-	if(!$db->VerifyCSRFToken()) {
-		die("Din session är ogiltig.");
 	}
 
 	if(isset($_POST["product_id"])) {
