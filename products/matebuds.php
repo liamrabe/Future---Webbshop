@@ -1,10 +1,14 @@
 <?php
 
+	include $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
+	$CSRF = new CSRF();
+
+	// Generera ett CSRF-token.
+	if(!$CSRF->Generate()) {
+		die("Din session är ogiltig, ladda om och försök igen.");
+	}
+
 	include "../partials/html_begin.php";
-
-	$token = bin2hex(random_bytes(32));
-	$db->setcookie("token", $token, "20minutes");
-
 	include "../partials/navbar.php";
 
 ?>
