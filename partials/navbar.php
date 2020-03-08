@@ -137,6 +137,11 @@
 						<span class="fas fa-angle-down icon-left"></span>
 					</a>
 					<ul class="nav-dropdown">
+						<li class="dropdown-item">
+							<a href="/profile" class="dropdown-link">
+								Profile
+							</a>
+						</li>
 						<?php if($db->IsAdmin()) { ?>
 							<li class="dropdown-item">
 								<a href="/admin/overview" class="dropdown-link">
