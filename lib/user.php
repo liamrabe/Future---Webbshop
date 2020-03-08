@@ -9,17 +9,19 @@
 		public $birthday;
 		public $gender;
 		public $registered;
+		public $avatar;
 
 		// Konvertera assoc array till klass array.
 		public function Set($user) {
-			$this->id = $user[0]["id"];
-			$this->username = $user[0]["username"];
-			$this->email = $user[0]["email"];
-			$this->firstname = $user[0]["firstname"];
-			$this->lastname = $user[0]["lastname"];
-			$this->birthday = $user[0]["birthday"];
-			$this->gender = $user[0]["gender"];
-			$this->registered = $user[0]["reg_date"];
+			$this->id = $user["id"];
+			$this->username = $user["username"];
+			$this->email = $user["email"];
+			$this->firstname = $user["firstname"];
+			$this->lastname = $user["lastname"];
+			$this->birthday = date("Y-m-d", strtotime($user["birthday"]));
+			$this->gender = $user["gender"];
+			$this->registered = date("Y-m-d", strtotime($user["reg_date"]));
+			$this->avatar = $user["avatar"];
 		}
 
 	}

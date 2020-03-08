@@ -78,7 +78,7 @@
 			$pdo = $this->Login();
 
 			$stmt = $pdo->prepare("
-				SELECT id,username,email,avatar,firstname,lastname,reg_date
+				SELECT id,username,email,gender,birthday,avatar,firstname,lastname,reg_date
 				FROM users
 				WHERE id = :id
 			");
