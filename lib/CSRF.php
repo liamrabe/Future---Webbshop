@@ -28,9 +28,9 @@
 
 		public function Validate() {
 			// Kolla om båda tokens har skickats med förfrågan.
-			if(isset($_COOKIE["token"]) && $_POST["token"]) {
+			if(isset($_COOKIE["token"]) && isset($_POST["token"])) {
 				// Kolla om båda tokens är likadana.
-				if(hash_equals($_POST["token"], $_COOKIE["token"])) {
+				if(hash_equals($_COOKIE["token"], $_POST["token"])) {
 					return true;
 				}
 				else {

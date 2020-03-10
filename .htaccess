@@ -8,13 +8,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
+RewriteRule ^about$ about.php
 RewriteRule ^forum$ forum.php
 RewriteRule ^profile$ profile.php
 RewriteRule ^signout$ signout.php
-
-# Varukorg URLS
-RewriteCond %{THE_REQUEST} POST
-RewriteRule ^order$ auth/order.php
 
 # API URLs
 	# Användar-API
@@ -40,7 +37,7 @@ RewriteRule ^admin/overview$ admin/overview.php
 RewriteRule ^admin/orders$ admin/orders.php
 RewriteRule ^admin/order$ admin/order.php
 
-# Guestbook URLs
+# Gästbook URLs
 RewriteCond %{THE_REQUEST} POST
 RewriteRule ^guestbook$ auth/guestbook.php
 
@@ -65,7 +62,13 @@ RewriteRule ^register$ auth/register.php
 RewriteCond %{THE_REQUEST} GET
 RewriteRule ^register$ register.php
 
+# Produkt URLs
+RewriteCond %{THE_REQUEST} POST
+RewriteRule ^product/([a-zA-Z]+)$ auth/order.php
+
+RewriteCond %{THE_REQUEST} GET
 RewriteRule ^product/([a-zA-Z]+)$ products/$1.php
+
 RewriteRule ^product/([a-zA-Z\-]+)/image/(.+)\.(jpg|png)$ static/images/$1/$2.$3
 RewriteRule ^product/([a-zA-Z\-]+)/video/(.+)\.(mp4)$ static/videos/$1/$2.$3
 

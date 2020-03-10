@@ -1,11 +1,18 @@
 <?php
 
+	highlight_string(var_export($_POST, true));
+
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
 	$CSRF = new CSRF();
 
 	if(!$CSRF->Validate()) {
+		// Ta bort CSRF-token, vi behöver den inte längre.
+		$CSRF->Remove();
 		die("Din session är ogiltig.");
 	}
+
+	// Ta bort CSRF-token, vi behöver den inte längre.
+	$CSRF->Remove();
 
 	include "../partials/html_begin.php";
 	include "../partials/navbar.php";

@@ -362,127 +362,6 @@ body {
 .main .products .products-wrapper .product .product-info-wrapper .product-interact .product-viewproduct svg {
   margin-right: 10px;
 }
-.main .product-price-banner {
-  border-bottom: 1px solid #d2dae2;
-}
-.main .product-price-banner .price-banner-wrapper {
-  text-align: right;
-  padding: 20px 0;
-  width: 80%;
-}
-.main .product-price-banner .price-banner-wrapper .price {
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 25px;
-}
-.main .product-price-banner .price-banner-wrapper .addtocart-btn {
-  background-color: #ff3f34;
-  justify-content: center;
-  font-family: Open Sans;
-  align-items: center;
-  margin-top: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  color: #FFF;
-  height: 50px;
-  border: none;
-  width: 200px;
-  padding: 0;
-}
-.main .product-price-banner .price-banner-wrapper .addtocart-btn:hover {
-  background-color: #ff0f01;
-}
-.main .product-price-banner .price-banner-wrapper .addtocart-btn:active {
-  font-size: 13px;
-}
-.main .product-price-banner .price-banner-wrapper .addtocart-btn svg {
-  margin-right: 10px;
-}
-.main .product-price {
-  text-align: right;
-  margin-top: 55px;
-  padding: 50px;
-}
-.main .product-price .product-addtocart {
-  background-color: #ff3f34;
-  font-family: open sans;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  font-size: 15px;
-  cursor: pointer;
-  color: #FFF;
-  width: 150px;
-  height: 40px;
-  border: none;
-  padding: 0;
-}
-.main .product-price .product-addtocart:hover {
-  background-color: #ff574e;
-}
-.main .product-price .price {
-  font-weight: bold;
-  font-size: 25px;
-}
-.main .product-view {
-  margin: 50px 0 100px 0;
-  overflow: hidden;
-}
-.main .product-view .product-title {
-  text-transform: uppercase;
-  font-family: Raleway;
-  text-align: center;
-  color: #0a0d0f;
-  font-size: 70px;
-  margin: 0px;
-}
-.main .product-view .product-title:not(:first-child) {
-  margin-top: 200px;
-}
-.main .product-view .product-sub-title {
-  text-transform: uppercase;
-  font-family: Raleway;
-  text-align: center;
-  font-weight: 400;
-  font-size: 40px;
-  margin: 100px 0 0 0;
-}
-.main .product-view .product-paragraph {
-  text-align: center;
-  margin: 25px auto;
-  max-width: 800px;
-  font-size: 25px;
-}
-.main .product-view .product-banner {
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 52.08333333%;
-  background-size: contain;
-  justify-content: center;
-  margin: 100px auto;
-  display: flex;
-  height: 750px;
-}
-.main .product-view .product-full-banner {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  justify-content: center;
-  margin: 50px auto;
-  display: flex;
-  height: 500px;
-  width: 100%;
-}
-.main .product-view .product-video {
-  max-width: 50%;
-  margin: 0 auto;
-  display: block;
-}
-.main .product-view .product-small {
-  text-align: center;
-  margin: 25px auto;
-  font-size: 15px;
-  display: block;
-}
 .main .guestbook {
   margin: 155px auto 100px auto;
   overflow: hidden;
@@ -709,6 +588,59 @@ body {
 .admin .admin-wrapper .admin-links .admin-link:hover {
   background-color: rgba(0, 0, 0, 0.2);
   color: #000;
+}
+.product .product-showcase {
+  background-position: center;
+  height: calc(100vh - 55px);
+  background-size: cover;
+  background-color: #FFF;
+  align-items: flex-end;
+  margin-top: 55px;
+  display: flex;
+  width: 100%;
+}
+.product .product-showcase .product-interact {
+  background-color: #0a0d0f;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  height: 70px;
+  display: flex;
+  width: 100%;
+}
+.product .product-showcase .product-interact .product-add-to-cart {
+  background-color: #575fcf;
+  font-family: Open Sans;
+  border-radius: 5px;
+  margin-left: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0 20px;
+  color: #FFF;
+  height: 40px;
+  border: none;
+}
+.product .product-showcase .product-interact .product-add-to-cart:hover {
+  background-color: #6b72d5;
+}
+.product .product-showcase .product-interact .product-price {
+  font-size: 15px;
+  color: #FFF;
+}
+.product .product-view {
+  background-position: center;
+  background-size: cover;
+  background-color: #FFF;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+.product .product-view .product-title {
+  margin: 0 auto;
+}
+.product .product-view .product-paragraph {
+  margin: 0 auto;
 }
 .form-body.login {
   background-color: #DDD;

@@ -4,6 +4,8 @@
 	$CSRF = new CSRF();
 
 	if(!$CSRF->Validate()) {
+		// Ta bort CSRF-token, vi behöver den inte längre.
+		$CSRF->Remove();
 		die("Din session är ogiltig.");
 	}
 

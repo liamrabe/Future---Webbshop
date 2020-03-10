@@ -16,7 +16,7 @@
 <div class="main">
 	<div class="product-price">
 		<form action="/order" method="post">
-			<input type="hidden" value="<?= $token; ?>" name="token">
+			<input type="hidden" value="<?= $CSRF->token; ?>" name="token">
 			<input type="hidden" value="3" name="product_id">
 			<button class="product-addtocart">Beställ</button>
 		</form>

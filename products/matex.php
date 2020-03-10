@@ -16,7 +16,7 @@
 <div class="main">
 	<div class="product-price">
 		<form action="/order" method="post">
-			<input type="hidden" value="<?= $token; ?>" name="token">
+			<input type="hidden" value="<?= $CSRF->token; ?>" name="token">
 			<input type="hidden" value="1" name="product_id">
 			<button class="product-addtocart">Beställ</button>
 		</form>
@@ -26,7 +26,7 @@
 		<h1 class="product-title">future mate x</h1>
 		<h3 class="product-sub-title">Möt det som aldrig någonsin skådats</h3>
 		<p class="product-paragraph">Världens snabbaste vikbara 5G-telefon</p>
-		<div class="product-banner" style="background-image:url('../../static/images/matex/matex.jpg');"></div>
+		<img src="../../static/images/matex/matex.jpg" class="product-image">
 		<h1 class="product-title">Innovativ skärmflexibilitet</h1>
 		<p class="product-paragraph">Vi definierar en ny kategori inom mobiltelefoni genom att anta flexibel display. Den mjuka skärmen kan böjas och vikas ut flera gånger utan kompromiss i kvalitet. Förbered dig på att bli överraskad över telefonens innovation och banbrytande prestanda.</p>
 		<small class="product-small">Tryck nedan för att se skärmflexibiliteten</small>
@@ -35,7 +35,7 @@
 		</video>
 		<h1 class="product-title">Lås upp med ett knapptryck</h1>
 		<p class="product-paragraph">Strömbrytaren är integrerad med fingeravtrycksläsaren i en snabb och säker knapp. Lås upp telefonen på en sekund och starta dagen med bara en knapptryckning.</p>
-		<div class="product-banner" style="background-image:url('../../static/images/matex/matex-power.png');"></div>
+		<img src="../../static/images/matex/matex-power.png" class="product-image">
 	</div>
 </div>
 
