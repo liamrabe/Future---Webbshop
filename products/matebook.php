@@ -22,7 +22,7 @@
 			</button>
 		</div>
 	</div>
-	<div class="product-view">
+	<div class="product-view dark">
 		<div style="display:inline-block;">
 			<h1 class="product-title">En skärm som låter dig se bredare och ljusare.</h1>
 			<p class="product-paragraph">
@@ -31,6 +31,28 @@
 				detaljer. Bildformatet 3: 2 är perfekt för att läsa och
 				skriva. Och det 100% sRGB2 breda färgutbudet gör bilder och
 				videor mer levande och realistiska som om de var verkliga.
+			</p>
+		</div>
+	</div>
+	<div class="product-view light">
+		<div style="display:inline-block;">
+			<h1 class="product-title">Fånga ögonblicket med fingrarna.</h1>
+			<p class="product-paragraph">
+				MateBook är utrustad med en känslig pekskärm och låter dig bläddra,
+				zooma, välja och interagera mycket effektivt och intuitivt.
+				Nu kan du till och med svepa ner med tre fingrar för att fånga skärmen
+				utan problem.
+			</p>
+		</div>
+	</div>
+	<div class="product-view dark">
+		<div style="display:inline-block;">
+			<h1 class="product-title">Elegant, elegant, otroligt bärbar.</h1>
+			<p class="product-paragraph">
+				En professionell bärbar dator som också är bärbar.
+				Den eleganta metallkroppen med utsökt CNC-diamantskärning och
+				sandblästbehandling är bara 14,6 mm tunn och väger endast
+				1,33 kg, bekvämt att ta med var som helst.
 			</p>
 		</div>
 	</div>

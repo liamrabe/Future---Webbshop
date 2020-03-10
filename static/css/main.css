@@ -600,7 +600,7 @@ body {
   width: 100%;
 }
 .product .product-showcase .product-interact {
-  background-color: #0a0d0f;
+  background-color: #FFF;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px;
@@ -625,22 +625,48 @@ body {
 }
 .product .product-showcase .product-interact .product-price {
   font-size: 15px;
-  color: #FFF;
+  color: #000;
 }
 .product .product-view {
   background-position: center;
   background-size: cover;
-  background-color: #FFF;
   align-items: center;
   height: 100vh;
   display: flex;
   width: 100%;
 }
+.product .product-view.dark {
+  background-color: #000;
+  color: #FFF;
+}
+.product .product-view.light {
+  background-color: #FFF;
+  color: #000;
+}
 .product .product-view .product-title {
+  font-family: Raleway;
+  text-align: center;
+  font-size: 50px;
   margin: 0 auto;
+  width: 90%;
+}
+@media screen and (max-width: 1150px) {
+  .product .product-view .product-title {
+    font-size: 35px;
+  }
 }
 .product .product-view .product-paragraph {
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
+  font-family: Open Sans;
+  text-align: center;
+  font-size: 25px;
+  width: 50%;
+}
+@media screen and (max-width: 1150px) {
+  .product .product-view .product-paragraph {
+    font-size: 20px;
+    width: 90%;
+  }
 }
 .form-body.login {
   background-color: #DDD;

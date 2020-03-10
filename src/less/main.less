@@ -536,7 +536,7 @@ body {
 		display: flex;
 		width: 100%;
 		.product-interact {
-			background-color: #0a0d0f;
+			background-color: #FFF;
 			justify-content: flex-end;
 			align-items: center;
 			padding: 0 20px;
@@ -558,23 +558,45 @@ body {
 			}
 			.product-price {
 				font-size: 15px;
-				color: #FFF;
+				color: #000;
 			}
 		}
 	}
 	.product-view {
+		&.dark {
+			background-color: #000;
+			color: #FFF;
+		}
+		&.light {
+			background-color: #FFF;
+			color: #000;
+		}
 		background-position: center;
 		background-size: cover;
-		background-color: #FFF;
 		align-items: center;
 		height: 100vh;
 		display: flex;
 		width: 100%;
 		.product-title {
+			@media screen and (max-width: 1150px) {
+				font-size: 35px;
+			}
+			font-family: Raleway;
+			text-align: center;
+			font-size: 50px;
 			margin: 0 auto;
+			width: 90%;
 		}
 		.product-paragraph {
-			margin: 0 auto;
+			@media screen and (max-width: 1150px) {
+				font-size: 20px;
+				width: 90%;
+			}
+			margin: 50px auto 0 auto;
+			font-family: Open Sans;
+			text-align: center;
+			font-size: 25px;
+			width: 50%;
 		}
 	}
 }
