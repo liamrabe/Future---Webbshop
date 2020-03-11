@@ -1,7 +1,7 @@
 <?php
 
-	include "./partials/html_begin.php";
-	include "./partials/navbar.php";
+	include $_SERVER["DOCUMENT_ROOT"] . "/partials/html_begin.php";
+	include $_SERVER["DOCUMENT_ROOT"] . "/partials/navbar.php";
 
 	$id = $_GET["id"];
 
@@ -42,5 +42,5 @@
 
 <?php
 	//include "./partials/footer.php";
-	include "./partials/html_end.php";
+	include $_SERVER["DOCUMENT_ROOT"] . "/partials/html_end.php";
 ?>
