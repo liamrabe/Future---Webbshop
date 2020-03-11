@@ -547,48 +547,6 @@ body {
 .main .guestbook .pagination .pagination-links .pagination-link:hover {
   text-decoration: underline;
 }
-.admin .admin-wrapper {
-  margin: 155px auto 100px auto;
-  width: 75%;
-}
-@media screen and (max-width: 950px) {
-  .admin .admin-wrapper {
-    width: 100%;
-  }
-}
-.admin .admin-wrapper .admin-title {
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 25px;
-}
-@media screen and (max-width: 950px) {
-  .admin .admin-wrapper .admin-title {
-    text-align: center;
-  }
-}
-.admin .admin-wrapper .admin-links {
-  background-color: #FFF;
-}
-.admin .admin-wrapper .admin-links .admin-link {
-  box-sizing: border-box;
-  text-decoration: none;
-  display: block;
-  color: #555;
-  padding: 10px;
-}
-@media screen and (max-width: 950px) {
-  .admin .admin-wrapper .admin-links .admin-link {
-    padding: 20px;
-  }
-}
-.admin .admin-wrapper .admin-links .admin-link:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.admin .admin-wrapper .admin-links .admin-link:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #000;
-}
 .product .product-showcase {
   background-repeat: no-repeat;
   background-position: center;
@@ -1037,6 +995,68 @@ body {
 }
 .forum-post-wrapper .post-header .user-info .post-timestamp {
   font-weight: bold;
+}
+.admin {
+  margin: 155px 0 100px 0;
+}
+.admin .admin-wrapper {
+  margin: 0 auto;
+  width: 75%;
+}
+@media screen and (max-width: 850px) {
+  .admin .admin-wrapper {
+    width: 100%;
+  }
+}
+.admin .admin-wrapper .admin-buttons {
+  margin: 0 0 20px 0;
+}
+.admin .admin-wrapper .admin-buttons .admin-button {
+  background-color: #575fcf;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  color: #FFF;
+}
+.admin .admin-wrapper .admin-buttons .admin-button svg {
+  margin-right: 5px;
+}
+.admin .admin-wrapper .admin-buttons .admin-button:hover {
+  background-color: #6b72d5;
+}
+.admin .admin-wrapper .admin-title {
+  text-transform: uppercase;
+  font-family: Raleway;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+  font-size: 50px;
+  transition: 0.5s;
+  width: 100%;
+}
+@media screen and (max-width: 850px) {
+  .admin .admin-wrapper .admin-title {
+    text-align: center;
+  }
+}
+.admin .admin-wrapper .admin-table {
+  background-color: #FFF;
+  overflow: hidden;
+  width: 100%;
+}
+.admin .admin-wrapper .admin-table thead {
+  color: #000;
+}
+.admin .admin-wrapper .admin-table thead tr td {
+  padding: 15px;
+}
+.admin .admin-wrapper .admin-table tbody {
+  color: #000;
+}
+.admin .admin-wrapper .admin-table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.admin .admin-wrapper .admin-table tbody tr td {
+  padding: 15px;
 }
 .profile {
   margin-top: 55px;

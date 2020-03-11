@@ -486,45 +486,6 @@ body {
 	}
 }
 
-.admin {
-	.admin-wrapper {
-		@media screen and (max-width: 950px) {
-			width: 100%;
-		}
-		margin: 155px auto 100px auto;
-		width: 75%;
-		.admin-title {
-			@media screen and (max-width: 950px) {
-				text-align: center;
-			}
-			text-transform: uppercase;
-			margin-bottom: 20px;
-			font-weight: bold;
-			font-size: 25px;
-		}
-		.admin-links {
-			background-color: #FFF;
-			.admin-link {
-				@media screen and (max-width: 950px) {
-					padding: 20px;
-				}
-				box-sizing: border-box;
-				text-decoration: none;
-				display: block;
-				color: #555;
-				padding: 10px;
-				&:nth-child(even) {
-					background-color: rgba(0,0,0,.1);
-				}
-				&:hover {
-					background-color: rgba(0,0,0,.2);
-					color: #000;
-				}
-			}
-		}
-	}
-}
-
 .product {
 	.product-showcase {
 		&.matebuds {
@@ -936,6 +897,61 @@ body {
 					.post-timestamp {
 						font-weight: bold;
 					}
+				}
+			}
+		}
+	}
+}
+
+.admin {
+	margin: 155px 0 100px 0;
+	.admin-wrapper {
+		@media screen and (max-width: 850px) {
+			width: 100%;
+		}
+		margin: 0 auto;
+		width: 75%;
+		.admin-buttons {
+			margin: 0 0 20px 0;
+			.admin-button {
+				background-color: #575fcf;
+				text-decoration: none;
+				border-radius: 5px;
+				padding: 5px 20px;
+				color: #FFF;
+				svg { margin-right: 5px; }
+				&:hover { background-color: lighten(#575fcf, 5%); }
+			}
+		}
+		.admin-title {
+			@media screen and (max-width: 850px) {
+				text-align: center;
+			}
+			text-transform: uppercase;
+			font-family: Raleway;
+			margin: 0 0 20px 0;
+			font-weight: bold;
+			font-size: 50px;
+			transition: .5s;
+			width: 100%;
+		}
+		.admin-table {
+			background-color: #FFF;
+			overflow: hidden;
+			width: 100%;
+			thead {
+				color: #000;
+				tr {
+					td { padding: 15px; }
+				}
+			}
+			tbody {
+				color: #000;
+				tr {
+					&:nth-child(even) {
+						background-color: rgba(0,0,0,.2);
+					}
+					td { padding: 15px; }
 				}
 			}
 		}

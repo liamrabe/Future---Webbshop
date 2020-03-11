@@ -1,6 +1,10 @@
 <?php
+
+	session_start();
+
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/lib/database.php";
 	$db = new Database();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
