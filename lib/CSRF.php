@@ -3,6 +3,24 @@
 
 		public $token;
 
+		private $cookieOptions = [
+			"expires" => "",
+			"path" => "",
+			"domain" => "",
+			"secure" => true,
+			"httpOnly" => false
+		];
+
+		function __construct() {
+			$this->cookieOptions["path"] = $_SERVER["REQUEST_URI"];
+			$this->cookieOptions["domain"] = $_SERVER["SERVER_NAME"];
+			$this->cookieOptions["expires"] = strtotime("+5min");
+		}
+
+		public function Set($endpoint, $value) {
+			$this->cookieOptions[$endpoint] = $value;
+		}
+
 		public function Generate() {
 			// Generera och spara token i CSRF-klassen.
 			$this->token = bin2hex(random_bytes(256));
@@ -14,10 +32,10 @@
 			}
 		}
 
-		private function Save($token) {
+		private function Save(string $token) {
 			// Sätt en kaka med namnnet token som kan valideras med alla förfrågningar.
 			// Spara CSRF-token i 5 minuter.
-			$cookie = setcookie("token", $token, strtotime("+5min"), $_SERVER["REQUEST_URI"], $_SERVER["SERVER_NAME"], true, false);
+			$cookie = setcookie("token", $token, $this->cookieOptions);
 			if($cookie) {
 				return true;
 			}
