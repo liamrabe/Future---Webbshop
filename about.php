@@ -5,11 +5,13 @@
 
 ?>
 
-<div class="main">
-	
+<div class="about">
+	<div class="about-wrapper">
+		
+	</div>
 </div>
 
 <?php
-	include "./partials/footer.php";
+	//include "./partials/footer.php";
 	include "./partials/html_end.php";
 ?>
