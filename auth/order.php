@@ -1,7 +1,5 @@
 <?php
 
-	highlight_string(var_export($_POST, true));
-
 	require $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
 	$CSRF = new CSRF();
 

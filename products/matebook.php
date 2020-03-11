@@ -3,6 +3,8 @@
 	include $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
 	$CSRF = new CSRF();
 
+	$CSRF->Set("path", "/order");
+
 	// Generera ett CSRF-token.
 	if(!$CSRF->Generate()) {
 		die("Din session är ogiltig, ladda om och försök igen.");
@@ -14,12 +16,16 @@
 ?>
 
 <div class="product">
-	<div class="product-showcase" style="background-image:url('https://<?= $_SERVER["SERVER_NAME"] ?>/product/MateBook/image/matebook.jpg');">
+	<div class="product-showcase matebook">
 		<div class="product-interact">
 			<span class="product-price">11 999 kr</span>
-			<button class="product-add-to-cart">
-				Lägg till i varukorg
-			</button>
+			<form action="/order" method="post">
+				<input type="hidden" name="token" value="<?= $CSRF->token; ?>">
+				<input type="hidden" name="product_id" value="2">
+				<button type="submit" id="order-btn" class="product-add-to-cart">
+					Beställ
+				</button>
+			</form>
 		</div>
 	</div>
 	<div class="product-view dark">
@@ -59,6 +65,8 @@
 </div>
 
 <?php
-	//include "../partials/footer.php";
+
+	include "../partials/footer.php";
 	include "../partials/html_end.php";
+
 ?>
