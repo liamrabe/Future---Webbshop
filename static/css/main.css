@@ -590,6 +590,7 @@ body {
   color: #000;
 }
 .product .product-showcase {
+  background-repeat: no-repeat;
   background-position: center;
   height: calc(100vh - 55px);
   background-size: cover;
@@ -598,6 +599,18 @@ body {
   margin-top: 55px;
   display: flex;
   width: 100%;
+}
+.product .product-showcase.matebuds {
+  background-image: url('../../static/images/MateBuds/matebuds.jpg');
+  background-color: #FFF;
+  background-size: 500px;
+}
+.product .product-showcase.matebook {
+  background-image: url('../../static/images/MateBook/matebook.jpg');
+}
+.product .product-showcase.matex {
+  background-image: url('../../static/images/MateX/matex.jpg');
+  background-size: 500px;
 }
 .product .product-showcase .product-interact {
   background-color: #FFF;
@@ -629,6 +642,7 @@ body {
 }
 .product .product-view {
   background-position: center;
+  justify-content: center;
   background-size: cover;
   align-items: center;
   height: 100vh;
@@ -660,7 +674,7 @@ body {
   font-family: Open Sans;
   text-align: center;
   font-size: 25px;
-  width: 50%;
+  width: 80%;
 }
 @media screen and (max-width: 1150px) {
   .product .product-view .product-paragraph {
@@ -953,41 +967,76 @@ body {
 .forum .forum-wrapper .pagination .pagination-links .pagination-link:hover {
   text-decoration: underline;
 }
-.forum-post .forum-post-wrapper {
-  margin: 155px auto 100px auto;
-  width: 80%;
+.forum-post {
+  margin: 155px 0 100px auto;
 }
-.forum-post .forum-post-wrapper .post-title {
+.forum-post-wrapper {
+  margin: 0 auto;
+  width: 75%;
+}
+.forum-post-wrapper .post-title {
+  font-family: Raleway;
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 40px;
 }
-.forum-post .forum-post-wrapper .post-header {
+@media screen and (max-width: 900px) {
+  .forum-post-wrapper .post-title {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .forum-post-wrapper .post-title {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .forum-post-wrapper .post-title {
+    font-size: 15px;
+  }
+}
+.forum-post-wrapper .post-header {
   align-items: center;
-  margin-bottom: 20px;
   display: flex;
 }
-.forum-post .forum-post-wrapper .post-header .avatar {
+.forum-post-wrapper .post-header .avatar {
+  border-radius: 5px;
+  display: flex;
   height: 64px;
   width: 64px;
 }
-.forum-post .forum-post-wrapper .post-header .avatar img {
+@media screen and (max-width: 900px) {
+  .forum-post-wrapper .post-header .avatar {
+    height: 48px;
+    width: 48px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .forum-post-wrapper .post-header .avatar {
+    height: 32px;
+    width: 32px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .forum-post-wrapper .post-header .avatar {
+    height: 16px;
+    width: 16px;
+  }
+}
+.forum-post-wrapper .post-header .avatar img {
   vertical-align: middle;
-  border-radius: 5px;
+  height: 100%;
+  width: 100%;
 }
-.forum-post .forum-post-wrapper .post-header .user-info {
-  width: calc(100% - 64px);
-  box-sizing: border-box;
-  padding-left: 20px;
+.forum-post-wrapper .post-header .user-info {
+  margin-left: 20px;
 }
-.forum-post .forum-post-wrapper .post-header .user-info .post-username {
+.forum-post-wrapper .post-header .user-info .post-username {
   font-weight: bold;
   font-size: 20px;
 }
-.forum-post .forum-post-wrapper .post-header .user-info .post-timestamp {
-  font-size: 14px;
-  margin-top: 2px;
-  color: #555;
+.forum-post-wrapper .post-header .user-info .post-timestamp {
+  font-weight: bold;
 }
 .profile {
   margin-top: 55px;

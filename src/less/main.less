@@ -527,6 +527,19 @@ body {
 
 .product {
 	.product-showcase {
+		&.matebuds {
+			background-image: url('../../static/images/MateBuds/matebuds.jpg');
+			background-color:#FFF;
+			background-size: 500px;
+		}
+		&.matebook {
+			background-image:url('../../static/images/MateBook/matebook.jpg');
+		}
+		&.matex {
+			background-image:url('../../static/images/MateX/matex.jpg');
+			background-size: 500px;
+		}
+		background-repeat:no-repeat;
 		background-position: center;
 		height: calc(100vh - 55px);
 		background-size: cover;
@@ -572,6 +585,7 @@ body {
 			color: #000;
 		}
 		background-position: center;
+		justify-content: center;
 		background-size: cover;
 		align-items: center;
 		height: 100vh;
@@ -596,7 +610,7 @@ body {
 			font-family: Open Sans;
 			text-align: center;
 			font-size: 25px;
-			width: 50%;
+			width: 80%;
 		}
 	}
 }
@@ -867,38 +881,61 @@ body {
 }
 
 .forum-post {
-	.forum-post-wrapper {
-		margin: 155px auto 100px auto;
-		width: 80%;
-		.post-title {
-			margin-bottom: 20px;
-			font-weight: bold;
-			font-size: 25px;
-		}
-		.post-header {
-			align-items: center;
-			margin-bottom: 20px;
-			display: flex;
-			.avatar {
-				height: 64px;
-				width: 64px;
-				img {
-					vertical-align: middle;
-					border-radius: 5px;
+	margin: 155px 0 100px auto;
+	&-wrapper {
+		margin: 0 auto;
+		width: 75%;
+		.post {
+			&-title {
+				@media screen and (max-width: 900px) {
+					font-size: 30px;
 				}
-			}
-			.user-info {
-				width: calc(100% - 64px);
-				box-sizing: border-box;
-				padding-left: 20px;
-				.post-username {
-					font-weight: bold;
+				@media screen and (max-width: 700px) {
 					font-size: 20px;
 				}
-				.post-timestamp {
-					font-size: 14px;
-					margin-top: 2px;
-					color: #555;
+				@media screen and (max-width: 500px) {
+					font-size: 15px;
+				}
+				font-family: Raleway;
+				margin-bottom: 20px;
+				font-weight: bold;
+				font-size: 40px;
+			}
+			&-header {
+				align-items: center;
+				display: flex;
+				.avatar {
+					@media screen and (max-width: 900px) {
+						height: 48px;
+						width: 48px;
+					}
+					@media screen and (max-width: 700px) {
+						height: 32px;
+						width: 32px;
+					}
+					@media screen and (max-width: 500px) {
+						height: 16px;
+						width: 16px;
+					}
+					border-radius: 5px;
+					display: flex;
+					height: 64px;
+					width: 64px;
+					img {
+						vertical-align: middle;
+						height: 100%;
+						width: 100%;
+					}
+				}
+				.user-info {
+					margin-left: 20px;
+					.post-username {
+						font-weight: bold;
+						font-size: 20px;
+					}
+					.post-timestamp {
+						font-weight: bold;
+					}
 				}
 			}
 		}
