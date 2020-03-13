@@ -11,6 +11,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
 RewriteRule ^about$ about.php
+RewriteRule ^blog$ blog.php
 RewriteRule ^forum$ forum.php
 RewriteRule ^profile$ profile.php
 RewriteRule ^signout$ signout.php
@@ -39,12 +40,6 @@ RewriteRule ^forum/([0-9]+)$ forum.php?page=$1
 RewriteRule ^admin$ /admin/overview [L,R=301]
 RewriteRule ^admin/$ /admin/overview [L,R=301]
 RewriteRule ^admin/overview$ admin/overview.php
-
-RewriteCond %{THE_REQUEST} POST
-RewriteRule ^blog/new$ admin/blog/create.php
-
-RewriteCond %{THE_REQUEST} GET
-RewriteRule ^blog/new$ admin/blog/new.php
 
 # Gästbook URLs
 RewriteCond %{THE_REQUEST} POST

@@ -16,41 +16,22 @@
 	include "./partials/html_begin.php";
 	include "./partials/navbar.php";
 
-	$pdo = $db->Login();
-
-	$stmt = $pdo->prepare("SELECT url, id, name FROM communities");
-	$stmt->execute();
-
-	$communities = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <div class="forum">
 	<div class="forum-wrapper">
-		<div class="forum-title">Diskussioner</div>
+		<div class="forum-title">Forum</div>
 		<div class="posts">
-			<?php
-				foreach($posts as $post) {
-					$user = $db->GetUserByID($post->user_id);
-					$content = preg_replace(
-						"/\\n/",
-						"<div class=\"line-break\"></div>",
-						$post->content
-					);
-					echo "<div class=\"post\">";
-						echo "<div class=\"post-header\">";
-							echo "<span class=\"head-text\">Skrivet av</span>";
-							echo "<a href=\"/profile/".$user["username"]."\" class=\"author\">".$user["username"]."</a>";
-							echo "<span class=\"timestamp\">".date("Y-m-d H:i", strtotime($post->created))."</span>";
-						echo "</div>";
-						echo "<div class=\"post-title\">".$post->title."</div>";
-						echo "<div class=\"post-content\">".$content."</div>";
-						echo "<a class=\"post-comments\" href=\"/forum/post/$post->id\">";
-							echo $db->GetCommentCountFromPostID($post->id) . " Kommentar(er)";
-						echo "</a>";
-					echo "</div>";
-				}
-			?>
+			<?php foreach($posts as $post) { ?>
+				<?php $comments = $db->GetCommentCountFromPostID($post->id); ?>
+				<div class="post">
+					<div class="post-timestamp"><?= $post->created; ?></div>
+					<div class="post-title"><?= $post->title; ?></div>
+					<a href="/post/<?= $post->id; ?>" class="post-comments">
+						<?= $comments; ?> kommentar(er)
+					</a>
+				</div>
+			<?php } ?>
 		</div>
 		<div class="forum-pagination">
 			<?php

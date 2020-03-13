@@ -6,13 +6,6 @@
 		private $database = "future";
 		private $hostname = "localhost";
 
-		function __construct() {
-
-			// Starta en session tillsammans med start av databas-klassen.
-			session_start();
-
-		}
-
 		public function Login() {
 			try {
 				$db = new PDO(

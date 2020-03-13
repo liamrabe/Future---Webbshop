@@ -52,12 +52,6 @@
 <div class="admin">
 	<div class="admin-wrapper">
 
-		<div class="admin-buttons">
-			<a href="/blog/new" class="admin-button">
-				<span class="fas fa-plus"></span>
-				Skriv ett blogginlägg
-			</a>
-		</div>
 		<div class="admin-title">statistik</div>
 		<table class="admin-table" cellspacing="0" cellpadding="0">
 			<thead>

@@ -22,6 +22,8 @@
 		"firstname",
 		"lastname",
 		"email",
+		"gender",
+		"birthday",
 		"username",
 		"password"
 	];
@@ -74,6 +76,19 @@
 		die("Ogiltig e-post address.");
 	}
 
+	// Verifiera att användarens födelesedag är ett korrekt datum.
+	$d = DateTime::createFromFormat("Y-m-d", $birthday);
+	$validDate = $d && $d->format($birthday) === $birthday;
+	if(!$validDate) {
+		die("Ogiltigt datum");
+	}
+
+	// Verifiera om användaren är över 13år.
+	$age = floor((time() - strtotime($birthday)) / 31557600);
+	if($age <= 13) {
+		die("Du måste vara äldre än 13 år.");
+	}
+
 	// Hämta Gravatar avatar baserat på email.
 	$avatar = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email)));
 
@@ -91,10 +106,10 @@
 
 	$stmt = $pdo->prepare(
 		"INSERT INTO users (
-			avatar, firstname, lastname, username, email, password, access_token
+			avatar, firstname, lastname, username, email, password, gender, birthday, access_token
 		)
 		VALUES (
-			:avatar, :firstname, :lastname, :username, :email, :password, :access_token
+			:avatar, :firstname, :lastname, :username, :email, :password, :gender, :birthday, :access_token
 		)
 	");
 
@@ -104,6 +119,8 @@
 	$stmt->bindParam(":username", $username, PDO::PARAM_STR);
 	$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 	$stmt->bindParam(":password", $hash, PDO::PARAM_STR);
+	$stmt->bindParam(":gender", $gender, PDO::PARAM_STR);
+	$stmt->bindParam(":birthday", $birthday, PDO::PARAM_STR);
 	$stmt->bindParam(":access_token", $access_token, PDO::PARAM_STR);
 
 	$result = $stmt->execute();

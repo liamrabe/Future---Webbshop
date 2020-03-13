@@ -14,8 +14,6 @@
 
 	$post = $stmt->fetchAll(PDO::PARAM_STR)[0];
 
-	$user = $db->GetUserByID($post["user_id"]);
-
 	$content = preg_replace(
 		"/\\n/",
 		"<div class=\"line-break\"></div>",
@@ -27,17 +25,20 @@
 <div class="forum-post">
 	<div class="forum-post-wrapper">
 		<div class="post-title"><?= $post["title"]; ?></div>
-		<div class="post-header">
-			<div class="avatar"><img src="<?= $user["avatar"]; ?>?s=64"></div>
-			<div class="user-info">
-				<a class="post-username"><?= $user["username"]; ?></a>
-				<div class="post-timestamp"><?= date("Y-m-d H:i", strtotime($post["created"])); ?></div>
-			</div>
+		<div class="post-timestamp">
+			<?= date("Y-m-d H:i", strtotime($post["created"])); ?>
 		</div>
 		<div class="post-content">
 			<div class="post-content"><?= $content; ?></div>
 		</div>
 	</div>
+	<div class="new-comment">
+		<form action="/forum/post/<?= $id; ?>">
+			<textarea class="comment" name="comment" placeholder="Kommentar"></textarea>
+			<button class="submit" type="submit">Lägg upp</button>
+		</form>
+	</div>
+	<div class="comments"></div>
 </div>
 
 <?php

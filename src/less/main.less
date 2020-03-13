@@ -3,7 +3,7 @@
 
 // Global objects.
 body {
-	background-color: #FFFFFF;
+	background-color: #FFF;
 	font-family: Open Sans;
 	font-size: 16px;
 	margin: 0;
@@ -768,134 +768,81 @@ body {
 }
 
 .forum {
-	margin-bottom: 100px;
-	margin-top: 155px;
+	min-height: calc(100vh - 55px);
+	background-color: lighten(#1e272e, 5%);
+	margin: 55px 0 0 0;
+	padding: 100px 0;
 	.forum-wrapper {
-		@media screen and (max-width: 950px) {
-			width: 95%;
+		@media screen and (max-width: 850px) {
+			width: 90%;
 		}
-		margin: 0 auto;
-		width: 60%;
-		.forum-title {
-			font-family: Open Sans;
-			margin-bottom: 50px;
-			font-weight: bold;
-			font-size: 30px;
-		}
-		.posts {
-			.post {
-				border: 1px solid #AAA;
-				box-sizing: border-box;
-				border-radius: 5px;
-				margin: 0 auto;
-				padding: 10px;
-				width: 100%;
-				&:not(:first-child) {
-					margin-top: 20px;
-				}
-				.post-header {
-					font-size: 12px;
-					color: #AAA;
-					.head-text {
-						margin-right: 5px;
-					}
-					a {
-						margin-right: 5px;
-						color: #555;
-						&:hover { color: #000; }
-					}
-				}
-				.post-title {
-					font-weight: bold;
-					font-size: 20px;
-				}
-				.post-content {
-					font-size: 15px;
-					.line-break {
-						display: block;
-						height: 5px;
-					}
-				}
-				.post-comments {
-					text-decoration: none;
-					color: #575fcf;
-					font-size: 13px;
-					&:hover { text-decoration: underline; }
-				}
-			}
-		}
-		.pagination {
-			margin-top: 100px;
-			.pagination-page {
-				margin-bottom: 10px;
-			}
-			.pagination-links {
-				.pagination-link {
-					text-decoration: none;
-					color: #3c40c6;
-					&:not(:last-child) { margin-right: 10px; }
-					&:hover { text-decoration: underline; }
-				}
-			}
-		}
-	}
-}
-
-.forum-post {
-	margin: 155px 0 100px auto;
-	&-wrapper {
+		max-width: 1000px;
 		margin: 0 auto;
 		width: 75%;
-		.post {
-			&-title {
-				@media screen and (max-width: 900px) {
-					font-size: 30px;
-				}
-				@media screen and (max-width: 700px) {
-					font-size: 20px;
-				}
-				@media screen and (max-width: 500px) {
-					font-size: 15px;
-				}
-				font-family: Raleway;
-				margin-bottom: 20px;
-				font-weight: bold;
-				font-size: 40px;
+		.forum-title {
+			@media screen and (max-width: 850px) {
+				text-align: center;
 			}
-			&-header {
-				align-items: center;
-				display: flex;
-				.avatar {
-					@media screen and (max-width: 900px) {
-						height: 48px;
-						width: 48px;
-					}
-					@media screen and (max-width: 700px) {
-						height: 32px;
-						width: 32px;
-					}
-					@media screen and (max-width: 500px) {
-						height: 16px;
-						width: 16px;
-					}
-					border-radius: 5px;
-					display: flex;
-					height: 64px;
-					width: 64px;
-					img {
-						vertical-align: middle;
-						height: 100%;
-						width: 100%;
+			font-family: Raleway;
+			margin-bottom: 20px;
+			font-weight: bold;
+			font-size: 40px;
+			color: #FFF;
+		}
+		.posts {
+			width: 100%;
+			.post {
+				background-color: #0a0d0f;
+				box-sizing: border-box;
+				border-radius: 5px;
+				padding: 20px;
+				&:not(:first-child) {
+					margin-top: 50px;
+				}
+				.post-timestamp {
+					margin-bottom: 10px;
+					font-size: 14px;
+					color: #CCC;
+				}
+				.post-title {
+					font-family: Raleway;
+					font-weight: bold;
+					font-size: 20px;
+					color: #FFF;
+				}
+				.post-comments {
+					display: inline-block;
+					text-decoration: none;
+					margin-top: 10px;
+					font-size: 14px;
+					color: #575fcf;
+					&:hover {
+						text-decoration: underline;
+						color: lighten(#575fcf, 20%);
 					}
 				}
-				.user-info {
-					margin-left: 20px;
-					.post-username {
-						font-weight: bold;
-						font-size: 20px;
-					}
-					.post-timestamp {
-						font-weight: bold;
+			}
+		}
+		.forum-pagination {
+			margin-top: 50px;
+			.pagination {
+				.pagination-page {
+					margin-bottom: 10px;
+					font-size: 20px;
+					color: #FFF;
+				}
+				.pagination-links {
+					.pagination-link {
+						text-decoration: none;
+						font-size: 15px;
+						color: #CCC;
+						&:hover {
+							text-decoration: underline;
+							color: #FFF;
+						}
+						&:not(:last-child) {
+							margin-right: 20px;
+						}
 					}
 				}
 			}
@@ -912,7 +859,10 @@ body {
 		margin: 0 auto;
 		width: 75%;
 		.admin-buttons {
-			margin: 0 0 20px 0;
+			@media screen and (max-width: 850px) {
+				text-align: center;
+			}
+			margin: 0 0 40px 0;
 			.admin-button {
 				background-color: #575fcf;
 				text-decoration: none;
@@ -948,6 +898,7 @@ body {
 			tbody {
 				color: #000;
 				tr {
+					border-radius: 5px;
 					&:nth-child(even) {
 						background-color: rgba(0,0,0,.2);
 					}
