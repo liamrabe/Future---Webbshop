@@ -930,13 +930,12 @@ body {
   margin-right: 20px;
 }
 .forum-post {
-  margin-top: 155px;
+  margin: 155px 0 100px 0;
 }
 .forum-post .forum-post-wrapper {
   border: 1px solid #BBB;
   background-color: #FFF;
   box-sizing: border-box;
-  border-radius: 5px;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
@@ -956,8 +955,11 @@ body {
   margin-top: 10px;
   font-size: 17px;
 }
+.forum-post .forum-post-wrapper .line-break {
+  height: 5px;
+}
 .forum-post .compose {
-  margin: 20px auto 0 auto;
+  margin: 50px auto 0 auto;
   max-width: 1000px;
   width: 75%;
 }
@@ -971,7 +973,6 @@ body {
   box-sizing: border-box;
   font-family: Open Sans;
   margin-bottom: 10px;
-  border-radius: 5px;
   font-size: 15px;
   display: block;
   outline: none;
@@ -997,12 +998,29 @@ body {
 .forum-post .compose .compose-form .submit {
   background-color: #000;
   font-family: Open Sans;
-  border-radius: 5px;
   padding: 10px 0;
   color: #FFF;
   outline: none;
   width: 150px;
   border: none;
+}
+.forum-post .comments {
+  margin: 50px auto 0 auto;
+  width: 75%;
+}
+.forum-post .comments .comment {
+  background-color: #FFF;
+  border: 1px solid #BBB;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.forum-post .comments .comment .comment-timestamp {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #AAA;
+}
+.forum-post .comments .comment:not(:first-child) {
+  margin-top: 20px;
 }
 .admin {
   margin: 155px 0 100px 0;
