@@ -20,14 +20,13 @@
 
 <div class="forum">
 	<div class="forum-wrapper">
-		<div class="forum-title">Forum</div>
 		<div class="posts">
 			<?php foreach($posts as $post) { ?>
 				<?php $comments = $db->GetCommentCountFromPostID($post->id); ?>
 				<div class="post">
 					<div class="post-timestamp"><?= $post->created; ?></div>
 					<div class="post-title"><?= $post->title; ?></div>
-					<a href="/post/<?= $post->id; ?>" class="post-comments">
+					<a href="/forum/post/<?= $post->id; ?>" class="post-comments">
 						<?= $comments; ?> kommentar(er)
 					</a>
 				</div>

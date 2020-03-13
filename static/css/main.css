@@ -29,7 +29,7 @@
   font-weight: 100;
 }
 body {
-  background-color: #FFF;
+  background-color: #DDD;
   font-family: Open Sans;
   font-size: 16px;
   margin: 0;
@@ -268,7 +268,8 @@ body {
   }
 }
 .main .products .products-wrapper .product {
-  border: 1px solid #DDD;
+  border: 1px solid #BBB;
+  background-color: #FFF;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 30px;
@@ -492,7 +493,8 @@ body {
   width: 100%;
 }
 .main .guestbook .guestbook-entries .guestbook-entry {
-  border: 1px solid #CCC;
+  background-color: #FFF;
+  border: 1px solid #BBB;
   box-sizing: border-box;
   border-radius: 5px;
   max-width: 100%;
@@ -502,7 +504,6 @@ body {
 }
 @media screen and (max-width: 950px) {
   .main .guestbook .guestbook-entries .guestbook-entry {
-    border: 1px solid #CCC;
     border-radius: 0px;
     border-right: none;
     border-left: none;
@@ -848,7 +849,7 @@ body {
 }
 .forum {
   min-height: calc(100vh - 55px);
-  background-color: #28343d;
+  background-color: #DDD;
   margin: 55px 0 0 0;
   padding: 100px 0;
 }
@@ -867,7 +868,7 @@ body {
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 40px;
-  color: #FFF;
+  color: #000;
 }
 @media screen and (max-width: 850px) {
   .forum .forum-wrapper .forum-title {
@@ -878,9 +879,9 @@ body {
   width: 100%;
 }
 .forum .forum-wrapper .posts .post {
-  background-color: #0a0d0f;
+  background-color: #FFF;
+  border: 1px solid #CCC;
   box-sizing: border-box;
-  border-radius: 5px;
   padding: 20px;
 }
 .forum .forum-wrapper .posts .post:not(:first-child) {
@@ -889,13 +890,13 @@ body {
 .forum .forum-wrapper .posts .post .post-timestamp {
   margin-bottom: 10px;
   font-size: 14px;
-  color: #CCC;
+  color: #AAA;
 }
 .forum .forum-wrapper .posts .post .post-title {
-  font-family: Raleway;
+  font-family: Open Sans;
   font-weight: bold;
   font-size: 20px;
-  color: #FFF;
+  color: #000;
 }
 .forum .forum-wrapper .posts .post .post-comments {
   display: inline-block;
@@ -913,20 +914,95 @@ body {
 }
 .forum .forum-wrapper .forum-pagination .pagination .pagination-page {
   margin-bottom: 10px;
-  font-size: 20px;
-  color: #FFF;
+  font-size: 15px;
+  color: #000;
 }
 .forum .forum-wrapper .forum-pagination .pagination .pagination-links .pagination-link {
   text-decoration: none;
   font-size: 15px;
-  color: #CCC;
+  color: #575fcf;
 }
 .forum .forum-wrapper .forum-pagination .pagination .pagination-links .pagination-link:hover {
   text-decoration: underline;
-  color: #FFF;
+  color: 57.64705882%;
 }
 .forum .forum-wrapper .forum-pagination .pagination .pagination-links .pagination-link:not(:last-child) {
   margin-right: 20px;
+}
+.forum-post {
+  margin-top: 155px;
+}
+.forum-post .forum-post-wrapper {
+  border: 1px solid #BBB;
+  background-color: #FFF;
+  box-sizing: border-box;
+  border-radius: 5px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 75%;
+}
+.forum-post .forum-post-wrapper .post-title {
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 30px;
+}
+.forum-post .forum-post-wrapper .post-timestamp {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #AAA;
+}
+.forum-post .forum-post-wrapper .post-content {
+  margin-top: 10px;
+  font-size: 17px;
+}
+.forum-post .compose {
+  margin: 20px auto 0 auto;
+  max-width: 1000px;
+  width: 75%;
+}
+.forum-post .compose .compose-form {
+  margin: 0 auto;
+  width: 85%;
+}
+.forum-post .compose .compose-form .comment {
+  border: 1px solid #BBB;
+  background-color: #FFF;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  display: block;
+  outline: none;
+  height: 150px;
+  padding: 10px;
+  width: 100%;
+}
+.forum-post .compose .compose-form .comment::placeholder,
+.forum-post .compose .compose-form .comment::-webkit-input-placeholder,
+.forum-post .compose .compose-form .comment:-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.forum-post .compose .compose-form .comment:focus {
+  border-color: #000;
+}
+.forum-post .compose .compose-form .comment:focus::placeholder,
+.forum-post .compose .compose-form .comment:focus::-webkit-input-placeholder,
+.forum-post .compose .compose-form .comment:focus:-moz-placeholder {
+  color: transparent;
+  opacity: 0;
+}
+.forum-post .compose .compose-form .submit {
+  background-color: #000;
+  font-family: Open Sans;
+  border-radius: 5px;
+  padding: 10px 0;
+  color: #FFF;
+  outline: none;
+  width: 150px;
+  border: none;
 }
 .admin {
   margin: 155px 0 100px 0;
@@ -997,44 +1073,6 @@ body {
 }
 .admin .admin-wrapper .admin-table tbody tr td {
   padding: 15px;
-}
-.profile {
-  margin-top: 55px;
-  overflow: hidden;
-}
-.profile .profile-wrapper {
-  margin: 0 auto;
-  width: 85%;
-}
-.profile .profile-wrapper .profile-banner {
-  border-radius: 5px;
-  margin-top: 50px;
-  overflow: hidden;
-  display: flex;
-}
-.profile .profile-wrapper .profile-banner .avatar {
-  vertical-align: middle;
-  border-radius: 5px;
-}
-.profile .profile-wrapper .profile-banner .user-info {
-  width: calc(100% - 128px);
-  box-sizing: border-box;
-  padding: 0 0 0 20px;
-  align-items: center;
-  height: 128px;
-  display: flex;
-}
-.profile .profile-wrapper .profile-banner .user-info .user-username {
-  text-transform: uppercase;
-  font-family: Raleway;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 30px;
-}
-.profile .profile-wrapper .profile-banner .user-info .user-registered {
-  font-weight: 400;
-  font-size: 15px;
-  color: #555;
 }
 .order {
   height: calc(100vh - 55px);

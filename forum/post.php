@@ -28,12 +28,10 @@
 		<div class="post-timestamp">
 			<?= date("Y-m-d H:i", strtotime($post["created"])); ?>
 		</div>
-		<div class="post-content">
-			<div class="post-content"><?= $content; ?></div>
-		</div>
+		<div class="post-content"><?= $content; ?></div>
 	</div>
-	<div class="new-comment">
-		<form action="/forum/post/<?= $id; ?>">
+	<div class="compose">
+		<form method="post" class="compose-form" action="/forum/post/<?= $id; ?>">
 			<textarea class="comment" name="comment" placeholder="Kommentar"></textarea>
 			<button class="submit" type="submit">Lägg upp</button>
 		</form>
