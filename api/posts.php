@@ -17,9 +17,9 @@
 		}
 
 		$stmt = $pdo->prepare(
-			"SELECT user_id, id, title, content, created, updated
+			"SELECT user_id, id, title, content, created
 			FROM posts
-			ORDER BY updated DESC
+			ORDER BY created DESC
 			LIMIT :limit
 			OFFSET :offset
 		");
