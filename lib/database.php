@@ -104,7 +104,7 @@
 
 			$pdo = $this->Login();
 
-			$stmt = $pdo->prepare("SELECT count(*) FROM comments WHERE post_id = :id");
+			$stmt = $pdo->prepare("SELECT count(*) FROM forum_comments WHERE post_id = :id");
 			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 			$stmt->execute();
 

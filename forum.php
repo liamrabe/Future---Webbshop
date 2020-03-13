@@ -4,12 +4,13 @@
 		header("location: /forum/1");
 	}
 
-	$page = $_GET["page"];
+	if(!isset($_GET["page"])) { $page = 1; }
+	else { $page = $_GET["page"]; }
 	$result = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/posts/$page"));
 	
-	if($page > $result->lastPage) {
-		header("location: /forum/$result->lastPage");
-	}
+	//if($page > $result->lastPage) {
+	//	header("location: /forum/$result->lastPage");
+	//}
 
 	$posts = $result->posts->post;
 
