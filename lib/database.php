@@ -1,10 +1,10 @@
 <?php
 	class Database {
 
-		private $username = "liam";
-		private $password = "iAfHDXc7WKGy7VFxJvkT8Dwh7";
+		private $username = "ANVÄNDARNAMN";
+		private $hostname = "HOSTNAME";
+		private $password = "LÖSENORD";
 		private $database = "future";
-		private $hostname = "localhost";
 
 		public function Login() {
 			try {
