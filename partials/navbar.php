@@ -48,11 +48,6 @@
 						</li>
 					<?php } ?>
 					<li class="dropdown-item">
-						<a href="/profile/my-orders" class="dropdown-link">
-							Mina beställningar
-						</a>
-					</li>
-					<li class="dropdown-item">
 						<a href="/signout" class="dropdown-link">Logga ut</a>
 					</li>
 				</ul>
