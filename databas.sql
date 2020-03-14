@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 11 mars 2020 kl 19:53
+-- Tid vid skapande: 14 mars 2020 kl 08:45
 -- Serverversion: 10.4.11-MariaDB
 -- PHP-version: 7.4.1
 
@@ -25,16 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `comments`
+-- Tabellstruktur `blog_posts`
 --
 
-CREATE TABLE `comments` (
+CREATE TABLE `blog_posts` (
   `id` int(10) NOT NULL,
-  `post_id` int(10) NOT NULL,
+  `title` text NOT NULL,
   `content` text NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `user_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumpning av Data i tabell `blog_posts`
+--
+
+INSERT INTO `blog_posts` (`id`, `title`, `content`, `created`, `user_id`) VALUES
+(1, 'Mate X är nu släppt', 'Äntligen har vårt senaste flaggskepp _Future Mate X_ blivit släppt och finns\r\ntillgänglig på markader världen över.\r\n\r\n## Pris\r\nMate X kommer att kosta 14 999 kr både i butik och på vår hemsida.\r\n\r\n## Leveranstid\r\n3 - 5 dagar världen över.', '2020-03-14 07:11:52', 4),
+(2, 'Mate X är nu släppt', '<p>Äntligen har vårt senaste flaggskepp <em>Future Mate X</em> blivit släppt och finns\ntillgänglig på markader världen över.</p>\n<h2>Pris</h2>\n<p>Mate X kommer att kosta 14 999 kr både i butik och på vår hemsida.</p>\n<h2>Leveranstid</h2>\n<p>3 - 5 dagar världen över.</p>', '2020-03-14 07:14:16', 4);
 
 -- --------------------------------------------------------
 
@@ -58,6 +66,217 @@ INSERT INTO `communities` (`id`, `name`, `url`) VALUES
 (3, 'Mate X', 'matex'),
 (4, 'Generell', 'general'),
 (5, 'Övrigt', 'offtopic');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `forum_comments`
+--
+
+CREATE TABLE `forum_comments` (
+  `id` int(10) NOT NULL,
+  `post_id` int(10) NOT NULL,
+  `content` text NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumpning av Data i tabell `forum_comments`
+--
+
+INSERT INTO `forum_comments` (`id`, `post_id`, `content`, `created`, `user_id`) VALUES
+(1, 151, 'Test kommentar...', '2020-03-13 07:52:55', 1),
+(2, 151, 'Test kommentar #2', '2020-03-13 07:57:52', 2),
+(3, 151, 'Test kommentar', '2020-03-13 08:30:54', 4),
+(4, 151, 'Test kommentar', '2020-03-13 08:30:57', 4),
+(5, 151, 'Test kommentar', '2020-03-13 08:30:59', 4),
+(6, 151, 'Test kommentar', '2020-03-13 08:31:30', 4),
+(7, 151, 'Test kommentar', '2020-03-13 08:31:51', 4),
+(8, 131, 'Test kommentar', '2020-03-13 08:32:10', 4),
+(9, 151, 'Testar CSRF-token kommentar.', '2020-03-13 08:37:05', 4),
+(10, 151, 'test', '2020-03-14 03:36:32', 4),
+(11, 150, 'test', '2020-03-14 03:50:22', 4),
+(12, 154, 'CSRF-token test kommentar.', '2020-03-14 06:25:00', 4),
+(13, 131, 'Test kommentar', '2020-03-14 06:31:59', 4),
+(14, 155, 'Inget pris har blivit satt ännu men har sett rykten att den kommer kosta cirka 12 000 kr. Men det är bara ett rykte.', '2020-03-14 06:35:26', 2),
+(15, 155, 'Nej, Mate X kommer inte att kosta 12 000 kr, utan den kommer kosta 14 999 kr.', '2020-03-14 06:38:31', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `forum_posts`
+--
+
+CREATE TABLE `forum_posts` (
+  `id` int(10) NOT NULL,
+  `title` text NOT NULL,
+  `content` text NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumpning av Data i tabell `forum_posts`
+--
+
+INSERT INTO `forum_posts` (`id`, `title`, `content`, `created`, `user_id`) VALUES
+(1, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:09', 2),
+(2, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 3),
+(3, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 1),
+(4, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 2),
+(5, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 3),
+(6, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 3),
+(7, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 2),
+(8, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 2),
+(9, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(10, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 3),
+(11, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(12, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 2),
+(13, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 3),
+(14, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(15, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 1),
+(16, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 1),
+(17, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 1),
+(18, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 2),
+(19, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 1),
+(20, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 3),
+(21, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(22, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(23, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 2),
+(24, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(25, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', 4),
+(26, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 4),
+(27, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 4),
+(28, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 3),
+(29, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(30, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(31, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(32, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 2),
+(33, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(34, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 3),
+(35, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(36, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(37, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 3),
+(38, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 3),
+(39, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 2),
+(40, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 4),
+(41, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(42, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 4),
+(43, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 3),
+(44, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 4),
+(45, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(46, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 2),
+(47, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 3),
+(48, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 2),
+(49, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 4),
+(50, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', 1),
+(51, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(52, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(53, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 3),
+(54, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 3),
+(55, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 2),
+(56, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(57, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(58, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 2),
+(59, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(60, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 3),
+(61, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(62, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 3),
+(63, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(64, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 2),
+(65, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(66, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(67, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(68, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(69, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(70, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(71, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 4),
+(72, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 3),
+(73, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(74, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 1),
+(75, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', 2),
+(76, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(77, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(78, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(79, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(80, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(81, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 4),
+(82, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(83, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(84, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(85, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(86, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(87, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 3),
+(88, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 4),
+(89, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(90, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 3),
+(91, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(92, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 4),
+(93, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 3),
+(94, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 4),
+(95, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 3),
+(96, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(97, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 2),
+(98, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 4),
+(99, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 4),
+(100, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(101, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', 1),
+(102, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 4),
+(103, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(104, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 2),
+(105, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(106, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 4),
+(107, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(108, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(109, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 2),
+(110, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 2),
+(111, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 3),
+(112, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 2),
+(113, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 3),
+(114, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 3),
+(115, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(116, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 4),
+(117, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(118, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 4),
+(119, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 4),
+(120, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 2),
+(121, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 3),
+(122, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 1),
+(123, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 2),
+(124, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 3),
+(125, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', 3),
+(126, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 1),
+(127, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(128, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 4),
+(129, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(130, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 1),
+(131, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 2),
+(132, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 2),
+(133, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(134, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 1),
+(135, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(136, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(137, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(138, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 1),
+(139, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 2),
+(140, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 2),
+(141, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(142, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 1),
+(143, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 4),
+(144, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 1),
+(145, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 2),
+(146, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(147, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 4),
+(148, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 2),
+(149, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', 3),
+(150, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:16', 4),
+(151, 'HATAR DEN HÄR JÄVLA SIDAN.', 'Fuck denna sida, så mycket jag vill ta bort.\r\n\r\n\r\nDÖÖÖÖÖ!!!!!!!!!!!!', '2020-03-07 20:36:16', 4),
+(152, 'Detta är ett test inlägg.', 'Detta är ett test inlägg.', '2020-03-14 05:43:11', 4),
+(153, 'Test test.', 'Test test.', '2020-03-14 05:43:26', 4),
+(154, 'CSRF-token test.', 'Test.', '2020-03-14 06:24:08', 4),
+(155, 'Hur mycket kostar Mate X?', 'Såg att dom teasade den nya Mate X men såg inget pris.\r\n\r\nVet någon vad den kostar?', '2020-03-14 06:34:06', 3),
+(156, 'Mate X är nu släppt', 'Äntligen har vårt senaste flaggskepp _Future Mate X_ blivit släppt och finns\r\ntillgänglig på markader världen över.\r\n\r\n## Pris\r\nMate X kommer att kosta 14 999 kr både i butik och på vår hemsida.\r\n\r\n## Leveranstid\r\n3 - 5 dagar världen över.', '2020-03-14 07:09:30', 4);
 
 -- --------------------------------------------------------
 
@@ -99,7 +318,8 @@ INSERT INTO `guestbook` (`id`, `name`, `message`, `timestamp`) VALUES
 (20, 'Creed Bratton', 'Bra hemsida', '2020-03-04 11:29:14'),
 (21, 'Andy Bernard', 'Bra hemsida', '2020-03-04 11:29:14'),
 (22, 'Marcus Tullius Cicero', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices dolor nisi, quis maximus dolor tristique ac. Aliquam erat volutpat. Nam rhoncus leo vitae eros euismod imperdiet. Fusce hendrerit pellentesque luctus. Duis eros erat, suscipit ac leo et, egestas tempor nibh. Curabitur iaculis, quam id lacinia eleifend, leo leo gravida nisi, ac blandit nulla urna non turpis. Sed a lorem velit. Aenean eget nibh facilisis elit ullamcorper lacinia. Donec nec tellus erat. Aliquam dapibus metus vitae sem rutrum laoreet.\r\n\r\n\r\nSed et elit sit amet nibh tincidunt viverra. Vestibulum eu venenatis sapien. Maecenas bibendum eu velit non maximus. Nullam in dolor fringilla, rhoncus augue quis, interdum quam. Ut sagittis magna elit, eu efficitur turpis tempus vitae. Nam commodo risus mattis metus ornare, non malesuada turpis fringilla. Suspendisse mi sapien, suscipit eget ex nec, auctor condimentum arcu. Fusce velit ipsum, pharetra vitae tincidunt eu, posuere et mi. Suspendisse lobortis varius laoreet. Duis at lacus in diam rutrum ullamcorper eu vitae odio. Aenean iaculis ligula eget diam vehicula, vitae sodales nisl convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas vel lectus quis felis semper venenatis.\r\n\r\n\r\nEtiam auctor accumsan diam, convallis viverra libero viverra nec. Vivamus sagittis eros et magna blandit, et eleifend urna elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer blandit risus vitae metus semper consectetur. Phasellus eu enim consequat, gravida justo eu, aliquam justo. Donec auctor turpis vel est sagittis, eget dapibus augue eleifend. Vivamus dignissim venenatis nisl, non tincidunt velit tristique id. Donec consectetur hendrerit justo quis auctor. Praesent sed aliquam ligula. Mauris scelerisque neque tempus lacus porttitor, sed mollis ipsum aliquam. Integer porta erat quis ligula pellentesque fermentum.\r\n\r\n\r\nProin viverra consectetur leo, lacinia tempus quam interdum quis. Praesent lacinia, nulla fringilla bibendum interdum, ligula justo dignissim turpis, sit amet efficitur ligula magna a mi. Nullam commodo nec magna ac pulvinar. Fusce molestie leo augue, eu lobortis orci tincidunt eget. Morbi accumsan blandit arcu porta imperdiet. Mauris laoreet ex sit amet augue ornare, ut imperdiet ipsum ultricies. Nam neque metus, luctus ut diam in, convallis sollicitudin massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla vitae aliquet mauris. Nulla fringilla magna ut sapien consequat, eu lobortis arcu luctus. Maecenas viverra eget dolor pretium aliquet. Proin pellentesque hendrerit magna, sit amet posuere arcu consectetur molestie.\r\n\r\n\r\nAliquam maximus fermentum dapibus. Vestibulum eu vehicula magna, id semper quam. Nulla et efficitur leo. Praesent sed risus nec urna aliquet maximus. Fusce id erat facilisis, posuere mi nec, convallis leo. Quisque quis nisi bibendum, dignissim leo eu, rutrum arcu. Nulla accumsan placerat accumsan. Etiam non ullamcorper neque. Sed eleifend fermentum ullamcorper. Mauris fermentum eros arcu, at mollis ipsum lacinia et. Nulla facilisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis aliquet, lectus a feugiat scelerisque, nibh ipsum pharetra ligula, dignissim volutpat sem ipsum sed nunc. Vivamus consequat in dui non dapibus. Cras aliquet vel nunc et placerat. ', '2020-03-04 13:06:13'),
-(23, 'CSRF-token test.', 'Ny CSRF-token bibliotek test.', '2020-03-08 00:45:36');
+(23, 'CSRF-token test.', 'Ny CSRF-token bibliotek test.', '2020-03-08 00:45:36'),
+(24, 'John Doe', 'Hejsan.\r\n\r\nTestar bara gästboken...', '2020-03-11 20:24:47');
 
 -- --------------------------------------------------------
 
@@ -122,7 +342,7 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `product_id`, `user_id`, `timestamp`, `price`, `status`) VALUES
 (1, 1, 4, '2020-03-11 17:56:29', 1299, 'levererat'),
-(2, 3, 4, '2020-03-11 17:56:22', 1299, 'ute på leverans'),
+(2, 3, 4, '2020-03-11 20:47:40', 1299, 'skickats'),
 (3, 1, 1, '2020-03-11 17:56:12', 1299, 'levererat'),
 (4, 2, 4, '2020-03-06 10:50:58', 1299, 'mottages'),
 (5, 2, 4, '2020-03-11 17:56:36', 11999, 'skickats'),
@@ -138,179 +358,9 @@ INSERT INTO `orders` (`id`, `product_id`, `user_id`, `timestamp`, `price`, `stat
 (15, 1, 4, '2020-03-11 17:34:02', 14999, 'mottages'),
 (16, 1, 4, '2020-03-11 17:55:36', 14999, 'mottages'),
 (17, 2, 4, '2020-03-11 17:55:42', 11999, 'mottages'),
-(18, 3, 4, '2020-03-11 17:55:47', 1299, 'mottages');
-
--- --------------------------------------------------------
-
---
--- Tabellstruktur `posts`
---
-
-CREATE TABLE `posts` (
-  `id` int(10) NOT NULL,
-  `title` text NOT NULL,
-  `content` text NOT NULL,
-  `created` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumpning av Data i tabell `posts`
---
-
-INSERT INTO `posts` (`id`, `title`, `content`, `created`, `updated`, `user_id`) VALUES
-(1, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:09', '2020-03-06 16:06:09', 2),
-(2, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 3),
-(3, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 1),
-(4, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 2),
-(5, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 3),
-(6, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 3),
-(7, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 2),
-(8, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 2),
-(9, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(10, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 3),
-(11, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(12, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 2),
-(13, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 3),
-(14, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(15, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 1),
-(16, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 1),
-(17, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 1),
-(18, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 2),
-(19, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 1),
-(20, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 3),
-(21, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(22, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(23, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 2),
-(24, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(25, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:10', '2020-03-06 16:06:10', 4),
-(26, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 4),
-(27, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 4),
-(28, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 3),
-(29, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(30, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(31, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(32, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 2),
-(33, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(34, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 3),
-(35, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(36, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(37, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 3),
-(38, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 3),
-(39, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 2),
-(40, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 4),
-(41, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(42, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 4),
-(43, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 3),
-(44, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 4),
-(45, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(46, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 2),
-(47, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 3),
-(48, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 2),
-(49, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 4),
-(50, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:11', '2020-03-06 16:06:11', 1),
-(51, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(52, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(53, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 3),
-(54, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 3),
-(55, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 2),
-(56, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(57, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(58, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 2),
-(59, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(60, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 3),
-(61, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(62, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 3),
-(63, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(64, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 2),
-(65, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(66, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(67, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(68, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(69, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(70, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(71, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 4),
-(72, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 3),
-(73, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(74, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 1),
-(75, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:12', '2020-03-06 16:06:12', 2),
-(76, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(77, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(78, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(79, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(80, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(81, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 4),
-(82, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(83, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(84, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(85, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(86, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(87, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 3),
-(88, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 4),
-(89, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(90, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 3),
-(91, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(92, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 4),
-(93, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 3),
-(94, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 4),
-(95, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 3),
-(96, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(97, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 2),
-(98, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 4),
-(99, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 4),
-(100, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(101, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:13', '2020-03-06 16:06:13', 1),
-(102, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 4),
-(103, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(104, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 2),
-(105, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(106, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 4),
-(107, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(108, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(109, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 2),
-(110, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 2),
-(111, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 3),
-(112, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 2),
-(113, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 3),
-(114, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 3),
-(115, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(116, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 4),
-(117, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(118, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 4),
-(119, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 4),
-(120, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 2),
-(121, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 3),
-(122, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 1),
-(123, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 2),
-(124, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 3),
-(125, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:14', '2020-03-06 16:06:14', 3),
-(126, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 1),
-(127, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(128, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 4),
-(129, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(130, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 1),
-(131, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 2),
-(132, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 2),
-(133, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(134, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 1),
-(135, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(136, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(137, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(138, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 1),
-(139, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 2),
-(140, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 2),
-(141, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(142, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 1),
-(143, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 4),
-(144, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 1),
-(145, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 2),
-(146, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(147, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 4),
-(148, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 2),
-(149, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:15', '2020-03-06 16:06:15', 3),
-(150, 'Lorem ipsum dolor sit amet.', 'Lorem ipsum dolor sit amet.', '2020-03-06 16:06:16', '2020-03-06 16:06:16', 4),
-(151, 'HATAR DEN HÄR JÄVLA SIDAN.', 'Fuck denna sida, så mycket jag vill ta bort.\r\n\r\n\r\nDÖÖÖÖÖ!!!!!!!!!!!!', '2020-03-07 20:36:16', '2020-03-07 20:36:16', 4);
+(18, 3, 4, '2020-03-11 17:55:47', 1299, 'mottages'),
+(19, 1, 4, '2020-03-13 00:30:40', 14999, 'mottages'),
+(20, 1, 4, '2020-03-13 04:52:35', 14999, 'mottages');
 
 -- --------------------------------------------------------
 
@@ -368,22 +418,36 @@ INSERT INTO `users` (`id`, `avatar`, `username`, `password`, `email`, `reg_date`
 (2, 'https://www.gravatar.com/avatar/fd876f8cd6a58277fc664d47ea10ad19', 'johndoe', '$2y$10$VnWMxD9XYqhFQUkG3nYwrO8TvUtiZYrPM9.VB8GCxePNuPGY0QfG2', 'johndoe@example.com', '2020-03-03 18:27:05', 'd09950922c8a4aef4ae493a96f860a4e67855cc25106c4c1c8e85a1e7c06e8fd3b238d97fc549966621ae44905349993d193d229170281c987ee37e2c18e53f7d4c852178d4a95e0c84a376bf9ac6c4e4b0733ccc85992668f6cd88fca38418005486d4dad72455bab6aaaccb8d8007ad1433fa1238b74374d29c0f68b1b96c', 'John', 'Doe', 'user', 'male', '1970-01-01'),
 (3, 'https://www.gravatar.com/avatar/e1f3994f2632af3d1c8c2dcc168a10e6', 'janedoe', '$2y$10$jjImoAzzRJXStNGipEaC/OBVqukcA5xwIlUPHeDmCsX0uIOIkIvdm', 'janedoe@example.com', '2020-03-03 18:28:13', '298fe593216b83f44ba741bdda86d314d5f6fc5c743b75cbe5ec4d90e4464d300bee70e4828eacba0d8ede927451d791dfa185c092f90c943fcc560e1a6f3f39425e3838e8bdeae2384b0f20986b542e4511708b4b586bb2b23c452a2e4566d73d3a3af934d21a940ecf89dd48d6b78d6da1bc348370c22bd68c465be10d208', 'Jane', 'Doe', 'user', 'female', '1970-01-01'),
 (4, 'https://www.gravatar.com/avatar/1802fe9ae1102e31d140688ce6f1b399', 'liamrabe', '$2y$10$SbinDMuk1pac7gLz55VqZ.m0oTFIxf.VM7InLliDBf3kkC5mW7jA6', 'liamrabe@hotmail.com', '2020-03-04 13:50:06', '050f382175f1ec5da3bd218cc9d2c549911010c1162a6e305f93e1b0ea6ac11ffd0aac29bb64bab4f96abb78f022df83e6dfc35e47fe4dfb8288f84e5235df5ee1eaf07e649ee95b6983ff792341ed63232646c216d691af77bc00fefbc85d12359b86c49b325ab9f342086f77c6e4b6be9de0513a32f6bed9e27423e93aff2', 'Liam', 'Rabe', 'admin', 'male', '1997-09-27'),
-(5, 'https://www.gravatar.com/avatar/f8c941f732a06c6df1479c2b71fad0ab', 'abednadir', '$2y$10$MsnHEMeydhGMfpb4dP2amOLz3Cox7feBxS0ac9YKwNPYJD7hOU2uy', 'abednadir@example.com', '2020-03-07 22:46:23', '93da763f809184758beba30105b9c32678f23d102f4e03e9071bf317d5cd580bb5867ab743cf518aa15b1e4066a323956ce556bce7aad02ff0ac700376a36f5e423a6792e31bb54804f0bdcd744efe2bd9ab343f0e292e57a9dedbfe361a36834ebf9cfa40a37c215e3fee573a955be838b910798a1fcb78cbf3ff0eb938064', 'Abed', 'Nadir', 'user', 'male', '1970-01-01');
+(5, 'https://www.gravatar.com/avatar/f8c941f732a06c6df1479c2b71fad0ab', 'abednadir', '$2y$10$MsnHEMeydhGMfpb4dP2amOLz3Cox7feBxS0ac9YKwNPYJD7hOU2uy', 'abednadir@example.com', '2020-03-07 22:46:23', '93da763f809184758beba30105b9c32678f23d102f4e03e9071bf317d5cd580bb5867ab743cf518aa15b1e4066a323956ce556bce7aad02ff0ac700376a36f5e423a6792e31bb54804f0bdcd744efe2bd9ab343f0e292e57a9dedbfe361a36834ebf9cfa40a37c215e3fee573a955be838b910798a1fcb78cbf3ff0eb938064', 'Abed', 'Nadir', 'user', 'male', '1970-01-01'),
+(6, 'https://www.gravatar.com/avatar/2806652bdb7e356643c6414be452b837', 'liam', '$2y$10$ymuiww/fPHKU847LQGN0VO4Ex3vhidgNi40BmesNXQuNdPVNDNE.2', 'liamrabe@gmail.com', '2020-03-11 20:34:03', '1eb03a05476c76a5e9fe44cd1667792e3ddd6ab13f8e117b352910c99c828861926d154cf1117cdedbe54d76586eb6b84a5bc7d1d737fa292ed48dc989efa5b6b8726992650ffbff69930adac42046b2ce5f1495e65e71a9568a5cba16efcee0019760e8478de237a3dc0f6f38faa2c6a98b5c73a8f61c981dcbcbe08e77292', 'Liam', 'Rabe', 'user', '', '1997-09-27'),
+(7, 'https://www.gravatar.com/avatar/eacf15e116e066e01067676c1dde44c1', 'rondoe', '$2y$10$xenoZZYmWXDPFJdrOlZJfeffQegkbJA6N8xU5rV6b7VNDlobOEg1O', 'rondoe@example.com', '2020-03-13 01:05:12', '1d00438ae697296e2125ee3abeedecdcf016f5c859c3c0f9857fee6b38a89881a731610b8081489d63b6da30261da398d550018062fc73c007f29fdd5c5de599cab8498b9f92f7a2bd712bdc020a62830e6f42f2a4bce98046a6f949bc639889d87bed810c9bfe5e459f1b630996822f0d6d3230f8be28d37fa09d26b91a8c0', 'Ron', 'Doe', 'user', 'male', '1997-09-27');
 
 --
 -- Index för dumpade tabeller
 --
 
 --
--- Index för tabell `comments`
+-- Index för tabell `blog_posts`
 --
-ALTER TABLE `comments`
+ALTER TABLE `blog_posts`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Index för tabell `communities`
 --
 ALTER TABLE `communities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `forum_comments`
+--
+ALTER TABLE `forum_comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `forum_posts`
+--
+ALTER TABLE `forum_posts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -396,12 +460,6 @@ ALTER TABLE `guestbook`
 -- Index för tabell `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index för tabell `posts`
---
-ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -421,10 +479,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT för tabell `comments`
+-- AUTO_INCREMENT för tabell `blog_posts`
 --
-ALTER TABLE `comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `blog_posts`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT för tabell `communities`
@@ -433,22 +491,28 @@ ALTER TABLE `communities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT för tabell `forum_comments`
+--
+ALTER TABLE `forum_comments`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT för tabell `forum_posts`
+--
+ALTER TABLE `forum_posts`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+
+--
 -- AUTO_INCREMENT för tabell `guestbook`
 --
 ALTER TABLE `guestbook`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT för tabell `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT för tabell `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT för tabell `products`
@@ -460,7 +524,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT för tabell `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

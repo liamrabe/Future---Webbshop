@@ -2,6 +2,7 @@
 	Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
+# Ta bort fil index från sidan.
 Options -Indexes
 
 RewriteEngine On
@@ -11,6 +12,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteRule ^$ /home [L,R=301]
 RewriteRule ^home$ index.php
 RewriteRule ^about$ about.php
+RewriteRule ^blog/$ blog.php
 RewriteRule ^blog$ blog.php
 RewriteRule ^forum$ forum.php
 RewriteRule ^profile$ profile.php
@@ -56,6 +58,12 @@ RewriteRule ^forum/post/([0-9]+)$ forum/post.php?id=$1
 
 RewriteCond %{THE_REQUEST} POST
 RewriteRule ^forum/post/([0-9]+)$ auth/forum/comment.php?id=$1
+
+RewriteCond %{THE_REQUEST} POST
+RewriteRule ^forum/post/new$ auth/forum/post.php
+
+RewriteCond %{THE_REQUEST} POST
+RewriteRule ^blog/new$ auth/blog/post.php
 
 # Login/Register URLs
 RewriteCond %{THE_REQUEST} POST

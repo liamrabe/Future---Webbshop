@@ -28,9 +28,9 @@
 
 	$posts = [
 		// Hämta antalet gästbok inlägg.
-		"total" => $pdo->query("SELECT count(*) FROM posts")->fetchColumn(),
+		"total" => $pdo->query("SELECT count(*) FROM forum_posts")->fetchColumn(),
 		// Hämta antalet gästbok inlägg idag.
-		"today" => $pdo->query("SELECT count(*) FROM posts WHERE created BETWEEN '$today 00:00:00.00' AND '$today 23:59:59.99'")->fetchColumn(),
+		"today" => $pdo->query("SELECT count(*) FROM forum_posts WHERE created BETWEEN '$today 00:00:00.00' AND '$today 23:59:59.99'")->fetchColumn(),
 	];
 
 	$orders = [
@@ -42,9 +42,9 @@
 
 	$comments = [
 		// Hämta antalet kommentarer.
-		"total" => $pdo->query("SELECT count(*) FROM comments")->fetchColumn(),
+		"total" => $pdo->query("SELECT count(*) FROM forum_comments")->fetchColumn(),
 		// Hämta antalet kommentarer idag.
-		"today" => $pdo->query("SELECT count(*) FROM comments WHERE created BETWEEN '$today 00:00:00.00' AND '$today 23:59:59.99'")->fetchColumn(),
+		"today" => $pdo->query("SELECT count(*) FROM forum_comments WHERE created BETWEEN '$today 00:00:00.00' AND '$today 23:59:59.99'")->fetchColumn(),
 	];
 
 ?>
@@ -78,7 +78,7 @@
 					<td><?= $posts["today"]; ?></td>
 				</tr>
 				<tr>
-					<td>Kommentarer</td>
+					<td>Forum kommentarer</td>
 					<td><?= $comments["total"]; ?></td>
 					<td><?= $comments["today"]; ?></td>
 				</tr>

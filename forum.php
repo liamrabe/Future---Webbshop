@@ -1,13 +1,24 @@
 <?php
 
+	include $_SERVER["DOCUMENT_ROOT"] . "/lib/CSRF.php";
+	$CSRF = new CSRF();
+
+	$CSRF->Set("path", "/forum/post/new");
+
+	// Generera ett CSRF-token.
+	if(!$CSRF->Generate()) {
+		die("Din session är ogiltig, ladda om och försök igen.");
+	}
+
 	if(!isset($_GET["page"])) {
 		header("location: /forum/1");
 	}
 
 	if(!isset($_GET["page"])) { $page = 1; }
 	else { $page = $_GET["page"]; }
+
 	$result = new SimpleXMLElement(file_get_contents("https://".$_SERVER["SERVER_NAME"]."/api/posts/$page"));
-	
+
 	//if($page > $result->lastPage) {
 	//	header("location: /forum/$result->lastPage");
 	//}
@@ -21,6 +32,18 @@
 
 <div class="forum">
 	<div class="forum-wrapper">
+		<?php if($db->IsLoggedIn()) { ?>
+			<div class="forum-title">Nytt inlägg</div>
+			<div class="compose">
+				<form action="/forum/post/new" method="post" class="form-compose">
+					<input type="hidden" value="<?= $CSRF->token; ?>" name="token">
+					<input type="text" placeholder="Titel" class="form-title" name="title">
+					<textarea placeholder="Innehåll" class="form-content" name="content"></textarea>
+					<button class="form-submit" type="submit">Lägg upp</button>
+				</form>
+			</div>
+		<?php } ?>
+		<div class="forum-title">Inlägg</div>
 		<div class="posts">
 			<?php foreach($posts as $post) { ?>
 				<?php $comments = $db->GetCommentCountFromPostID($post->id); ?>

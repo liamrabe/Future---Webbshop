@@ -781,14 +781,66 @@ body {
 		margin: 0 auto;
 		width: 75%;
 		.forum-title {
-			@media screen and (max-width: 850px) {
-				text-align: center;
-			}
 			font-family: Raleway;
-			margin-bottom: 20px;
+			margin-bottom: 25px;
 			font-weight: bold;
-			font-size: 40px;
-			color: #000;
+			font-size: 30px;
+			width: 100%;
+		}
+		.compose {
+			margin-bottom: 50px;
+			width: 100%;
+			.form-title {
+				border: 1px solid #BBB;
+				font-family: Open Sans;
+				box-sizing: border-box;
+				margin-bottom: 25px;
+				font-size: 13px;
+				display: block;
+				padding: 10px;
+				width: 100%;
+				&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+					color: #555;
+					opacity: 1;
+				}
+				&:focus {
+					border-color: #000;
+					&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+						opacity: 0;
+					}
+				}
+			}
+			.form-content {
+				border: 1px solid #BBB;
+				box-sizing: border-box;
+				font-family: Open Sans;
+				margin-bottom: 25px;
+				font-size: 13px;
+				display: block;
+				height: 150px;
+				padding: 10px;
+				width: 100%;
+				&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+					color: #555;
+					opacity: 1;
+				}
+				&:focus {
+					border-color: #000;
+					&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+						opacity: 0;
+					}
+				}
+			}
+			.form-submit {
+				background-color: #000;
+				font-family: Open Sans;
+				padding: 10px 0;
+				font-size: 13px;
+				display: block;
+				color: #FFF;
+				border: none;
+				width: 150px;
+			}
 		}
 		.posts {
 			width: 100%;
@@ -854,6 +906,9 @@ body {
 .forum-post {
 	margin: 155px 0 100px 0;
 	.forum-post-wrapper {
+		@media screen and (max-width: 1000px) {
+			width: 90%;
+		}
 		border: 1px solid #BBB;
 		background-color: #FFF;
 		box-sizing: border-box;
@@ -882,18 +937,22 @@ body {
 		}
 	}
 	.compose {
+		@media screen and (max-width: 1000px) {
+			width: 90%;
+		}
 		margin: 50px auto 0 auto;
 		max-width: 1000px;
 		width: 75%;
 		.compose-form {
 			margin: 0 auto;
-			width: 85%;
+			width: 100%;
 			.comment {
 				border: 1px solid #BBB;
 				background-color: #FFF;
 				box-sizing: border-box;
 				font-family: Open Sans;
 				margin-bottom: 10px;
+				resize: vertical;
 				font-size: 15px;
 				display: block;
 				outline: none;
@@ -915,6 +974,7 @@ body {
 			.submit {
 				background-color: #000;
 				font-family: Open Sans;
+				cursor: pointer;
 				padding: 10px 0;
 				color: #FFF;
 				outline: none;
@@ -924,13 +984,24 @@ body {
 		}
 	}
 	.comments {
+		@media screen and (max-width: 1000px) {
+			width: 90%;
+		}
+		border: 1px solid #BBB;
+		background-color: #FFF;
 		margin: 50px auto 0 auto;
+		box-sizing: border-box;
+		max-width: 1000px;
+		padding: 20px;
 		width: 75%;
-		.comment {
-			background-color: #FFF;
-			border: 1px solid #BBB;
+		.no-comments {
 			box-sizing: border-box;
-			padding: 20px;
+			text-align: center;
+			font-size: 15px;
+			width: 100%;
+		}
+		.comment {
+			box-sizing: border-box;
 			.comment-timestamp {
 				margin-bottom: 10px;
 				font-size: 15px;
@@ -979,23 +1050,124 @@ body {
 			width: 100%;
 		}
 		.admin-table {
-			background-color: #FFF;
 			overflow: hidden;
 			width: 100%;
 			thead {
 				color: #000;
 				tr {
-					td { padding: 15px; }
+					td {
+						font-weight: bold;
+						padding: 15px;
+					}
 				}
 			}
 			tbody {
 				color: #000;
 				tr {
-					border-radius: 5px;
+					background-color: #FFF;
 					&:nth-child(even) {
-						background-color: rgba(0,0,0,.2);
+						background-color: #DDD;
 					}
 					td { padding: 15px; }
+				}
+			}
+		}
+	}
+}
+.blog {
+	margin: 155px 0 100px 0;
+	.blog-wrapper {
+		@media screen and (max-width: 1000px) {
+			width: 95%;
+		}
+		max-width: 1000px;
+		margin: 0 auto;
+		width: 75%;
+		.blog-title {
+			font-family: Raleway;
+			margin-bottom: 25px;
+			font-weight: bold;
+			font-size: 30px;
+			width: 100%;
+		}
+		.compose {
+			margin-bottom: 50px;
+			width: 100%;
+			.form-title {
+				border: 1px solid #BBB;
+				font-family: Open Sans;
+				box-sizing: border-box;
+				margin-bottom: 25px;
+				font-size: 13px;
+				display: block;
+				padding: 10px;
+				width: 100%;
+				&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+					color: #555;
+					opacity: 1;
+				}
+				&:focus {
+					border-color: #000;
+					&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+						opacity: 0;
+					}
+				}
+			}
+			.form-content {
+				border: 1px solid #BBB;
+				box-sizing: border-box;
+				font-family: Open Sans;
+				margin-bottom: 25px;
+				font-size: 13px;
+				display: block;
+				height: 150px;
+				padding: 10px;
+				width: 100%;
+				&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+					color: #555;
+					opacity: 1;
+				}
+				&:focus {
+					border-color: #000;
+					&::placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+						opacity: 0;
+					}
+				}
+			}
+			.form-submit {
+				background-color: #000;
+				font-family: Open Sans;
+				padding: 10px 0;
+				font-size: 13px;
+				display: block;
+				color: #FFF;
+				border: none;
+				width: 150px;
+			}
+		}
+		.posts {
+			width: 100%;
+			.post {
+				background-color: #FFF;
+				border: 1px solid #BBB;
+				box-sizing: border-box;
+				padding: 20px;
+				.post-title {
+					text-decoration: none;
+					font-family: Raleway;
+					margin-bottom: 10px;
+					font-weight: bold;
+					font-size: 30px;
+					display: block;
+					color: #000;
+				}
+				.post-timestamp {
+					margin-bottom: 10px;
+					font-size: 15px;
+					color: #AAA;
+				}
+				&:not(:first-child) {
+					margin-top: 50px;
 				}
 			}
 		}

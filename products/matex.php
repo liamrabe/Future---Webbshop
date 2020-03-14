@@ -18,7 +18,7 @@
 <div class="product">
 	<div class="product-showcase matex">
 		<div class="product-interact">
-			<span class="product-price">1 299 kr</span>
+			<span class="product-price">14 999 kr</span>
 			<form action="/order" method="post">
 				<input type="hidden" name="token" value="<?= $CSRF->token; ?>">
 				<input type="hidden" name="product_id" value="1">

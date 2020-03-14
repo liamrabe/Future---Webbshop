@@ -11,14 +11,14 @@
 
 	try {
 
-		$pagination = $db->Pagination("posts");
+		$pagination = $db->Pagination("forum_posts");
 		if($page > $pagination["pages"]) {
 			header("location: /api/posts/".$pagination["pages"]);
 		}
 
 		$stmt = $pdo->prepare(
 			"SELECT user_id, id, title, content, created
-			FROM posts
+			FROM forum_posts
 			ORDER BY created DESC
 			LIMIT :limit
 			OFFSET :offset

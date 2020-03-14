@@ -3,6 +3,7 @@
 
 		public $token;
 
+		// Cookie-config.
 		private $cookieOptions = [
 			"expires" => "",
 			"path" => "",
@@ -12,11 +13,15 @@
 		];
 
 		function __construct() {
+			// Sätt kakdata till nuvarande domän och request uri.
 			$this->cookieOptions["path"] = $_SERVER["REQUEST_URI"];
 			$this->cookieOptions["domain"] = $_SERVER["SERVER_NAME"];
+			// Spara kakdata i 5 minuter.
 			$this->cookieOptions["expires"] = strtotime("+5min");
 		}
 
+		// Endpoint = variabel namn.
+		// Value = värdet av variabeln.
 		public function Set($endpoint, $value) {
 			$this->cookieOptions[$endpoint] = $value;
 		}

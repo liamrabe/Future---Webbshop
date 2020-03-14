@@ -15,7 +15,7 @@
 
 	$pdo = $db->Login();
 
-	$stmt = $pdo->prepare("SELECT user_id, title, content,created FROM posts WHERE id = :id");
+	$stmt = $pdo->prepare("SELECT user_id, title, content,created FROM forum_posts WHERE id = :id");
 	$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
 	$stmt->execute();
@@ -25,7 +25,8 @@
 	// Hämta dom senaste 100 kommentarerna.
 	$stmt = $pdo->prepare(
 		"SELECT created, content, user_id
-		FROM forum_comments WHERE post_id = :id"
+		FROM forum_comments WHERE post_id = :id
+		ORDER BY created DESC"
 	);
 	$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
@@ -53,7 +54,7 @@
 		<div class="compose">
 			<form method="post" class="compose-form" action="/forum/post/<?= $id; ?>">
 				<input type="hidden" name="token" value="<?= $CSRF->token; ?>">
-				<textarea class="comment" name="comment" placeholder="Kommentar"></textarea>
+				<textarea class="comment" name="comment" placeholder="Skriv en kommentar ..."></textarea>
 				<button class="submit" type="submit">Lägg upp</button>
 			</form>
 		</div>

@@ -865,15 +865,73 @@ body {
 }
 .forum .forum-wrapper .forum-title {
   font-family: Raleway;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: bold;
-  font-size: 40px;
-  color: #000;
+  font-size: 30px;
+  width: 100%;
 }
-@media screen and (max-width: 850px) {
-  .forum .forum-wrapper .forum-title {
-    text-align: center;
-  }
+.forum .forum-wrapper .compose {
+  margin-bottom: 50px;
+  width: 100%;
+}
+.forum .forum-wrapper .compose .form-title {
+  border: 1px solid #BBB;
+  font-family: Open Sans;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  font-size: 13px;
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+.forum .forum-wrapper .compose .form-title::placeholder,
+.forum .forum-wrapper .compose .form-title::-moz-placeholder,
+.forum .forum-wrapper .compose .form-title::-webkit-input-placeholder {
+  color: #555;
+  opacity: 1;
+}
+.forum .forum-wrapper .compose .form-title:focus {
+  border-color: #000;
+}
+.forum .forum-wrapper .compose .form-title:focus::placeholder,
+.forum .forum-wrapper .compose .form-title:focus::-moz-placeholder,
+.forum .forum-wrapper .compose .form-title:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.forum .forum-wrapper .compose .form-content {
+  border: 1px solid #BBB;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  margin-bottom: 25px;
+  font-size: 13px;
+  display: block;
+  height: 150px;
+  padding: 10px;
+  width: 100%;
+}
+.forum .forum-wrapper .compose .form-content::placeholder,
+.forum .forum-wrapper .compose .form-content::-moz-placeholder,
+.forum .forum-wrapper .compose .form-content::-webkit-input-placeholder {
+  color: #555;
+  opacity: 1;
+}
+.forum .forum-wrapper .compose .form-content:focus {
+  border-color: #000;
+}
+.forum .forum-wrapper .compose .form-content:focus::placeholder,
+.forum .forum-wrapper .compose .form-content:focus::-moz-placeholder,
+.forum .forum-wrapper .compose .form-content:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.forum .forum-wrapper .compose .form-submit {
+  background-color: #000;
+  font-family: Open Sans;
+  padding: 10px 0;
+  font-size: 13px;
+  display: block;
+  color: #FFF;
+  border: none;
+  width: 150px;
 }
 .forum .forum-wrapper .posts {
   width: 100%;
@@ -941,6 +999,11 @@ body {
   padding: 20px;
   width: 75%;
 }
+@media screen and (max-width: 1000px) {
+  .forum-post .forum-post-wrapper {
+    width: 90%;
+  }
+}
 .forum-post .forum-post-wrapper .post-title {
   font-family: Raleway;
   font-weight: bold;
@@ -963,9 +1026,14 @@ body {
   max-width: 1000px;
   width: 75%;
 }
+@media screen and (max-width: 1000px) {
+  .forum-post .compose {
+    width: 90%;
+  }
+}
 .forum-post .compose .compose-form {
   margin: 0 auto;
-  width: 85%;
+  width: 100%;
 }
 .forum-post .compose .compose-form .comment {
   border: 1px solid #BBB;
@@ -973,6 +1041,7 @@ body {
   box-sizing: border-box;
   font-family: Open Sans;
   margin-bottom: 10px;
+  resize: vertical;
   font-size: 15px;
   display: block;
   outline: none;
@@ -998,6 +1067,7 @@ body {
 .forum-post .compose .compose-form .submit {
   background-color: #000;
   font-family: Open Sans;
+  cursor: pointer;
   padding: 10px 0;
   color: #FFF;
   outline: none;
@@ -1005,14 +1075,27 @@ body {
   border: none;
 }
 .forum-post .comments {
+  border: 1px solid #BBB;
+  background-color: #FFF;
   margin: 50px auto 0 auto;
+  box-sizing: border-box;
+  max-width: 1000px;
+  padding: 20px;
   width: 75%;
 }
-.forum-post .comments .comment {
-  background-color: #FFF;
-  border: 1px solid #BBB;
+@media screen and (max-width: 1000px) {
+  .forum-post .comments {
+    width: 90%;
+  }
+}
+.forum-post .comments .no-comments {
   box-sizing: border-box;
-  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  width: 100%;
+}
+.forum-post .comments .comment {
+  box-sizing: border-box;
 }
 .forum-post .comments .comment .comment-timestamp {
   margin-bottom: 10px;
@@ -1070,7 +1153,6 @@ body {
   }
 }
 .admin .admin-wrapper .admin-table {
-  background-color: #FFF;
   overflow: hidden;
   width: 100%;
 }
@@ -1078,19 +1160,129 @@ body {
   color: #000;
 }
 .admin .admin-wrapper .admin-table thead tr td {
+  font-weight: bold;
   padding: 15px;
 }
 .admin .admin-wrapper .admin-table tbody {
   color: #000;
 }
 .admin .admin-wrapper .admin-table tbody tr {
-  border-radius: 5px;
+  background-color: #FFF;
 }
 .admin .admin-wrapper .admin-table tbody tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #DDD;
 }
 .admin .admin-wrapper .admin-table tbody tr td {
   padding: 15px;
+}
+.blog {
+  margin: 155px 0 100px 0;
+}
+.blog .blog-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 75%;
+}
+@media screen and (max-width: 1000px) {
+  .blog .blog-wrapper {
+    width: 95%;
+  }
+}
+.blog .blog-wrapper .blog-title {
+  font-family: Raleway;
+  margin-bottom: 25px;
+  font-weight: bold;
+  font-size: 30px;
+  width: 100%;
+}
+.blog .blog-wrapper .compose {
+  margin-bottom: 50px;
+  width: 100%;
+}
+.blog .blog-wrapper .compose .form-title {
+  border: 1px solid #BBB;
+  font-family: Open Sans;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  font-size: 13px;
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+.blog .blog-wrapper .compose .form-title::placeholder,
+.blog .blog-wrapper .compose .form-title::-moz-placeholder,
+.blog .blog-wrapper .compose .form-title::-webkit-input-placeholder {
+  color: #555;
+  opacity: 1;
+}
+.blog .blog-wrapper .compose .form-title:focus {
+  border-color: #000;
+}
+.blog .blog-wrapper .compose .form-title:focus::placeholder,
+.blog .blog-wrapper .compose .form-title:focus::-moz-placeholder,
+.blog .blog-wrapper .compose .form-title:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.blog .blog-wrapper .compose .form-content {
+  border: 1px solid #BBB;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  margin-bottom: 25px;
+  font-size: 13px;
+  display: block;
+  height: 150px;
+  padding: 10px;
+  width: 100%;
+}
+.blog .blog-wrapper .compose .form-content::placeholder,
+.blog .blog-wrapper .compose .form-content::-moz-placeholder,
+.blog .blog-wrapper .compose .form-content::-webkit-input-placeholder {
+  color: #555;
+  opacity: 1;
+}
+.blog .blog-wrapper .compose .form-content:focus {
+  border-color: #000;
+}
+.blog .blog-wrapper .compose .form-content:focus::placeholder,
+.blog .blog-wrapper .compose .form-content:focus::-moz-placeholder,
+.blog .blog-wrapper .compose .form-content:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.blog .blog-wrapper .compose .form-submit {
+  background-color: #000;
+  font-family: Open Sans;
+  padding: 10px 0;
+  font-size: 13px;
+  display: block;
+  color: #FFF;
+  border: none;
+  width: 150px;
+}
+.blog .blog-wrapper .posts {
+  width: 100%;
+}
+.blog .blog-wrapper .posts .post {
+  background-color: #FFF;
+  border: 1px solid #BBB;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.blog .blog-wrapper .posts .post .post-title {
+  text-decoration: none;
+  font-family: Raleway;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  display: block;
+  color: #000;
+}
+.blog .blog-wrapper .posts .post .post-timestamp {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #AAA;
+}
+.blog .blog-wrapper .posts .post:not(:first-child) {
+  margin-top: 50px;
 }
 .order {
   height: calc(100vh - 55px);
