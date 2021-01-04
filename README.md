@@ -14,4 +14,4 @@ This code is written a little sloppy so i'm currently working on fixing it.
 - [ ] Documentation
 
 ## Known issues
-- SSL is not on my machine due to self-signed certificate, will be fixed in next update.
+- SSL is not working on my machine due to self-signed certificate, will be fixed in next update.
