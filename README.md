@@ -1,6 +1,9 @@
 # Future Webbshop
 Documentation is under progress.
 
+## Changes
+Check out the [development](https://github.com/liamrabe/Future---Webbshop/tree/Development) branch for updates.
+
 ## In the works
 This code is written a little sloppy so i'm currently working on fixing it.
 - [ ] Complete rewrite
