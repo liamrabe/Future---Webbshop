@@ -1,1 +1,4 @@
-details/
+/vendor/
+/config/
+composer.phar
+composer.lock
