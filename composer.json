@@ -1,0 +1,19 @@
+{
+	"name": "liam/future",
+	"description": "A webshop written in PHP",
+	"type": "project",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Future\\App\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "liamrabe",
+			"email": "liamrabe@hotmail.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"require": {}
+}
