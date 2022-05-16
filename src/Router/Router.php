@@ -39,8 +39,38 @@ class Router {
 	}
 
 	/** @throws RuntimeException|InvalidArgumentException */
-	public static function route(string $method, string $route, array $callback): Route {
+	protected static function route(string $method, string $route, array $callback): Route {
 		return self::$routes[] = Route::create($method, $route, $callback);
+	}
+
+	/** @throws RuntimeException|InvalidArgumentException */
+	public static function get(string $route, array $callback): Route {
+		return self::route('GET', $route, $callback);
+	}
+
+	/** @throws RuntimeException|InvalidArgumentException */
+	public static function put(string $route, array $callback): Route {
+		return self::route('GET', $route, $callback);
+	}
+
+	/** @throws RuntimeException|InvalidArgumentException */
+	public static function post(string $route, array $callback): Route {
+		return self::route('POST', $route, $callback);
+	}
+
+	/** @throws RuntimeException|InvalidArgumentException */
+	public static function delete(string $route, array $callback): Route {
+		return self::route('DELETE', $route, $callback);
+	}
+
+	/** @throws RuntimeException|InvalidArgumentException */
+	public static function patch(string $route, array $callback): Route {
+		return self::route('PATCH', $route, $callback);
+	}
+
+	/** @throws RuntimeException|InvalidArgumentException */
+	public static function head(string $route, array $callback): Route {
+		return self::route('HEAD', $route, $callback);
 	}
 
 	/** @throws HttpException */

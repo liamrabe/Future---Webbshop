@@ -8,8 +8,8 @@ $error_handler = new ErrorController();
 try {
 	Router::setErrorHandler($error_handler);
 
-	Router::route('GET', '/([a-zA-Z0-9_-]+)', [ViewController::class, 'handle']);
-	Router::route('DELETE', '/test', [ViewController::class, 'handle']);
+	Router::get('/([a-zA-Z0-9_-]+)', [ViewController::class, 'handle']);
+	Router::delete('/test', [ViewController::class, 'handle']);
 
 	Router::run();
 } catch (Exception $ex) {
