@@ -6,7 +6,10 @@
 	"autoload": {
 		"psr-4": {
 			"Future\\App\\": "src/"
-		}
+		},
+		"files": [
+			"./Public/Functions.php"
+		]
 	},
 	"authors": [
 		{
